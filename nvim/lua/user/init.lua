@@ -1,7 +1,7 @@
 local config = {
 
   -- Set colorscheme
-  colorscheme = "monokai",
+  colorscheme = "default_theme",
 
   -- Default theme configuration
   default_theme = {
@@ -32,7 +32,7 @@ local config = {
     indent_blankline = true,
     dashboard = true,
     which_key = true,
-    neoscroll = true,
+    neoscroll = false,
     ts_rainbow = true,
     ts_autotag = true,
   },
@@ -59,126 +59,135 @@ local config = {
       -- LaTeX
       { 'lervag/vimtex' },
       { 'xuhdev/vim-latex-live-preview' },
-      -- TabNine
-      {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
-      -- {
-        --   "ray-x/lsp_signature.nvim",
-        --   event = "BufRead",
-        --   config = function()
-          --     require("lsp_signature").setup()
-          --   end,
-          -- },
-        },
-        -- All other entries override the setup() call for default plugins
-        treesitter = {
-          ensure_installed = { "lua" },
-        },
-        packer = {
-          compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
-        },
+      -- Signature suggestion
+      {
+        "ray-x/lsp_signature.nvim",
+        event = "BufRead",
+        config = function()
+          require("lsp_signature").setup()
+        end,
       },
-
-      -- Add paths for including more VS Code style snippets in luasnip
-      luasnip = {
-        vscode_snippet_paths = {},
+      -- TabNine autocomplete
+      {
+        'tzachar/cmp-tabnine',
+        run='./install.sh',
+        requires = 'hrsh7th/nvim-cmp'
       },
-
-      -- Modify which-key registration
-      ["which-key"] = {
-        -- Add bindings to the normal mode <leader> mappings
-        register_n_leader = {
-          -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
-        },
+      -- tags
+      {
+        'preservim/tagbar'
       },
+    },
+    -- All other entries override the setup() call for default plugins
+    treesitter = {
+      ensure_installed = { "lua" },
+    },
+    packer = {
+      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+    },
+  },
 
-      -- Extend LSP configuration
-      lsp = {
-        -- add to the server on_attach function
-        -- on_attach = function(client, bufnr)
-          -- end,
+  -- Add paths for including more VS Code style snippets in luasnip
+  luasnip = {
+    vscode_snippet_paths = {},
+  },
 
-          -- override the lsp installer server-registration function
-          -- server_registration = function(server, opts)
-            --   server:setup(opts)
-            -- end
+  -- Modify which-key registration
+  ["which-key"] = {
+    -- Add bindings to the normal mode <leader> mappings
+    register_n_leader = {
+      -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+    },
+  },
 
-            -- Add overrides for LSP server settings, the keys are the name of the server
-            ["server-settings"] = {
-              -- example for addings schemas to yamlls
-              -- yamlls = {
-                --   settings = {
-                  --     yaml = {
-                    --       schemas = {
-                      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
-                      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-                      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-                      --       },
-                      --     },
-                      --   },
-                      -- },
-                    },
+  -- Extend LSP configuration
+  lsp = {
+    -- add to the server on_attach function
+    -- on_attach = function(client, bufnr)
+      -- end,
+
+      -- override the lsp installer server-registration function
+      -- server_registration = function(server, opts)
+        --   server:setup(opts)
+        -- end
+
+        -- Add overrides for LSP server settings, the keys are the name of the server
+        ["server-settings"] = {
+          -- example for addings schemas to yamlls
+          -- yamlls = {
+            --   settings = {
+              --     yaml = {
+                --       schemas = {
+                  --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+                  --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                  --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                  --       },
+                  --     },
+                  --   },
+                  -- },
+                },
+              },
+
+              -- Diagnostics configuration (for vim.diagnostics.config({}))
+              diagnostics = {
+                virtual_text = true,
+                underline = true,
+              },
+
+              -- null-ls configuration
+              ["null-ls"] = function()
+                -- Formatting and linting
+                -- https://github.com/jose-elias-alvarez/null-ls.nvim
+                local status_ok, null_ls = pcall(require, "null-ls")
+                if not status_ok then
+                  return
+                end
+
+                -- Check supported formatters
+                -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+                local formatting = null_ls.builtins.formatting
+
+                -- Check supported linters
+                -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+                local diagnostics = null_ls.builtins.diagnostics
+
+                null_ls.setup {
+                  debug = false,
+                  sources = {
+                    -- Set a formatter
+                    formatting.rufo,
+                    -- Set a linter
+                    diagnostics.rubocop,
                   },
-
-                  -- Diagnostics configuration (for vim.diagnostics.config({}))
-                  diagnostics = {
-                    virtual_text = true,
-                    underline = true,
-                  },
-
-                  -- null-ls configuration
-                  ["null-ls"] = function()
-                    -- Formatting and linting
-                    -- https://github.com/jose-elias-alvarez/null-ls.nvim
-                    local status_ok, null_ls = pcall(require, "null-ls")
-                    if not status_ok then
-                      return
+                  -- NOTE: You can remove this on attach function to disable format on save
+                  on_attach = function(client)
+                    if client.resolved_capabilities.document_formatting then
+                      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
                     end
-
-                    -- Check supported formatters
-                    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-                    local formatting = null_ls.builtins.formatting
-
-                    -- Check supported linters
-                    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-                    local diagnostics = null_ls.builtins.diagnostics
-
-                    null_ls.setup {
-                      debug = false,
-                      sources = {
-                        -- Set a formatter
-                        formatting.rufo,
-                        -- Set a linter
-                        diagnostics.rubocop,
-                      },
-                      -- NOTE: You can remove this on attach function to disable format on save
-                      on_attach = function(client)
-                        if client.resolved_capabilities.document_formatting then
-                          vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-                        end
-                      end,
-                    }
-                  end,
-
-                  -- This function is run last
-                  -- good place to configure mappings and vim options
-                  polish = function()
-                    local opts = { noremap = true, silent = true }
-                    local map = vim.api.nvim_set_keymap
-                    local set = vim.opt
-                    -- Set options
-                    set.relativenumber = true
-
-                    -- Set key bindings
-                    map("n", "<C-s>", ":w!<CR>", opts)
-
-                    -- Set autocommands
-                    vim.cmd [[
-                    augroup packer_conf
-                    autocmd!
-                    autocmd bufwritepost plugins.lua source <afile> | PackerSync
-                    augroup end
-                    ]]
                   end,
                 }
+              end,
 
-                return config
+              -- This function is run last
+              -- good place to configure mappings and vim options
+              polish = function()
+                local opts = { noremap = true, silent = true }
+                local map = vim.api.nvim_set_keymap
+                local set = vim.opt
+                -- Set options
+                set.relativenumber = true
+
+                -- Set key bindings
+                map("n", "<C-s>", ":w!<CR>", opts)
+
+                -- Set autocommands
+                vim.cmd [[
+                augroup packer_conf
+                autocmd!
+                autocmd bufwritepost plugins.lua source <afile> | PackerSync
+                augroup end
+                ]]
+              end,
+            }
+
+            return config

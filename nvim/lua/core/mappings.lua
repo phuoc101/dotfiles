@@ -36,8 +36,12 @@ else
 end
 
 -- Move text up and down
-map("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
 map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
+map("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
+
+-- Move to end/beginning of line
+map("n", "B", "^", opts)
+map("n", "E", "$", opts)
 
 -- LSP
 map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -64,6 +68,9 @@ map("n", "<C-q>", "<cmd>q!<CR>", opts)
 if utils.is_available "nvim-toggleterm.lua" then
   map("n", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
 end
+
+-- Tagbar
+map("n", "<F8>", "<cmd>TagbarToggle<CR>", opts)
 
 -- Normal Leader Mappings --
 -- NOTICE: if changed, update configs/which-key-register.lua
