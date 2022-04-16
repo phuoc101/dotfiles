@@ -1,7 +1,7 @@
 local config = {
 
   -- Set colorscheme
-  colorscheme = "default_theme",
+  colorscheme = "monokai_pro",
 
   -- Default theme configuration
   default_theme = {
@@ -49,6 +49,7 @@ local config = {
     init = {
       -- Theme
       { 'tanvirtin/monokai.nvim' },
+      { 'ayu-theme/ayu-vim' },
       -- Surrounding
       { 'tpope/vim-surround' },
       -- Formatting
@@ -74,9 +75,7 @@ local config = {
         requires = 'hrsh7th/nvim-cmp'
       },
       -- tags
-      {
-        'preservim/tagbar'
-      },
+      { 'preservim/tagbar' },
     },
     -- All other entries override the setup() call for default plugins
     treesitter = {
@@ -89,14 +88,15 @@ local config = {
 
   -- Add paths for including more VS Code style snippets in luasnip
   luasnip = {
-    vscode_snippet_paths = {},
+    vscode_snippet_paths = {"~/.config/nvim/snips/tex", "~/.config/nvim/snips/python"},
   },
 
   -- Modify which-key registration
   ["which-key"] = {
     -- Add bindings to the normal mode <leader> mappings
     register_n_leader = {
-      -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+      -- ["N"] = { "<cmd>tabNext<CR>", "Next Buffer" },
+      -- ["P"] = { "<cmd>tabprevious<CR>", "Previous Buffer" },
     },
   },
 

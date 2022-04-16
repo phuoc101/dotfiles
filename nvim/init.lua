@@ -52,3 +52,4 @@ tabnine:setup({
 	ignored_file_types = {};
 	show_prediction_strength = true;
 })
+

@@ -1,0 +1,26 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./base.json"
+      },
+      {
+        "language": "python",
+        "path": "./ros1.json"
+      },
+      {
+        "language": "python",
+        "path": "./ros2.json"
+      },
+      {
+        "language": "python",
+        "path": "./cv.json"
+      },
+      {
+        "language": "python",
+        "path": "./plt.json"
+      }
+    ]
+  }
+}

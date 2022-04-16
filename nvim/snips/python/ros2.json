@@ -1,0 +1,31 @@
+{
+  "ROS2 Imports": {
+    "prefix": "r2im",
+    "body": [
+      "import rclpy",
+      "from rclpy.node import Node"
+    ],
+    "description": "ROS2 Imports"
+  },
+  "ROS2 Publisher": {
+    "prefix": "r2pub",
+    "body": [
+      "${1:name} = self.create_publisher(${2:type}, ${3:topic}, ${4:queuesz})"
+    ],
+    "description": "ROS2 Publisher"
+  },
+  "ROS2 Subscriber": {
+    "prefix": "r2sub",
+    "body": [
+      "${1:name} = self.create_subscription(${2:type}, ${3:topic}, self.${4:func}_callback, ${5:queuesz})"
+    ],
+    "description": "ROS2 Subscriber"
+  },
+  "ROS2 Logger": {
+    "prefix": "r2log",
+    "body": [
+      "self.get_logger().info(f'${1:info}')"
+    ],
+    "description": "ROS2 Logger"
+  }
+}

@@ -77,10 +77,10 @@ function M.config()
       keyword_length = 1,
     },
     sources = {
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
       { name = "buffer" },
+      { name = "nvim_lsp" },
       { name = "path" },
+      { name = "luasnip" },
       { name = "cmp_tabnine" }
     },
     mapping = {

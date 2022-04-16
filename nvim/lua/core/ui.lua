@@ -69,6 +69,7 @@ function M.nui_input()
       on_done(nil)
     end, { noremap = true, nowait = true })
   end
+  vim.opt.laststatus = 3
 end
 
 function M.telescope_select()

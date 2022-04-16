@@ -36,12 +36,17 @@ else
 end
 
 -- Move text up and down
-map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
-map("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
+map("n", "<A-j>", "<Esc><cmd>m .+1<CR>", opts)
+map("n", "<A-k>", "<Esc><cmd>m .-2<CR>", opts)
 
 -- Move to end/beginning of line
 map("n", "B", "^", opts)
 map("n", "E", "$", opts)
+map("v", "B", "^", opts)
+map("v", "E", "$", opts)
+
+-- toggle highlighting for last search
+map("n", "\\", "<cmd>nohlsearch<CR>", opts)
 
 -- LSP
 map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -181,8 +186,8 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 -- Move text up and down
-map("v", "<A-j>", "<cmd>m .+1<CR>==", opts)
-map("v", "<A-k>", "<cmd>m .-2<CR>==", opts)
+map("v", "<A-j>", "<cmd>m .+1<CR>==<Esc>", opts)
+map("v", "<A-k>", "<cmd>m .-2<CR>==Esc", opts)
 
 -- Comment
 if utils.is_available "Comment.nvim" then
