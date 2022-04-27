@@ -33,7 +33,9 @@ _comp_options+=(globdots)   # Include hidden files.
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # additional shell scripts
+source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-highlight-config.zsh
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/conda.zsh
@@ -41,10 +43,13 @@ source ~/.zsh/vi-mode.zsh
 source ~/.zsh/fzf-funcs.zsh
 source ~/.zsh/ros-funcs.zsh
 source ~/.zsh/nvim-funcs.zsh
-## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/.zsh/.p10k.zsh
+source ~/.zsh/nnn.zsh
+# source ~/.zsh/.p10k-robyrussel.zsh
+source ~/.zsh/zshenvs.zsh
+# eval "$(starship init zsh)"
+# ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH=$PATH:/home/phuoc101/bin:/opt/gradle/gradle-6.3/bin
 
 #export TERM=xerm-color

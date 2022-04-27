@@ -2,6 +2,7 @@
 sros1() {
   source /opt/ros/noetic/setup.zsh
   source ~/ros1ws/devel/setup.zsh
+  source ~/img_proj_ws/devel/setup.zsh
   alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf &'
 }
 
@@ -40,8 +41,5 @@ init_turtlebot3_ros2() {
   source /media/phuoc101/KILANBAYBAY/Projects/robot_proj_2022/jetbot_ws/install/setup.zsh
   export TURTLEBOT3_MODEL=waffle_pi
 }
-
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/media/phuoc101/KILANBAYBAY/Projects/robot_proj_2022/turtlebot3_ws/src/turtlebot3/turtlebot3_simulations/turtlebot3_gazebo/models
-export PATH=/usr/lib/ccache:$PATH
 
 source /usr/share/gazebo/setup.sh
