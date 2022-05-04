@@ -2,7 +2,7 @@
   "contributes": {
     "snippets": [
       {
-        "language": "plaintex",
+        "language": [ "plaintex", "tex" ],
         "path": "./base.json"
       }
     ]

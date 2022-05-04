@@ -175,5 +175,12 @@
             "import matplotlib.pyplot as plt"
         ],
         "description": "ML Imports"
+    },
+    "Python logging": {
+        "prefix": "logging",
+        "body": [
+            "logging.basicConfig(format='[%(levelname)s]: %(message)s', level=logging.${1:level})"
+        ],
+        "description": "Python logging"
     }
 }

@@ -19,7 +19,19 @@
       },
       {
         "language": "python",
+        "path": "./math.json"
+      },
+      {
+        "language": "python",
         "path": "./plt.json"
+      },
+      {
+        "language": "python",
+        "path": "./yaml.json"
+      },
+      {
+        "language": "python",
+        "path": "./os.json"
       }
     ]
   }

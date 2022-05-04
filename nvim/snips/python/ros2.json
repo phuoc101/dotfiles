@@ -21,6 +21,13 @@
     ],
     "description": "ROS2 Subscriber"
   },
+  "ROS2 timer": {
+    "prefix": "r2timer",
+    "body": [
+      "${1:timer} = self.create_timer(${2:timer_period}, self.${3:timer}_callback)"
+    ],
+    "description": "ROS2 timer"
+  },
   "ROS2 Logger": {
     "prefix": "r2log",
     "body": [
