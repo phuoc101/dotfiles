@@ -1,7 +1,7 @@
 local config = {
 
   -- Set colorscheme
-  colorscheme = "monokai_pro",
+  colorscheme = "nord",
 
   -- Default theme configuration
   default_theme = {
@@ -21,7 +21,7 @@ local config = {
 
   -- Disable default plugins
   enabled = {
-    bufferline = true,
+    bufferline = false,
     neo_tree = true,
     lualine = true,
     gitsigns = true,
@@ -50,6 +50,7 @@ local config = {
       -- Theme
       { 'tanvirtin/monokai.nvim' },
       { 'ayu-theme/ayu-vim' },
+      { 'shaunsingh/nord.nvim' },
       -- Surrounding
       { 'tpope/vim-surround' },
       -- Formatting
@@ -59,7 +60,6 @@ local config = {
       { 'easymotion/vim-easymotion' },
       -- LaTeX
       { 'lervag/vimtex' },
-      { 'xuhdev/vim-latex-live-preview' },
       -- Signature suggestion
       {
         "ray-x/lsp_signature.nvim",
@@ -74,8 +74,6 @@ local config = {
         run='./install.sh',
         requires = 'hrsh7th/nvim-cmp'
       },
-      -- tags
-      { 'preservim/tagbar' },
     },
     -- All other entries override the setup() call for default plugins
     treesitter = {
