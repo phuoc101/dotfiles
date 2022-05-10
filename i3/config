@@ -30,6 +30,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Turn borders off
+for_window [class="^.*"] border pixel 2
+
+# Set inner/outer gaps
+gaps inner 8
+gaps outer 8
+gaps top   6
+gaps bottom 8
+smart_borders on
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -43,17 +53,18 @@ floating_modifier $mod
 ### App shortcuts ###
 
 # set desktop background with custom effect
-exec --no-startup-id betterlockscreen -w dimblur
-bindsym $mod+Escape exec betterlockscreen -l dimblur
+exec --no-startup-id betterlockscreen -u ~/Pictures/wallpapers
+exec --no-startup-id betterlockscreen -w pixel
+bindsym $mod+Escape exec betterlockscreen -l pixel
 
 # start a terminal
-bindsym $mod+t exec i3-sensible-terminal
+bindsym $mod+t exec i3-sensible-terminal; workspace $ws1
 
 # start a browser
-bindsym $mod+b exec firefox
+bindsym $mod+b exec firefox; workspace $ws2
 
 # start a browser
-bindsym $mod+f exec nautilus
+bindsym $mod+f exec nautilus; workspace $ws1
 
 # screenshot
 bindsym Print exec flameshot gui
@@ -70,6 +81,7 @@ bindsym $mod+q kill
 
 # start rofi (program launcher)
 bindsym $mod+d exec rofi -show drun
+bindsym $mod+Tab exec rofi -show window
 
 # change focus
 bindsym $mod+h focus left
@@ -118,10 +130,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# language
-bindsym $mod+Shift+E exec ibus engine xkb:us:intl:eng
-bindsym $mod+Shift+F exec ibus engine xkb:fi::fin
-bindsym $mod+Shift+V exec ibus engine Unikey
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -135,8 +143,8 @@ set $ws4 "4:discord"
 set $ws5 "5:vid meet"
 set $ws6 "6:video"
 set $ws7 "7:IDE"
-set $ws8 "8"
-set $ws9 "9"
+set $ws8 "8:office"
+set $ws9 "9:class"
 set $ws10 "10"
 set $ws11 "11"
 set $ws12 "12"
@@ -147,7 +155,7 @@ set $ws16 "16"
 set $ws17 "17"
 set $ws18 "18"
 set $ws19 "19"
-set $ws20 "20"
+set $ws20 "20:notes"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -200,6 +208,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# language
+bindsym $mod+shift+e exec ibus engine xkb:us:intl:eng
+bindsym $mod+shift+f exec ibus engine xkb:fi::fin
+bindsym $mod+shift+v exec ibus engine Unikey
 # resize window (you can also use the mouse for that)
 mode "resize" {
 # These bindings trigger as soon as you enter the resize mode
@@ -231,11 +243,36 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
                                           # finds out, if available)
 bar {
-tray_output primary
-position top
-status_command i3status
+  status_command i3blocks
+
+  status_command SCRIPT_DIR=~/.config/i3blocks i3blocks
+  position top
+
+  # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+  # alternative: tray_output eDP1
+  tray_output primary
+
+  bindsym button4 nop
+  bindsym button5 nop
+  font xft:JetBrainsMono Nerd Font Mono 12
+  # strip_workspace_numbers yes
+
+  colors {
+    background #3B4252
+    statusline #ECEFF4
+    separator  #81A1C1
+
+    #                  border  backgr. text
+    focused_workspace  #81A1C1 #2E3440 #ECEFF4
+    active_workspace   #81A1C1 #2E3440 #ECEFF4
+    inactive_workspace #3B4252 #3B4252 #ECEFF4
+    binding_mode       #D08770 #3B4252 #ECEFF4
+    urgent_workspace   #D08770 #D08770 #ECEFF4
+  }
 }
 
+# disable focus on mouse hover
+focus_follows_mouse no
 
 ### Startup executions ###
 # auto mount hard disks
@@ -245,12 +282,15 @@ exec --no-startup-id pcloud
 # clipboard manager
 exec --no-startup-id copyq
 # set wallpaper
-exec_always nitrogen --restore
 # automatically configure displays
 exec_always --no-startup-id xrandr | grep "HDMI-0 connected" && autorandr --load docked
 exec_always --no-startup-id xrandr | grep "HDMI-0 disconnected" && autorandr --load mobile
+exec_always --no-startup-id xrandr | grep "HDMI-0 connected primary 2560x1440" && autorandr --load work
+# wallpaper
+exec_always feh --randomize --recursive --bg-scale ~/Pictures/wallpapers/
 # start language daemon
-exec_always --no-startup-id ibus-daemon --xim -d -r
+exec --no-startup-id ibus-daemon --xim -d -r
+
 
 ### Workspace assignment ###
 assign [class="kitty"] $ws1
@@ -265,10 +305,56 @@ assign [class="TelegramDesktop"] $ws3
 assign [class="discord"] $ws4
 
 assign [class="zoom"] $ws5
-assign [class="Microsoft Teams - Preview"] $ws5
 
 assign [class="Io.github.celluloid_player.Celluloid"] $ws6
 assign [class="mpv"] $ws6
 
 assign [class="MATLAB R2022a - academic use"] $ws7
 assign [class="Code"] $ws7
+
+assign [class="wps"] $ws8
+assign [class="wpp"] $ws8
+
+assign [class="Microsoft Teams"] $ws9
+assign [class="Slack"] $ws9
+
+assign [class="RemNote"] $ws20
+
+### Monitor config ###
+set $lap_monitor EDP-1-1
+set $ext_monitor HDMI-0
+
+# bind workspaces to monitor
+workspace $ws1 output $ext_monitor
+workspace $ws2 output $ext_monitor
+workspace $ws3 output $ext_monitor
+workspace $ws4 output $ext_monitor
+workspace $ws5 output $ext_monitor
+workspace $ws6 output $ext_monitor
+workspace $ws7 output $ext_monitor
+workspace $ws8 output $ext_monitor
+workspace $ws9 output $ext_monitor
+workspace $ws10 output $ext_monitor
+workspace $ws11 output $ext_monitor
+workspace $ws12 output $ext_monitor
+workspace $ws13 output $ext_monitor
+workspace $ws14 output $ext_monitor
+workspace $ws15 output $lap_monitor
+workspace $ws16 output $lap_monitor
+workspace $ws17 output $lap_monitor
+workspace $ws18 output $lap_monitor
+workspace $ws19 output $lap_monitor
+workspace $ws20 output $lap_monitor
+
+#Theme
+set $bgcolor #2e3440
+set $ibgcolor #3b4252
+set $textcolor #eceff4
+set $itextcolor #4c566a
+set $ubgcolor #bf616a
+
+#                           border        background    text            indicator
+client.focused              $textcolor    $textcolor   $textcolor      $bgcolor
+client.unfocused            $ibgcolor     $ibgcolor     $itextcolor     $ibgcolor
+client.focused_inactive     $ibgcolor     $ibgcolor     $itextcolor     $ibgcolor
+client.urgent               $ubgcolor     $ubgcolor     $textcolor      $ubgcolor
