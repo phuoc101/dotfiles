@@ -61,7 +61,7 @@ map("n", "gj", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<cr>", 
 map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>", opts)
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 -- <leader>rn: legacy binding here for backwards compatibility but not in which-key (see <leader>lr)
-map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+map("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
 -- ForceWrite
 map("n", "<C-s>", "<cmd>w!<CR>", opts)
@@ -76,6 +76,11 @@ end
 
 -- Tagbar
 map("n", "<F8>", "<cmd>TagbarToggle<CR>", opts)
+
+-- Hop
+map("n", "fw", "<cmd>HopWord<CR>", opts)
+map("n", "f1", "<cmd>HopChar1<CR>", opts)
+map("n", "f2", "<cmd>HopChar2<CR>", opts)
 
 -- Normal Leader Mappings --
 -- NOTICE: if changed, update configs/which-key-register.lua

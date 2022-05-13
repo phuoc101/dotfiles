@@ -57,7 +57,16 @@ local config = {
       { 'vim-autoformat/vim-autoformat' },
       -- Navigation
       { 'chaoren/vim-wordmotion' },
-      { 'easymotion/vim-easymotion' },
+      { 'preservim/tagbar' },
+      -- { 'easymotion/vim-easymotion' },
+      {
+          'phaazon/hop.nvim',
+          branch = 'v1', -- optional but strongly recommended
+          config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+          end
+      },
       -- LaTeX
       { 'lervag/vimtex' },
       -- Signature suggestion
