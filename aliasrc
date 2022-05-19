@@ -3,3 +3,7 @@ alias open="xdg-open"
 alias ls="lsd"
 # open text file in nvim
 alias nnn="nnn -e"
+alias cat="bat -p"
+alias fzf="sk"
+alias grep="rg"
+alias du="dust"
