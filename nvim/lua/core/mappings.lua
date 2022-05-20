@@ -78,9 +78,10 @@ end
 map("n", "<F8>", "<cmd>TagbarToggle<CR>", opts)
 
 -- Hop
-map("n", "fw", "<cmd>HopWord<CR>", opts)
-map("n", "f1", "<cmd>HopChar1<CR>", opts)
-map("n", "f2", "<cmd>HopChar2<CR>", opts)
+map("n", "wF", "<cmd>HopWord<CR>", opts)
+map("n", "F", "<cmd>HopChar1<CR>", opts)
+map("n", "tF", "<cmd>HopChar2<CR>", opts)
+-- map("n", "f2", "<cmd>HopChar2<CR>", opts)
 
 -- Normal Leader Mappings --
 -- NOTICE: if changed, update configs/which-key-register.lua
@@ -90,7 +91,7 @@ if not utils.is_available "which-key.nvim" then
   -- Standard Operations
   map("n", "<leader>w", "<cmd>w<CR>", opts)
   map("n", "<leader>q", "<cmd>q<CR>", opts)
-  map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+  -- map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
   if utils.is_available "vim-bbye" then
     map("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
