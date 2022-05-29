@@ -1,7 +1,7 @@
 local config = {
 
   -- Set colorscheme
-  colorscheme = "nord",
+  colorscheme = "ayu",
 
   -- Default theme configuration
   default_theme = {
@@ -67,7 +67,7 @@ local config = {
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
           end
       },
-      -- LaTeX
+      -- LaTeX compile
       { 'lervag/vimtex' },
       -- Signature suggestion
       {
@@ -83,6 +83,8 @@ local config = {
         run='./install.sh',
         requires = 'hrsh7th/nvim-cmp'
       },
+      -- Markdown preview
+      { 'L04DB4L4NC3R/texgroff.vim' },
     },
     -- All other entries override the setup() call for default plugins
     treesitter = {
@@ -95,7 +97,7 @@ local config = {
 
   -- Add paths for including more VS Code style snippets in luasnip
   luasnip = {
-    vscode_snippet_paths = {"~/.config/nvim/snips/tex", "~/.config/nvim/snips/python"},
+    vscode_snippet_paths = {"~/.config/nvim/snips/tex", "~/.config/nvim/snips/python", "~/.config/nvim/snips/cpp"},
   },
 
   -- Modify which-key registration

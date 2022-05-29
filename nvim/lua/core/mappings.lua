@@ -46,7 +46,7 @@ map("v", "B", "^", opts)
 map("v", "E", "$", opts)
 
 -- toggle highlighting for last search
-map("n", "\\", "<cmd>nohlsearch<CR>", opts)
+--map("n", "\\", "<cmd>nohlsearch<CR>", opts)
 
 -- LSP
 map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)

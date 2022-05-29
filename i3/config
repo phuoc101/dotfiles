@@ -56,8 +56,9 @@ floating_modifier $mod
 ### App shortcuts ###
 
 # set desktop background with custom effect
-exec_always betterlockscreen -u ~/Pictures/wallpapers
-bindsym $mod+Escape exec betterlockscreen -l pixel
+# exec_always mantablockscreen -i ~/Pictures/wallpapers/MountN.png
+exec betterlockscreen -u ~/Pictures/wallpapers/robo.jpg
+bindsym $mod+Escape exec betterlockscreen -l dimblur
 
 # start a terminal
 bindsym $mod+t exec i3-sensible-terminal; workspace $ws1
@@ -82,8 +83,8 @@ bindsym $mod+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # start rofi (program launcher)
-bindsym $mod+d exec rofi -show drun
-bindsym $mod+Tab exec rofi -show window
+bindsym $mod+d exec rofi -show drun -show-icons
+bindsym $mod+Tab exec rofi -show window -show-icons
 bindsym $mod+shift+P exec rofi -show power-menu -modi power-menu:rofi-power-menu
 
 
@@ -259,18 +260,18 @@ bar {
 
   bindsym button4 nop
   bindsym button5 nop
-  font xft:SauceCodePro Nerd Font 12
+  font xft:SauceCodePro Nerd Font 14
   # strip_workspace_numbers yes
 
   colors {
-    background #3B4252
-    statusline #ECEFF4
+    background #1F2531
+    statusline #BFBDB6
     separator  #81A1C1
 
     #                  border  backgr. text
-    focused_workspace  #81A1C1 #D8DEE9 #2E3440
-    active_workspace   #81A1C1 #2E3440 #ECEFF4
-    inactive_workspace #3B4252 #3B4252 #ECEFF4
+    focused_workspace  #E5B34F #E5B34F #1F2531
+    active_workspace   #81A1C1 #1F2531 #ECEFF4
+    inactive_workspace #1B2520 #1B2520 #ECEFF4
     binding_mode       #D08770 #D08770 #ECEFF4
     urgent_workspace   #BF616A #BF616A #ECEFF4
   }

@@ -31,6 +31,10 @@
       },
       {
         "language": "python",
+        "path": "./pycuda.json"
+      },
+      {
+        "language": "python",
         "path": "./os.json"
       }
     ]

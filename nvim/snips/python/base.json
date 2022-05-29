@@ -166,6 +166,20 @@
         "body": "lambda ${1:args}: ${2:expr}",
         "description": "Create template for lambda function"
     },
+    "matplotlib import": {
+        "prefix": "pltim",
+        "body": [
+            "import matplotlib.pyplot as plt"
+        ],
+        "description": "matplotlib Import"
+    },
+    "numpy import": {
+        "prefix": "npim",
+        "body": [
+            "import numpy as np"
+        ],
+        "description": "numpy Import"
+    },
     "ML Imports": {
         "prefix": "mlim",
         "body": [
