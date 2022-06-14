@@ -1,5 +1,6 @@
-local M = {}
-function M.nui_input()
+local ui = {}
+
+function ui.nui_input()
   -- Set up NUI for UI Input
   -- From: https://github.com/MunifTanjim/nui.nvim/wiki/vim.ui#vimuiinput
   local input_ui
@@ -69,10 +70,9 @@ function M.nui_input()
       on_done(nil)
     end, { noremap = true, nowait = true })
   end
-  vim.opt.laststatus = 3
 end
 
-function M.telescope_select()
+function ui.telescope_select()
   -- Telescope UI selection
   -- From: https://github.com/stevearc/dressing.nvim/blob/master/lua/dressing/select/telescope.lua
   vim.ui.select = vim.schedule_wrap(function(items, opts, on_choice)
@@ -114,7 +114,7 @@ function M.telescope_select()
       attach_mappings = function(prompt_bufnr)
         actions.select_default:replace(function()
           local selection = state.get_selected_entry()
-          actions._close(prompt_bufnr, false)
+          actions.close(prompt_bufnr)
           if not selection then
             -- User did not select anything.
             on_choice(nil, nil)
@@ -130,10 +130,7 @@ function M.telescope_select()
           on_choice(selection.value, idx)
         end)
 
-        actions.close:replace(function()
-          actions._close(prompt_bufnr, false)
-          on_choice(nil, nil)
-        end)
+        actions.close:enhance { post = function() end }
 
         return true
       end,
@@ -141,4 +138,6 @@ function M.telescope_select()
   end)
 end
 
-return M
+for ui_addition, enabled in pairs(astronvim.user_plugin_opts("ui", { nui_input = true, telescope_select = true })) do
+  astronvim.conditional_func(ui[ui_addition], enabled)
+end

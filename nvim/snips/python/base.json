@@ -167,21 +167,21 @@
         "description": "Create template for lambda function"
     },
     "matplotlib import": {
-        "prefix": "pltim",
+        "prefix": [ "pltim", "implt" ],
         "body": [
             "import matplotlib.pyplot as plt"
         ],
         "description": "matplotlib Import"
     },
     "numpy import": {
-        "prefix": "npim",
+        "prefix": [ "npim", "imnp" ],
         "body": [
             "import numpy as np"
         ],
         "description": "numpy Import"
     },
     "ML Imports": {
-        "prefix": "mlim",
+        "prefix": [ "mlim", "imml" ],
         "body": [
             "import tensorflow as tf",
             "from tensorflow.keras import layers, models",

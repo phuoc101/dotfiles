@@ -28,6 +28,15 @@
     ],
     "description": "ROS2 timer"
   },
+  "ROS2 node class": {
+    "prefix": "r2nodeclass",
+    "body": [
+      "class ${1:Node class name}(Node):",
+      "    def __init__(self):",
+      "        super().__init__('${2: node name}')"
+    ],
+    "description": "Ros2 node class"
+  },
   "ROS2 Logger": {
     "prefix": "r2log",
     "body": [

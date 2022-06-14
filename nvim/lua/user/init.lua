@@ -1,11 +1,38 @@
 local config = {
 
+  -- Configure AstroNvim updates
+  updater = {
+    remote = "origin", -- remote to use
+    channel = "stable", -- "stable" or "nightly"
+    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "main", -- branch name (NIGHTLY ONLY)
+    commit = nil, -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false, -- skip prompts about breaking changes
+    show_changelog = true, -- show the changelog after performing an update
+    -- remotes = { -- easily add new remotes to track
+    --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
+    --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
+    --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
+    -- },
+  },
+
   -- Set colorscheme
-  colorscheme = "ayu",
+  colorscheme = "catppuccin",
+
+  -- set vim options here (vim.<first_key>.<second_key> =  value)
+  options = {
+    opt = {
+      relativenumber = true, -- sets vim.opt.relativenumber
+    },
+    g = {
+      mapleader = " ", -- sets vim.g.mapleader
+    },
+  },
 
   -- Default theme configuration
   default_theme = {
-    diagnostics_style = "none",
+    diagnostics_style = { italic = true },
     -- Modify the color table
     colors = {
       fg = "#abb2bf",
@@ -17,186 +44,218 @@ local config = {
       highlights.Normal = { fg = C.fg, bg = C.bg }
       return highlights
     end,
-  },
-
-  -- Disable default plugins
-  enabled = {
+    plugins = { -- enable or disable extra plugin highlighting
+    aerial = true,
+    beacon = true,
     bufferline = false,
-    neo_tree = true,
-    lualine = true,
-    gitsigns = true,
-    colorizer = true,
-    toggle_term = true,
-    comment = true,
-    symbols_outline = true,
-    indent_blankline = true,
     dashboard = true,
-    which_key = true,
-    neoscroll = false,
-    ts_rainbow = true,
-    ts_autotag = true,
+    highlighturl = true,
+    hop = true,
+    indent_blankline = true,
+    lightspeed = true,
+    ["neo-tree"] = true,
+    notify = true,
+    ["nvim-tree"] = true,
+    ["nvim-web-devicons"] = true,
+    rainbow = true,
+    symbols_outline = true,
+    telescope = true,
+    vimwiki = true,
+    lualine = true,
+    ["which-key"] = true,
   },
+},
 
-  -- Disable AstroVim ui features
-  ui = {
-    nui_input = true,
-    telescope_select = true,
-  },
+-- Disable AstroNvim ui features
+ui = {
+  nui_input = true,
+  telescope_select = true,
+},
 
-  -- Configure plugins
-  plugins = {
-    -- Add plugins, the packer syntax without the "use"
-    init = {
-      -- Theme
-      { 'tanvirtin/monokai.nvim' },
-      { 'ayu-theme/ayu-vim' },
-      { 'shaunsingh/nord.nvim' },
-      -- Surrounding
-      { 'tpope/vim-surround' },
-      -- Formatting
-      { 'vim-autoformat/vim-autoformat' },
-      -- Navigation
-      { 'chaoren/vim-wordmotion' },
-      { 'preservim/tagbar' },
-      -- { 'easymotion/vim-easymotion' },
-      {
-          'phaazon/hop.nvim',
-          branch = 'v1', -- optional but strongly recommended
-          config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-          end
-      },
-      -- LaTeX compile
-      { 'lervag/vimtex' },
-      -- Signature suggestion
-      {
-        "ray-x/lsp_signature.nvim",
-        event = "BufRead",
-        config = function()
-          require("lsp_signature").setup()
-        end,
-      },
-      -- TabNine autocomplete
-      {
-        'tzachar/cmp-tabnine',
-        run='./install.sh',
-        requires = 'hrsh7th/nvim-cmp'
-      },
-      -- Markdown preview
-      { 'L04DB4L4NC3R/texgroff.vim' },
+-- Configure plugins
+plugins = {
+  -- Add plugins, the packer syntax without the "use"
+  init = {
+    -- Theme
+    { 'tanvirtin/monokai.nvim' },
+    { 'ayu-theme/ayu-vim' },
+    { 'shaunsingh/nord.nvim' },
+    { 'catppuccin/nvim' },
+    -- Surrounding
+    { 'tpope/vim-surround' },
+    -- Formatting
+    { 'vim-autoformat/vim-autoformat' },
+    -- Navigation
+    { 'chaoren/vim-wordmotion' },
+    { 'preservim/tagbar' },
+    -- { 'easymotion/vim-easymotion' },
+    {
+      'phaazon/hop.nvim',
+      branch = 'v1', -- optional but strongly recommended
+      config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      end
     },
-    -- All other entries override the setup() call for default plugins
-    treesitter = {
-      ensure_installed = { "lua" },
+    -- LaTeX compile
+    { 'lervag/vimtex' },
+    -- Signature suggestion
+    {
+      "ray-x/lsp_signature.nvim",
+      event = "BufRead",
+      config = function()
+        require("lsp_signature").setup()
+      end,
     },
-    packer = {
-      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+    -- TabNine autocomplete
+    {
+      'tzachar/cmp-tabnine',
+      run='./install.sh',
+      requires = 'hrsh7th/nvim-cmp'
     },
   },
+  -- All other entries override the setup() call for default plugins
+  ["null-ls"] = function(config)
+    local null_ls = require "null-ls"
+    -- Check supported formatters and linters
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+    config.sources = {
+      -- Set a formatter
+      null_ls.builtins.formatting.rufo,
+      -- Set a linter
+      null_ls.builtins.diagnostics.rubocop,
+    }
+    -- set up null-ls's on_attach function
+    config.on_attach = function(client)
+      -- NOTE: You can remove this on attach function to disable format on save
+      if client.resolved_capabilities.document_formatting then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          desc = "Auto format before save",
+          pattern = "<buffer>",
+          callback = vim.lsp.buf.formatting_sync,
+        })
+      end
+    end
+    return config -- return final config table
+  end,
+  treesitter = {
+    ensure_installed = { "lua" },
+  },
+  ["nvim-lsp-installer"] = {
+    ensure_installed = { "sumneko_lua" },
+  },
+  packer = {
+    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+  },
+},
 
+-- LuaSnip Options
+luasnip = {
   -- Add paths for including more VS Code style snippets in luasnip
-  luasnip = {
-    vscode_snippet_paths = {"~/.config/nvim/snips/tex", "~/.config/nvim/snips/python", "~/.config/nvim/snips/cpp"},
+  vscode_snippet_paths = {"~/.config/nvim/snips/tex", "~/.config/nvim/snips/python", "~/.config/nvim/snips/cpp"},
+  -- Extend filetypes
+  filetype_extend = {
+    javascript = { "javascriptreact" },
   },
+},
 
-  -- Modify which-key registration
-  ["which-key"] = {
-    -- Add bindings to the normal mode <leader> mappings
-    register_n_leader = {
-      -- ["N"] = { "<cmd>tabNext<CR>", "Next Buffer" },
-      -- ["P"] = { "<cmd>tabprevious<CR>", "Previous Buffer" },
+-- Modify which-key registration
+["which-key"] = {
+  -- Add bindings
+  register_mappings = {
+    -- first key is the mode, n == normal mode
+    n = {
+      -- second key is the prefix, <leader> prefixes
+      ["<leader>"] = {
+        -- which-key registration table for normal mode, leader prefix
+        -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+      },
     },
   },
+},
 
-  -- Extend LSP configuration
-  lsp = {
-    -- add to the server on_attach function
-    -- on_attach = function(client, bufnr)
+-- CMP Source Priorities
+-- modify here the priorities of default cmp sources
+-- higher value == higher priority
+-- The value can also be set to a boolean for disabling default sources:
+-- false == disabled
+-- true == 1000
+cmp = {
+  source_priority = {
+    nvim_lsp = 1000,
+    luasnip = 750,
+    buffer = 500,
+    path = 250,
+  },
+},
+
+-- Extend LSP configuration
+lsp = {
+  -- enable servers that you already have installed without lsp-installer
+  servers = {
+    -- "pyright"
+  },
+  -- add to the server on_attach function
+  -- on_attach = function(client, bufnr)
+    -- end,
+
+    -- override the lsp installer server-registration function
+    -- server_registration = function(server, opts)
+      --   require("lspconfig")[server].setup(opts)
       -- end,
 
-      -- override the lsp installer server-registration function
-      -- server_registration = function(server, opts)
-        --   server:setup(opts)
-        -- end
+      -- Add overrides for LSP server settings, the keys are the name of the server
+      ["server-settings"] = {
+        -- example for addings schemas to yamlls
+        -- yamlls = {
+          --   settings = {
+            --     yaml = {
+              --       schemas = {
+                --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+                --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                --       },
+                --     },
+                --   },
+                -- },
+              },
+            },
 
-        -- Add overrides for LSP server settings, the keys are the name of the server
-        ["server-settings"] = {
-          -- example for addings schemas to yamlls
-          -- yamlls = {
-            --   settings = {
-              --     yaml = {
-                --       schemas = {
-                  --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
-                  --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-                  --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-                  --       },
-                  --     },
+            -- Diagnostics configuration (for vim.diagnostics.config({}))
+            diagnostics = {
+              virtual_text = true,
+              underline = true,
+            },
+
+            -- This function is run last
+            -- good place to configure mappings and vim options
+            polish = function()
+              -- Set key bindings
+              vim.keymap.set("n", "<C-s>", ":w!<CR>")
+
+              -- Set autocommands
+              vim.api.nvim_create_augroup("packer_conf", { clear = true })
+              vim.api.nvim_create_autocmd("BufWritePost", {
+                desc = "Sync packer after modifying plugins.lua",
+                group = "packer_conf",
+                pattern = "plugins.lua",
+                command = "source <afile> | PackerSync",
+              })
+
+              -- Set up custom filetypes
+              -- vim.filetype.add {
+                --   extension = {
+                  --     foo = "fooscript",
                   --   },
-                  -- },
-                },
-              },
+                  --   filename = {
+                    --     ["Foofile"] = "fooscript",
+                    --   },
+                    --   pattern = {
+                      --     ["~/%.config/foo/.*"] = "fooscript",
+                      --   },
+                      -- }
+                    end,
+                  }
 
-              -- Diagnostics configuration (for vim.diagnostics.config({}))
-              diagnostics = {
-                virtual_text = true,
-                underline = true,
-              },
-
-              -- null-ls configuration
-              ["null-ls"] = function()
-                -- Formatting and linting
-                -- https://github.com/jose-elias-alvarez/null-ls.nvim
-                local status_ok, null_ls = pcall(require, "null-ls")
-                if not status_ok then
-                  return
-                end
-
-                -- Check supported formatters
-                -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-                local formatting = null_ls.builtins.formatting
-
-                -- Check supported linters
-                -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-                local diagnostics = null_ls.builtins.diagnostics
-
-                null_ls.setup {
-                  debug = false,
-                  sources = {
-                    -- Set a formatter
-                    formatting.rufo,
-                    -- Set a linter
-                    diagnostics.rubocop,
-                  },
-                  -- NOTE: You can remove this on attach function to disable format on save
-                  on_attach = function(client)
-                    if client.resolved_capabilities.document_formatting then
-                      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-                    end
-                  end,
-                }
-              end,
-
-              -- This function is run last
-              -- good place to configure mappings and vim options
-              polish = function()
-                local opts = { noremap = true, silent = true }
-                local map = vim.api.nvim_set_keymap
-                local set = vim.opt
-                -- Set options
-                set.relativenumber = true
-
-                -- Set key bindings
-                map("n", "<C-s>", ":w!<CR>", opts)
-
-                -- Set autocommands
-                vim.cmd [[
-                augroup packer_conf
-                autocmd!
-                autocmd bufwritepost plugins.lua source <afile> | PackerSync
-                augroup end
-                ]]
-              end,
-            }
-
-            return config
+                  return config

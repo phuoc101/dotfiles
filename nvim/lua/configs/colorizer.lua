@@ -1,14 +1,6 @@
-local M = {}
-
-local user_plugin_opts = require("core.utils").user_plugin_opts
-
-function M.config()
-  local present, colorizer = pcall(require, "colorizer")
-  if not present then
-    return
-  end
-
-  local colorizer_opts = user_plugin_opts("plugins.colorizer", {
+local status_ok, colorizer = pcall(require, "colorizer")
+if status_ok then
+  local colorizer_opts = astronvim.user_plugin_opts("plugins.colorizer", {
     { "*" },
     {
       RGB = true, -- #RGB hex codes
@@ -24,5 +16,3 @@ function M.config()
   })
   colorizer.setup(colorizer_opts[1], colorizer_opts[2])
 end
-
-return M
