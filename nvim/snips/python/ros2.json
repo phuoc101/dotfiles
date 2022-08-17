@@ -37,8 +37,31 @@
     ],
     "description": "Ros2 node class"
   },
+  "ROS2 launch file Python format init": {
+    "prefix": "r2launch",
+    "body": [
+      "from ament_index_python import get_package_share_directory",
+      "from launch import LaunchDescription",
+      "from launch.actions import DeclareLaunchArgument",
+      "from launch.actions import IncludeLaunchDescription",
+      "from launch.launch_description_sources import PythonLaunchDescriptionSource",
+      "from launch.substitutions import LaunchConfiguration",
+      "from launch.substitutions import TextSubstitution",
+      "from launch_ros.actions import Node",
+      "",
+      "import os",
+      "import sys",
+      "",
+      "def generate_launch_description():",
+      "    ld = LaunchDescription()",
+      "    ",
+      "    return ld",
+      ""
+    ],
+    "description": "ROS2 launch file Python format init"
+  },
   "ROS2 Logger": {
-    "prefix": "r2log",
+    "prefix": "r2loginfo",
     "body": [
       "self.get_logger().info(f'${1:info}')"
     ],
