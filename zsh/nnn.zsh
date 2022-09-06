@@ -1,9 +1,9 @@
 #nnn configs
-export NNN_PLUG='p:preview-tui;o:fzopen;r:renamer;i:imgview;j:autojump;d:dragdrop'
-export NNN_FCOLORS='0000E6310000000000000000'
+export NNN_PLUG='p:preview-tui;o:fzopen;i:imgview;j:autojump;d:dragdrop'
+export NNN_FCOLORS='00002D310000000000000000'
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_TRASH=1
-n ()
+nn ()
 {
     # Block nesting of nnn in subshells
     if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then

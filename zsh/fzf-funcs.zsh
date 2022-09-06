@@ -1,10 +1,10 @@
 #fzf functions#
 ffindf() {
-  find -type f | fzf
+  fdfind --type f | sk --preview="bat {} --color=always"
 }
 
 ffindmulti() {
-  find -type f | fzf -m
+  fdfind --type f | sk -m --preview="bat {} --color=always"
 }
 
 shareM() {
@@ -14,7 +14,7 @@ shareM() {
 }
 
 ffinddir() {
-  find -type d | fzf
+  fdfind --type d | sk
 }
 
 fclipf() {
@@ -26,7 +26,7 @@ fclipdir() {
 }
 
 share() {
-  curl -F"file=@$(find -type f | fzf)" 0x0.st
+  curl -F"file=@$(fdfind --type f | sk --preview="bat {} --color=always")" 0x0.st
 }
 
 fcd() {
@@ -34,37 +34,37 @@ fcd() {
 }
 
 fopen() {
-  xdg-open "$(find -type f | fzf)"
+  xdg-open "$(fdfind --type f | sk --preview="bat {} --color=always")"
 }
 
 fvim() {
-  vim "$(find -type f | fzf)"
+  vim "$(fdfind --type f | sk --preview="bat {} --color=always")"
 }
 
 fsource() {
-  source "$(find -type f | fzf)"
+  source "$(fdfind --type f | sk --preview="bat {} --color=always")"
 }
 
 kopen() {
-  cd /media/phuoc101/KILANBAYBAY; fopen
+  cd /media/phuoc10/imaunicorn; fopen
 }
 
 kcd() {
-  cd /media/phuoc101/KILANBAYBAY; fcd
+  cd /media/phuoc10/imaunicorn; fcd
 }
 
 mcd() {
-  cd /media/phuoc101/KILANBAYBAY/Masters; fcd
+  cd /media/phuoc10/imaunicorn/masters; fcd
 }
 
 mopen() {
-  cd /media/phuoc101/KILANBAYBAY/Masters; fopen
+  cd /media/phuoc10/imaunicorn/masters; fopen
 }
 
 pcd() {
-  cd /media/phuoc101/KILANBAYBAY/Projects; fcd
+  cd /media/phuoc10/imaunicorn/projects; fcd
 }
 
 popen() {
-  cd /media/phuoc101/KILANBAYBAY/Projects; fopen
+  cd /media/phuoc10/imaunicorn/projects; fopen
 }
