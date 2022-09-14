@@ -46,25 +46,25 @@ fsource() {
 }
 
 kopen() {
-  cd /media/phuoc10/imaunicorn; fopen
+  cd /media/phuoc101/imaunicorn; fopen
 }
 
 kcd() {
-  cd /media/phuoc10/imaunicorn; fcd
+  cd /media/phuoc101/imaunicorn; fcd
 }
 
 mcd() {
-  cd /media/phuoc10/imaunicorn/masters; fcd
+  cd /media/phuoc101/imaunicorn/masters; fcd
 }
 
 mopen() {
-  cd /media/phuoc10/imaunicorn/masters; fopen
+  cd /media/phuoc101/imaunicorn/masters; fopen
 }
 
 pcd() {
-  cd /media/phuoc10/imaunicorn/projects; fcd
+  cd /media/phuoc101/imaunicorn/projects; fcd
 }
 
 popen() {
-  cd /media/phuoc10/imaunicorn/projects; fopen
+  cd /media/phuoc101/imaunicorn/projects; fopen
 }

@@ -1,5 +1,5 @@
 spythonpath() {
-  export PYTHONPATH=/usr/lib/python3/dist-packages:/usr/local/lib/python3.8/dist-packages:/home/phuoc10/.local/lib/python3.8/site-packages:$PYTHONPATH
+  export PYTHONPATH=/usr/lib/python3/dist-packages:/usr/local/lib/python3.8/dist-packages:/home/phuoc101/.local/lib/python3.8/site-packages:$PYTHONPATH
 }
 # source ros packages
 sros1() {
@@ -36,12 +36,12 @@ sros1_pkgs() {
 
 sautosos() {
   sros1
-  source /media/phuoc10/imaunicorn/projects/autosos_dronesim/autosos_ros_ws/devel/setup.zsh
+  source /media/phuoc101/imaunicorn/projects/autosos_dronesim/autosos_ros_ws/devel/setup.zsh
 }
 
 somni() {
   sros2
-  source /media/phuoc10/imaunicorn/projects/aeropolis_dev/repos/picam360_omniCV/OmniCV_ros_ws/install/setup.zsh
+  source /media/phuoc101/imaunicorn/projects/aeropolis_dev/repos/picam360_omniCV/OmniCV_ros_ws/install/setup.zsh
 }
 
 #source px4 ros2
@@ -57,23 +57,23 @@ syolo_ros2() {
 
 #source moveit workspace
 init_moveit() {
-  #source /media/phuoc10/imaunicorn/Projects/robot_proj_2021/moveit_proj/ws_moveit/devel/setup.zsh;
+  #source /media/phuoc101/imaunicorn/Projects/robot_proj_2021/moveit_proj/ws_moveit/devel/setup.zsh;
   source ~/ws_moveit/devel/setup.zsh;
 }
 
 # source turtlebot simulation ros1
 init_turtlebot3_ros1() {
-  source /media/phuoc10/imaunicorn/Projects/robot_proj_2021/turtlebot3_rospy/catkin_ws/devel/setup.zsh;
+  source /media/phuoc101/imaunicorn/Projects/robot_proj_2021/turtlebot3_rospy/catkin_ws/devel/setup.zsh;
   export TURTLEBOT3_MODEL=waffle_pi;
-  export MY_MAP_PATH=/media/phuoc10/imaunicorn/Projects/robot_proj_2021/turtlebot3_rospy/slam_map
+  export MY_MAP_PATH=/media/phuoc101/imaunicorn/Projects/robot_proj_2021/turtlebot3_rospy/slam_map
 }
 
 # source turtlebot simulation ros2
 init_turtlebot3_ros2() {
-  source /media/phuoc10/imaunicorn/Projects/robot_proj_2022/turtlebot3_ws/install/setup.zsh
-  source /media/phuoc10/imaunicorn/Projects/robot_proj_2022/jetbot_ws/install/setup.zsh
+  source /media/phuoc101/imaunicorn/Projects/robot_proj_2022/turtlebot3_ws/install/setup.zsh
+  source /media/phuoc101/imaunicorn/Projects/robot_proj_2022/jetbot_ws/install/setup.zsh
   export TURTLEBOT3_MODEL=waffle_pi
 }
 
-source /usr/share/gazebo/setup.sh
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/.gazebo/models
+# source /usr/share/gazebo/setup.sh
+# export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/.gazebo/models
