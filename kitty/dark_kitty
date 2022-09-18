@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+export KITTY_DARK_THEME=Afterglow
+export KITTY_LIGHT_THEME=Doom_One_Light
+sed -i '$s/'"$KITTY_LIGHT_THEME"'.conf/'"$KITTY_DARK_THEME"'.conf/' ~/.config/kitty/kitty.conf
