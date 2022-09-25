@@ -1,4 +1,7 @@
 #!/usr/bin/zsh
 export KITTY_DARK_THEME=Afterglow
 export KITTY_LIGHT_THEME=Doom_One_Light
+kitty @ set-colors --all /home/phuoc101/.config/kitty/Afterglow.conf
 sed -i '$s/'"$KITTY_LIGHT_THEME"'.conf/'"$KITTY_DARK_THEME"'.conf/' ~/.config/kitty/kitty.conf
+gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/kate-hazen-unleash-your-robot.png
+kill -SIGUSR1 $(pgrep kitty)
