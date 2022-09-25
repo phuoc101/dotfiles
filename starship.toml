@@ -1,9 +1,11 @@
 [directory]
 read_only = " "
+truncate_to_repo = false
+home_symbol = " ~"
 
 [aws]
 symbol = "  "
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+format = '\[[$symbol($profile)(\($region\))($duration)]($style)\]'
 
 [bun]
 format = '\[[$symbol($version)]($style)\]'
@@ -61,11 +63,10 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-symbol = " "
 format = '\[[$symbol$branch]($style)\]'
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+format = '\[([$all_status$ahead_behind]($style))\]'
 
 [golang]
 symbol = " "
@@ -184,3 +185,8 @@ format = '\[[$symbol($version)]($style)\]'
 
 [zig]
 format = '\[[$symbol($version)]($style)\]'
+
+[custom.ros]
+command = "if [[ -v ROS_DISTRO ]]; then echo '[ '$ROS_DISTRO']' \nfi"
+when = true
+format = '[$output]($style) '
