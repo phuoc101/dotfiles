@@ -1,31 +1,23 @@
-[directory]
-read_only = " "
-truncate_to_repo = false
-home_symbol = " ~"
-
 [aws]
-symbol = "  "
 format = '\[[$symbol($profile)(\($region\))($duration)]($style)\]'
 
 [bun]
 format = '\[[$symbol($version)]($style)\]'
 
 [c]
-symbol = " "
 format = '\[[$symbol($version(-$name))]($style)\]'
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
 
 [cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
+format = '\[[$symbol$duration]($style)\]'
 
 [cobol]
 format = '\[[$symbol($version)]($style)\]'
 
 [conda]
 ignore_base = false
-symbol = " "
 format = '\[[$symbol$environment]($style)\]'
 
 [crystal]
@@ -35,25 +27,21 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [dart]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [deno]
 format = '\[[$symbol($version)]($style)\]'
 
 [docker_context]
-symbol = " "
 format = '\[[$symbol$context]($style)\]'
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
 
 [elixir]
-symbol = " "
 format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
 
 [elm]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [erlang]
@@ -69,26 +57,21 @@ format = '\[[$symbol$branch]($style)\]'
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [golang]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [haskell]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [helm]
 format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
-symbol = " "
 format = '\[[$symbol$branch]($style)\]'
 
 [java]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [julia]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [kotlin]
@@ -101,19 +84,15 @@ format = '\[[$symbol$context( \($namespace\))]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [memory_usage]
-symbol = " "
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 
 [nim]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
-symbol = " "
 format = '\[[$symbol$state( \($name\))]($style)\]'
 
 [nodejs]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [ocaml]
@@ -123,7 +102,6 @@ format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
 format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [package]
-symbol = " "
 format = '\[[$symbol$version]($style)\]'
 
 [perl]
@@ -139,7 +117,6 @@ format = '\[[$symbol$stack]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-symbol = " "
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 
 [raku]
@@ -152,14 +129,12 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [rust]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [scala]
 format = '\[[$symbol($version)]($style)\]'
 
 [spack]
-symbol = "🅢 "
 format = '\[[$symbol$environment]($style)\]'
 
 [sudo]
@@ -187,6 +162,6 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [custom.ros]
-command = "if [[ -v ROS_DISTRO ]]; then echo '[ '$ROS_DISTRO']' \nfi"
-when = true
-format = '[$output]($style) '
+command = "echo '🤖 '$ROS_DISTRO''"
+when = '[[ -v ROS_DISTRO ]]'
+format = '\[[$output]($style)\]'
