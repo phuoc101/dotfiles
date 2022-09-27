@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -36,20 +36,23 @@ _comp_options+=(globdots)   # Include hidden files.
 source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-highlight-config.zsh
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/conda.zsh
 source ~/.zsh/vi-mode.zsh
 source ~/.zsh/fzf-funcs.zsh
 source ~/.zsh/ros-funcs.zsh
 source ~/.zsh/nvim-funcs.zsh
-source ~/.zsh/.p10k.zsh
+# source ~/.zsh/.p10k.zsh
 source ~/.zsh/nnn.zsh
-# source ~/.zsh/.p10k-robyrussel.zsh
 source ~/.zsh/zshenvs.zsh
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #export TERM=xerm-color
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

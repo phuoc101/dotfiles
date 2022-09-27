@@ -41,10 +41,20 @@
     nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
     nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
     nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
-    # =========================[ Line #2 ]=========================
-    newline                 # \n
-    prompt_char             # prompt symbol
+    # # =========================[ Line #2 ]=========================
+    # newline                 # \n
+    # prompt_char             # prompt symbol
   )
+  functions -M my_git_formatter 2>/dev/null
+  function prompt_my_ros_env() {
+      if [[ -v ROS_DISTRO ]]; then
+          p10k segment -f 193 -t " $ROS_DISTRO"
+      fi
+  }
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=my_ros_env
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=newline
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=prompt_char
+
 
   # The list of segments shown on the right. Fill it with less important segments.
   # Right prompt on the last prompt line (where you are typing your commands) gets
@@ -185,6 +195,8 @@
     # End filler on the edge of the screen if there are no right segments on the first line.
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
   fi
+
+
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
@@ -461,7 +473,6 @@
 
     typeset -g my_git_format=$res
   }
-  functions -M my_git_formatter 2>/dev/null
 
   # Don't count the number of unstaged, untracked and conflicted files in Git repositories with
   # more than this many files in the index. Negative value means infinity.
@@ -1613,3 +1624,4 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
