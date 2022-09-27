@@ -16,3 +16,8 @@ export KITTY_DARK_THEME=Afterglow
 export KITTY_LIGHT_THEME=Doom_One_Light
 # unreal engine
 export UE4_ROOT=~/UnrealEngine_4.26
+# dirs shortcuts
+export DOTFILES_DIR=/media/phuoc101/imaunicorn/backup/linux_setups/dotfiles
+export CV_DATASETS_DIR=/media/phuoc101/imaunicorn/projects/computer_vision/datasets
+export MASTERS_DIR=/media/phuoc101/imaunicorn/masters
+export PROJECTS_DIR=/media/phuoc101/imaunicorn/projects

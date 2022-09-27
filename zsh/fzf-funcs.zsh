@@ -54,17 +54,17 @@ kcd() {
 }
 
 mcd() {
-  cd /media/phuoc101/imaunicorn/masters; fcd
+  cd $MASTERS_DIR; fcd
 }
 
 mopen() {
-  cd /media/phuoc101/imaunicorn/masters; fopen
+  cd $MASTERS_DIR; fopen
 }
 
 pcd() {
-  cd /media/phuoc101/imaunicorn/projects; fcd
+  cd $PROJECTS_DIR; fcd
 }
 
 popen() {
-  cd /media/phuoc101/imaunicorn/projects; fopen
+  cd $PROJECTS_DIR; fopen
 }
