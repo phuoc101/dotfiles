@@ -21,6 +21,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
+export DOTFILES_DIR=/media/phuoc101/imaunicorn/backup/linux_setups/dotfiles
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select

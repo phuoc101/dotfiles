@@ -1,3 +1,5 @@
+command_timeout = 10000000
+
 [aws]
 format = '\[[$symbol($profile)(\($region\))($duration)]($style)\]'
 
@@ -5,13 +7,15 @@ format = '\[[$symbol($profile)(\($region\))($duration)]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [c]
+symbol = '🧰 '
+detect_extensions = ["c", "h", "cpp", "cc", "hpp"]
 format = '\[[$symbol($version(-$name))]($style)\]'
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
 
 [cmd_duration]
-format = '\[[$symbol$duration]($style)\]'
+format = '\[[⌛ $duration]($style)\]'
 
 [cobol]
 format = '\[[$symbol($version)]($style)\]'
@@ -147,7 +151,8 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$workspace]($style)\]'
 
 [time]
-format = '\[[$time]($style)\]'
+time_format = "%T"
+format = '[$time]($style) '
 
 [username]
 format = '\[[$user]($style)\]'
