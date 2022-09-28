@@ -47,7 +47,7 @@ somni() {
 #source px4 ros_foxy
 spx4_ros_foxy() {
   sros_foxy
-  source ~/ros_dev/px4_ros_com_ros_foxy/install/setup.zsh
+  source ~/px4_dev/px4_ros_com_ros2/install/setup.zsh
 }
 
 syolo_ros_foxy() {
@@ -66,13 +66,6 @@ init_turtlebot3_ros_noetic() {
   source /media/phuoc101/imaunicorn/Projects/robot_proj_2021/turtlebot3_rospy/catkin_ws/devel/setup.zsh;
   export TURTLEBOT3_MODEL=waffle_pi;
   export MY_MAP_PATH=/media/phuoc101/imaunicorn/Projects/robot_proj_2021/turtlebot3_rospy/slam_map
-}
-
-# source turtlebot simulation ros_foxy
-init_turtlebot3_ros_foxy() {
-  source /media/phuoc101/imaunicorn/Projects/robot_proj_2022/turtlebot3_ws/install/setup.zsh
-  source /media/phuoc101/imaunicorn/Projects/robot_proj_2022/jetbot_ws/install/setup.zsh
-  export TURTLEBOT3_MODEL=waffle_pi
 }
 
 # source /usr/share/gazebo/setup.sh
