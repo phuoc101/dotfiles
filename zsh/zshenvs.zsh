@@ -11,13 +11,14 @@ export QT_IM_MODULE=xim
 export XMODIFIERS=@im=ibus
 export CPATH=/usr/lib/cuda-11.2/targets/x86_64-linux/include:$CPATH
 export LD_LIBRARY_PATH=/usr/lib/cuda-11.2/targets/x86_64-linux/lib:/usr/lib/cuda-11.2/lib64:$LD_LIBRARY_PATH
+ZSH_DISABLE_COMPFIX=true
 # kitty themes
 export KITTY_DARK_THEME=Afterglow
-export KITTY_LIGHT_THEME=Doom_One_Light
+export KITTY_LIGHT_THEME=papercolor-light
 # unreal engine
 export UE4_ROOT=~/UnrealEngine_4.26
 # dirs shortcuts
 export DOTFILES_DIR=/media/phuoc101/imaunicorn/backup/linux_setups/dotfiles
-export CV_DATASETS_DIR=/media/phuoc101/imaunicorn/projects/computer_vision/datasets
+export DATASETS_CV_DIR=/media/phuoc101/imaunicorn/projects/computer_vision/datasets
 export MASTERS_DIR=/media/phuoc101/imaunicorn/masters
 export PROJECTS_DIR=/media/phuoc101/imaunicorn/projects

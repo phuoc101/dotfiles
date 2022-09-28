@@ -16,9 +16,9 @@ get_nvim_theme() {
 nv() {
   get_nvim_theme
   if [[ -z $1 ]]; then
-    nvim +'set background='$NVIM_BG'' +Alpha 
+    nvim +'set bg='$NVIM_BG'' +Alpha 
   else
-    nvim +'set background='$NVIM_BG'' $1
+    nvim +'set bg='$NVIM_BG'' $1
   fi
 }
 
