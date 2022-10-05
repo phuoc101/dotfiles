@@ -22,3 +22,5 @@ export DOTFILES_DIR=/media/phuoc101/imaunicorn/backup/linux_setups/dotfiles
 export DATASETS_CV_DIR=/media/phuoc101/imaunicorn/projects/computer_vision/datasets
 export MASTERS_DIR=/media/phuoc101/imaunicorn/masters
 export PROJECTS_DIR=/media/phuoc101/imaunicorn/projects
+export OBSIDIAN_DIR=/media/phuoc101/imaunicorn/backup/obsidian
+export ALACRITTY_DIR=/home/phuoc101/.config/alacritty

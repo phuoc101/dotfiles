@@ -7,7 +7,7 @@ ffindmulti() {
   fdfind --type f | sk -m --preview="bat {} --color=always"
 }
 
-shareM() {
+shareFzM() {
   zip _tmp.zip $(ffindmulti)
   curl -F"file=@_tmp.zip" 0x0.st
   rm _tmp.zip
@@ -25,7 +25,7 @@ fclipdir() {
   ffinddir | xclip -selection c
 }
 
-share() {
+shareFz() {
   curl -F"file=@$(fdfind --type f | sk --preview="bat {} --color=always")" 0x0.st
 }
 
