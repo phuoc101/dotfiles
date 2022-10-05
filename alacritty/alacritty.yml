@@ -18,3 +18,6 @@ window:
 import:
   - ~/.config/alacritty/dark.yml
 
+# keybindings
+key_bindings:
+  - { key: T,         mods: Control|Shift,                    action: CreateNewWindow }
