@@ -4,5 +4,5 @@ export KITTY_DARK_THEME=Afterglow
 export KITTY_LIGHT_THEME=papercolor-light
 sed -i 's/'"$KITTY_DARK_THEME"'.conf/'"$KITTY_LIGHT_THEME"'.conf/' ~/.config/kitty/kitty.conf
 sed -i 's/dark/light/' $DOTFILES_DIR/alacritty/alacritty.yml
-gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/kate-hazen-unleash-your-robot-blue.png
+gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/day_zelda.jpeg
 kill -SIGUSR1 $(pgrep kitty) 

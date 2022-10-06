@@ -1,23 +1,36 @@
 # Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    # Default:
-    #   - (Linux/BSD) monospace
     family: CaskaydiaCove Nerd Font Mono
+    style:  Regular
+  bold:
+    family: CaskaydiaCove Nerd Font Mono
+    style:  Bold
+  italic:
+    family: CaskaydiaCove Nerd Font Mono
+    style:  Italic
+  bold_italic:
+    family: CaskaydiaCove Nerd Font Mono
+    style:  Bold Italic
 
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
-
+# window options
 window:
   padding:
     x: 10
-    
+    y: 5
+  class:
+    instance: Alacritty
+    general: Alacritty
+
 # import theme
 import:
   - ~/.config/alacritty/dark.yml
 
+shell:
+  program: /usr/bin/zsh
+
 # keybindings
 key_bindings:
-  - { key: T,         mods: Control|Shift,                    action: CreateNewWindow }
+  - { key: T, mods: Control|Shift, action: CreateNewWindow }
+  - { key: J, mods: Control, action: ScrollHalfPageDown }
+  - { key: K, mods: Control, action: ScrollHalfPageUp }

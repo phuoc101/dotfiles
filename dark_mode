@@ -5,5 +5,5 @@ export KITTY_LIGHT_THEME=papercolor-light
 export NVIM_BG=dark
 sed -i 's/'"$KITTY_LIGHT_THEME"'.conf/'"$KITTY_DARK_THEME"'.conf/' ~/.config/kitty/kitty.conf
 sed -i 's/light/dark/' $DOTFILES_DIR/alacritty/alacritty.yml
-gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/kate-hazen-unleash-your-robot.png
+gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/night_zelda.jpeg
 kill -SIGUSR1 $(pgrep kitty)
