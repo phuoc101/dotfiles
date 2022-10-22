@@ -21,6 +21,12 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
+# additional shell scripts
+source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-highlight-config.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -32,22 +38,20 @@ _comp_options+=(globdots)   # Include hidden files.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-# additional shell scripts
-source ~/.zsh/zsh-z/zsh-z.plugin.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-highlight-config.zsh
-# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/conda.zsh
+# More additional shell scripts
 source ~/.zsh/vi-mode.zsh
+source ~/.zsh/conda.zsh
 source ~/.zsh/fzf-funcs.zsh
 source ~/.zsh/ros-funcs.zsh
 source ~/.zsh/nvim-funcs.zsh
-# source ~/.zsh/.p10k.zsh
 source ~/.zsh/nnn.zsh
 source ~/.zsh/zshenvs.zsh
 source ~/.zsh/sysinfo.zsh
-eval "$(starship init zsh)"
+# # P10k prompt
+source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh/.p10k.zsh
+# # Enabling starship prompt
+# eval "$(starship init zsh)"
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,8 +1,8 @@
 #!/usr/bin/zsh
 export DOTFILES_DIR=/media/phuoc101/imaunicorn/backup/linux_setups/dotfiles
-export KITTY_DARK_THEME=Afterglow
+export KITTY_DARK_THEME=Ayu
 export KITTY_LIGHT_THEME=papercolor-light
 sed -i 's/'"$KITTY_DARK_THEME"'.conf/'"$KITTY_LIGHT_THEME"'.conf/' ~/.config/kitty/kitty.conf
 sed -i 's/dark/light/' $DOTFILES_DIR/alacritty/alacritty.yml
-gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/day_zelda.jpeg
+gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-light.jpg
 kill -SIGUSR1 $(pgrep kitty) 
