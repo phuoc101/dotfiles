@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 export DOTFILES_DIR=/media/phuoc101/imaunicorn/backup/linux_setups/dotfiles
-export KITTY_DARK_THEME=Ayu
+export KITTY_DARK_THEME=One_Half_Dark
 export KITTY_LIGHT_THEME=papercolor-light
 export NVIM_BG=dark
 sed -i 's/'"$KITTY_LIGHT_THEME"'.conf/'"$KITTY_DARK_THEME"'.conf/' ~/.config/kitty/kitty.conf

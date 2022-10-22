@@ -1,4 +1,4 @@
-alias viml="nvim +'set background=light'"
+alias viml="nvim +'colorscheme ayu' +'set background=light' "
 alias vimd="nvim +'set background=dark'"
 alias open="xdg-open"
 alias ls="exa --icons"
