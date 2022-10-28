@@ -36,7 +36,7 @@ exec --no-startup-id nm-applet
 for_window [class=".*"] border pixel 0
 
 # Set inner/outer gaps
-gaps inner   4
+gaps inner   8
 gaps outer   4
 gaps top     4
 gaps bottom  4
@@ -155,7 +155,7 @@ set $ws7 "7:  "
 set $ws8 "8:  "
 set $ws9 "9:  "
 set $ws10 "10:  "
-set $ws11 "11"
+set $ws11 "11: 﫯 "
 set $ws12 "12"
 set $ws13 "13"
 set $ws14 "14"
@@ -262,10 +262,11 @@ bar {
 # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 # alternative: tray_output eDP1
     tray_output primary
+    tray_padding 3
 
     bindsym button4 nop
     bindsym button5 nop
-    font xft:CaskaydiaCove Nerd Font 15
+    font xft:CaskaydiaCove Nerd Font 12
 # strip_workspace_numbers yes
 
     colors {
@@ -328,8 +329,8 @@ for_window[class="mpv"] focus
 assign [class="vlc"] $ws6
 for_window[class="vlc"] focus
 
-assign [class="MATLAB R2022a - academic use"] $ws7
-for_window[class="MATLAB R2022a - academic use"] focus
+assign [class="MATLAB"] $ws7
+for_window[class="MATLAB"] focus
 assign [class="Code"] $ws7
 for_window[class="Code"] focus
 
@@ -338,13 +339,16 @@ for_window[class="wps"] focus
 assign [class="wpp"] $ws8
 for_window[class="wpp"] focus
 
-assign [class="Microsoft Teams"] $ws9
-for_window[class="Microsoft Teams"] focus
+assign [class="teams"] $ws9
+for_window[class="teams"] focus
 assign [class="Slack"] $ws9
 for_window[class="Slack"] focus
 
 assign [class="Blender"] $ws10
 for_window[class="Blender"] focus
+
+assign [class="thunderbird"] $ws11
+for_window[class="thunderbird"] focus
 
 assign [class="obsidian"] $ws19
 for_window[class="obsidian"] focus

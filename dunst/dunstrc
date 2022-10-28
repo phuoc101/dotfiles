@@ -101,4 +101,3 @@ set_stack_tag = "music"
 [DND]
 summary = *Do Not Disturb*
 set_stack_tag = "dnd"
-
