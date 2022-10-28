@@ -1,6 +1,6 @@
 configuration {
 
-	font: "SauceCodePro Nerd Font Bold 14";
+	font: "CaskaydiaCove Nerd Font Bold 14";
 	width: 30;
 	line-margin: 10;
 	lines: 6;
@@ -13,7 +13,7 @@ configuration {
     display-combi:  "";
     show-icons:     true;
 }
-
+element-icon { size: 2.5ch ; }
 
 /* global settings and color variables */
 * {
@@ -21,18 +21,18 @@ configuration {
    darkblue:         #B48EAD;
    cyan:             #95e6cb;
    lightcyan:        #B48EAD;
-   yellow:           #E5B34F;
+   yellow:           #EED49f;
    red:              #ff3333;
 
-   dark1:            #0a0e14;
-   dark2:            #1f2430;
+   dark1:            #1f2430;
+   dark2:            #4f5470;
    dark3:            #b3b1ad;
    dark4:            #b3b1ad;
 
    light1:           #e6e1cf;
 
    background-color: @dark1;
-   border-color:     @dark2;
+   border-color:     @light1;
    text-color:       @dark3;
    dark-text-color:  @dark4;
    main-color:       @blue;
@@ -46,7 +46,7 @@ window {
    width: 33%;
    padding: 10px;
    fullscreen: false;
-   border:  2px;
+   border:  3px;
    border-radius: 0px;
    border-color: @border-color;
 }

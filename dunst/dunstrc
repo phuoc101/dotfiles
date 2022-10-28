@@ -90,7 +90,7 @@ history = ctrl+grave
 # Context menu.
 context = ctrl+shift+period
 
-[brightness]
+[brightness]
 summary = "Light"
 set_stack_tag = "brightness"
 

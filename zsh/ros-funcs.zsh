@@ -11,6 +11,12 @@ snoetic() {
 #source ros 2
 sfoxy() {
   source /opt/ros/foxy/setup.zsh
+  if [ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh ]; then
+    source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+  fi
+  if [ -f /usr/share/colcon_cd/function/colcon_cd.sh ]; then
+    source /usr/share/colcon_cd/function/colcon_cd.sh
+  fi
   # argcomplete for ros_foxy & colcon
   eval "$(register-python-argcomplete3 ros_foxy)"
   eval "$(register-python-argcomplete3 colcon)"
@@ -18,6 +24,12 @@ sfoxy() {
 
 sgalactic() {
   source /opt/ros/galactic/setup.zsh
+  if [ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh ]; then
+    source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+  fi
+  if [ -f /usr/share/colcon_cd/function/colcon_cd.sh ]; then
+    source /usr/share/colcon_cd/function/colcon_cd.sh
+  fi
   # argcomplete for ros_foxy & colcon
   eval "$(register-python-argcomplete3 ros2)"
   eval "$(register-python-argcomplete3 colcon)"

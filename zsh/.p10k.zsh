@@ -29,6 +29,12 @@
   autoload -Uz is-at-least && is-at-least 5.1 || return
 
   # The list of segments shown on the left. Fill it with the most important segments.
+  functions -M my_git_formatter 2>/dev/null
+  function prompt_my_ros_env() {
+      if [[ -v ROS_DISTRO ]]; then
+          p10k segment -f 193 -t " $ROS_DISTRO"
+      fi
+  }
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
@@ -42,19 +48,11 @@
     nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
     nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
     command_execution_time  # duration of the last command
+    my_ros_env
     # # =========================[ Line #2 ]=========================
-    # newline                 # \n
-    # prompt_char             # prompt symbol
+    newline                 # \n
+    prompt_char             # prompt symbol
   )
-  functions -M my_git_formatter 2>/dev/null
-  function prompt_my_ros_env() {
-      if [[ -v ROS_DISTRO ]]; then
-          p10k segment -f 193 -t " $ROS_DISTRO"
-      fi
-  }
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=my_ros_env
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=newline
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=prompt_char
 
 
   # The list of segments shown on the right. Fill it with less important segments.

@@ -47,9 +47,11 @@ source ~/.zsh/nvim-funcs.zsh
 source ~/.zsh/nnn.zsh
 source ~/.zsh/zshenvs.zsh
 source ~/.zsh/sysinfo.zsh
+source ~/.zsh/kitty.zsh
 # # P10k prompt
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/.p10k.zsh
+source ~/.config/aliasrc
 # # Enabling starship prompt
 # eval "$(starship init zsh)"
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

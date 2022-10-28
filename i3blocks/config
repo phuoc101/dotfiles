@@ -69,13 +69,13 @@ interval=30
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-[disk]
-command=$SCRIPT_DIR/disk/disk
-#label=HOME
-label= 
-#DIR=/mnt/data
-color=#89dceb
-interval=30
+# [disk]
+# command=$SCRIPT_DIR/disk/disk
+# #label=HOME
+# label= 
+# #DIR=/mnt/data
+# color=#89dceb
+# interval=30
 
 # Network interface monitoring
 #
@@ -108,12 +108,12 @@ interval=30
 # min_width=CPU 100.00%
 #separator=false
 
-[load_average]
-command=$SCRIPT_DIR/load_average/load_average
-#label=LOAD
-label= 
-color=#f38ba8
-interval=10
+# [load_average]
+# command=$SCRIPT_DIR/load_average/load_average
+# #label=LOAD
+# label= 
+# color=#f38ba8
+# interval=10
 
 # Battery indicator
 #
@@ -160,6 +160,13 @@ command=$SCRIPT_DIR/temperature/temperature
 label= 
 color=#eba0ac
 interval=10
+
+[language]
+command=$SCRIPT_DIR/language/language
+label= 
+color=#89dceb
+interval=1
+signal=4
 
 # Key indicators
 #
