@@ -17,3 +17,6 @@ cp -vir ~/.config/dunst dunst
 # update kitty
 trash ./kitty
 cp -vir ~/.config/kitty kitty
+# update picom
+trash ./picom
+cp -vir ~/.config/picom picom

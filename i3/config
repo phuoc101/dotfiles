@@ -31,8 +31,9 @@ font pango:CaskaydiaCove Nerd Font 12
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Turn borders off
-for_window [class="^.*"] border pixel 3
+# Border
+# default_border pixel 4
+for_window [class=".*"] border pixel 0
 
 # Set inner/outer gaps
 gaps inner   4
@@ -293,10 +294,13 @@ exec_always --no-startup-id xrandr | grep "HDMI-0 connected" && autorandr --load
 exec_always --no-startup-id xrandr | grep "HDMI-0 disconnected" && autorandr --load mobile && xrandr --output eDP-1-1 --primary
 exec_always --no-startup-id xrandr | grep "HDMI-0 connected primary 2560x1440" && autorandr --load work && xrandr --output HDMI-0 --primary
 # wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/spooky_spill.jpg --bg-scale ~/Pictures/wallpapers/spooky_spill.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/day_zelda.jpeg --bg-scale ~/Pictures/wallpapers/day_zelda.jpeg.jpg
 
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
+
+# start picom
+exec_always --no-startup-id picom
 
 ### Workspace assignment ###
 assign [class="kitty"] $ws1
