@@ -132,7 +132,7 @@ interval=30
 command=date '+%d/%m/%Y %H:%M'
 label= 
 color=#74c7ec
-interval=5
+interval=60
 
 # Generic media player support
 #
@@ -154,19 +154,19 @@ interval=5
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[temperature]
-command=$SCRIPT_DIR/temperature/temperature
-#label=TEMP
-label= 
-color=#eba0ac
-interval=10
+# [temperature]
+# command=$SCRIPT_DIR/temperature/temperature
+# #label=TEMP
+# label= 
+# color=#eba0ac
+# interval=10
 
 [language]
 command=$SCRIPT_DIR/language/language
 label= 
 color=#89dceb
-interval=1
-signal=4
+interval=once
+signal=7
 
 # Key indicators
 #

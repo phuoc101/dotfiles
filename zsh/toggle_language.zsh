@@ -26,3 +26,5 @@ elif [[ $lang == "xkb:fi::fin" ]]; then
 else
   ibus engine xkb:us::eng
 fi
+
+pkill -SIGRTMIN+7 i3blocks

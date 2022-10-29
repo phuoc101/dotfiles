@@ -1,0 +1,25 @@
+/* global settings and color variables */
+* {
+   blue:             #73d0ff;
+   darkblue:         #B48EAD;
+   cyan:             #95e6cb;
+   lightcyan:        #B48EAD;
+   yellow:           #EED49f;
+   red:              #ff3333;
+
+   dark1:            #1f2430;
+   dark2:            #4f5470;
+   dark3:            #b3b1ad;
+   dark4:            #b3b1ad;
+
+   light1:           #e6e1cf;
+
+   background-color: @dark1;
+   border-color:     @light1;
+   text-color:       @dark3;
+   dark-text-color:  @dark4;
+   main-color:       @blue;
+   highlight:        @light1;
+   urgent-color:     @red;
+   selected-color:   @yellow;
+}
