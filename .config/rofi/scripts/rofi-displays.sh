@@ -36,7 +36,7 @@ TILES[$index]="Cancel"
 COMMANDS[$index]="true"
 index+=1
 TILES[$index]="Auto"
-COMMANDS[$index]="source /home/phuoc101/.zsh/display_init.sh"
+COMMANDS[$index]="source /home/phuoc101/.zsh/display_init.zsh"
 index+=1
 
 
@@ -102,6 +102,10 @@ SEL=$( gen_entries | rofi -dmenu -p "Monitor Setup:" -a 0 -no-custom  | awk '{pr
 # Call xrandr
 $( ${COMMANDS[$SEL]} )
 feh --bg-scale $MY_WALLPAPER --bg-scale $MY_WALLPAPER
-notify-send "Updating betterlockscreen" "$MY_WALLPAPER"
-betterlockscreen -u $MY_WALLPAPER
-notify-send "betterlockscreen updated" "$MY_WALLPAPER"
+if [[ $SEL > 1 ]]; then
+    notify-send "Updating betterlockscreen" "$MY_WALLPAPER"
+    betterlockscreen -u $MY_WALLPAPER
+    notify-send "betterlockscreen updated" "$MY_WALLPAPER"
+else
+    echo "DONE"
+fi
