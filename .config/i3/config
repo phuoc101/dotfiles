@@ -85,10 +85,11 @@ bindsym $mod+q kill
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # start rofi (program launcher)
+set $ROFI_SCRIPT_DIR ~/.config/rofi/scripts
 bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Tab exec rofi -show window -show-icons
 bindsym $mod+Shift+C exec rofi -show calc -modi calc -no-show-match -no-sort
-bindsym $mod+shift+P exec zsh ~/.config/rofi/powermenu.sh
+bindsym $mod+shift+P exec zsh $ROFI_SCRIPT_DIR/system.sh
 # workspace navigation
 bindsym $mod+Control+j workspace next
 bindsym $mod+Control+k workspace prev
@@ -398,4 +399,3 @@ client.focused              $bordercolor  $bordercolor  $bgcolor        $indicol
 client.unfocused            $ibgcolor     $ibgcolor     $indicolor      $ibgcolor
 client.focused_inactive     $ibgcolor     $ibgcolor     $indicolor      $ibgcolor
 client.urgent               $ubgcolor     $ubgcolor     $textcolor      $ubgcolor
-
