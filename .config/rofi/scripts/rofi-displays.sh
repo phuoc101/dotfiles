@@ -35,6 +35,9 @@ declare -i index=0
 TILES[$index]="Cancel"
 COMMANDS[$index]="true"
 index+=1
+TILES[$index]="Auto"
+COMMANDS[$index]="source /home/phuoc101/.zsh/display_init.sh"
+index+=1
 
 
 for entry in $(seq 0 $((${NUM_MONITORS}-1)))

@@ -39,15 +39,15 @@ _comp_options+=(globdots)   # Include hidden files.
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # More additional shell scripts
-source ~/.zsh/vi-mode.zsh
-source ~/.zsh/conda.zsh
-source ~/.zsh/fzf-funcs.zsh
-source ~/.zsh/ros-funcs.zsh
-source ~/.zsh/nvim-funcs.zsh
-source ~/.zsh/nnn.zsh
-source ~/.zsh/zshenvs.zsh
-source ~/.zsh/sysinfo.zsh
-source ~/.zsh/kitty.zsh
+source ~/.zsh/vi-mode.sh
+source ~/.zsh/conda.sh
+source ~/.zsh/fzf-funcs.sh
+source ~/.zsh/ros-funcs.sh
+source ~/.zsh/nvim-funcs.sh
+source ~/.zsh/nnn.sh
+source ~/.zsh/zshenvs.sh
+source ~/.zsh/sysinfo.sh
+source ~/.zsh/kitty.sh
 # # P10k prompt
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/.p10k.zsh
@@ -56,7 +56,7 @@ source ~/.config/aliasrc
 # eval "$(starship init zsh)"
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.sh ] && source ~/.fzf.sh
 
 #export TERM=xerm-color
 
@@ -64,4 +64,4 @@ source ~/.config/aliasrc
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-source ~/.zsh/ssh.zsh
+source ~/.zsh/ssh.sh
