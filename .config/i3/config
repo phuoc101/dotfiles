@@ -294,14 +294,11 @@ focus_follows_mouse no
 exec --no-startup-id udiskie
 
 # Configure multi-monitor
-# exec_always --no-startup-id xrandr | grep "HDMI-0 connected" && autorandr --load home_tampere && xrandr --output HDMI-0 --primary
-# exec_always --no-startup-id xrandr | grep "HDMI-0 disconnected" && autorandr --load mobile && xrandr --output eDP-1-1 --primary
-# exec_always --no-startup-id xrandr | grep "HDMI-0 connected primary 2560x1440" && autorandr --load work && xrandr --output HDMI-0 --primary
-# wallpaper
-# exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/day_zelda.jpeg --bg-scale ~/Pictures/wallpapers/day_zelda.jpeg.jpg
 exec --no-startup-id /home/phuoc101/.zsh/display_init.zsh
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
+# start syncthing
+exec --no-startup-id /usr/bin/syncthing serve --no-browser --logfile=default
 
 # start picom
 exec_always --no-startup-id picom

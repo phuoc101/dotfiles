@@ -10,7 +10,7 @@ NUM_MONITORS=${#MONITORS[@]}
 TITLES=()
 COMMANDS=()
 
-MY_WALLPAPER=~/Pictures/wallpapers/day_zelda.jpeg
+MY_WALLPAPER=~/Pictures/wallpapers/thevalley_large.png
 
 function gen_xrandr_only()
 {
@@ -101,8 +101,8 @@ SEL=$( gen_entries | rofi -dmenu -p "Monitor Setup:" -a 0 -no-custom  | awk '{pr
 
 # Call xrandr
 $( ${COMMANDS[$SEL]} )
-feh --bg-scale $MY_WALLPAPER --bg-scale $MY_WALLPAPER
 if [[ $SEL > 1 ]]; then
+    feh --bg-scale $MY_WALLPAPER --bg-scale $MY_WALLPAPER
     notify-send "Updating betterlockscreen" "$MY_WALLPAPER"
     betterlockscreen -u $MY_WALLPAPER
     notify-send "betterlockscreen updated" "$MY_WALLPAPER"
