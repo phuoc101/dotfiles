@@ -234,17 +234,17 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-  set $window-resize-amount 20px
-    bindsym h resize shrink width $window-resize-amount or 10 ppt
-    bindsym k resize shrink height $window-resize-amount or 10 ppt
-    bindsym l resize grow width $window-resize-amount or 10 ppt
-    bindsym j resize grow height $window-resize-amount or 10 ppt
+  set $window-resize-amount 1px
+    bindsym h resize shrink width $window-resize-amount or 1 ppt
+    bindsym k resize shrink height $window-resize-amount or 1 ppt
+    bindsym l resize grow width $window-resize-amount or 1 ppt
+    bindsym j resize grow height $window-resize-amount or 1 ppt
 
 # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width $window-resize-amount or 1 ppt
+    bindsym Down resize grow height $window-resize-amount or 1 ppt
+    bindsym Up resize shrink height $window-resize-amount or 1 ppt
+    bindsym Right resize grow width $window-resize-amount or 1 ppt
 
 # back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
@@ -299,9 +299,11 @@ exec --no-startup-id /home/phuoc101/.zsh/display_init.zsh
 exec --no-startup-id ibus-daemon --xim -d -r
 # start syncthing
 exec --no-startup-id /usr/bin/syncthing serve --no-browser --logfile=default
+# start clipboard manager
+exec --no-startup-id copyq
 
 # start picom
-exec_always --no-startup-id picom
+exec --no-startup-id picom
 
 ### Workspace assignment ###
 assign [class="kitty"] $ws1
@@ -333,6 +335,8 @@ assign [class="MATLAB"] $ws7
 for_window[class="MATLAB"] focus
 assign [class="Code"] $ws7
 for_window[class="Code"] focus
+assign [class="QtCreator"] $ws7
+for_window[class="QtCreator"] focus
 
 assign [class="wps"] $ws8
 for_window[class="wps"] focus
