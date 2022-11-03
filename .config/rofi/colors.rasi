@@ -2,15 +2,15 @@
 * {
    blue:             #73d0ff;
    darkblue:         #B48EAD;
-   cyan:             #95e6cb;
-   lightcyan:        #B48EAD;
-   yellow:           #EED49f;
-   red:              #ff3333;
+   cyan:             #89dceb;
+   lightcyan:        #94e2d5;
+   yellow:           #f9e2af;
+   red:              #fab387;
 
-   dark1:            #1f2430;
-   dark2:            #4f5470;
-   dark3:            #b3b1ad;
-   dark4:            #b3b1ad;
+   dark1:            #1e1e2e;
+   dark2:            #45475a;
+   dark3:            #f38ba8;
+   dark4:            #eba0ac;
 
    light1:           #e6e1cf;
 
