@@ -33,7 +33,7 @@ exec --no-startup-id nm-applet
 
 # Border
 # default_border pixel 4
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 0
 
 # Set inner/outer gaps
 gaps inner   8
@@ -312,7 +312,7 @@ exec --no-startup-id /usr/bin/syncthing serve --no-browser --logfile=default
 exec --no-startup-id copyq
 
 # start picom
-# exec --no-startup-id picom
+exec --no-startup-id picom
 # exec --no-startup-id ~/sys_tools/xborder/xborders -c ~/.config/xborder/config.json
 
 ### Workspace assignment ###
