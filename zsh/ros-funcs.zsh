@@ -36,6 +36,7 @@ sgalactic() {
   if [ -f /usr/share/colcon_cd/function/colcon_cd.sh ]; then
     source /usr/share/colcon_cd/function/colcon_cd.sh
   fi
+  sgalactic_autocmp
 }
 
 #source px4 ros_foxy
@@ -74,6 +75,7 @@ spx4_foxy() {
 spx4_galactic() {
   sgalactic
   source ~/px4_dev/px4_ros_com_galactic/install/setup.zsh
+  sgalactic_autocmp
 }
 
 syolo_foxy() {
