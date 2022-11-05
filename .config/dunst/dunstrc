@@ -2,23 +2,61 @@
 title = Dunst
 class = Dunst
 monitor = 0
-follow = mouse
+follow = keyboard
 indicate_hidden = yes
 shrink = yes
 
 origin = top-right
-width = 300
-offset = 8x48
 
-transparency = 0
-separator_height = 2
+### Geometry ###
+
+# dynamic width from 0 to 300
+# width = (0, 300)
+# constant width of 300
+width = 300
+
+# The maximum height of a single notification, excluding the frame.
+height = 300
+
+# Position the notification in the top right corner
+origin = top-right
+
+# Offset from the origin
+offset = 10x50
+
+# Scale factor. It is auto-detected if value is 0.
+scale = 0
+
+# Maximum number of notification (0 means no limit)
+notification_limit = 0
+
+### Progress bar ###
+
+# Turn on the progess bar. It appears when a progress hint is passed with
+# for example dunstify -h int:value:12
+progress_bar = true
+
+# Set the progress bar height. This includes the frame, so make sure
+# it's at least twice as big as the frame width.
+progress_bar_height = 10
+
+# Set the frame width of the progress bar
+progress_bar_frame_width = 1
+
+# Set the minimum width for the progress bar
+progress_bar_min_width = 150
+
+# Set the maximum width for the progress bar
+progress_bar_max_width = 300
+# transparency = 0
+# separator_height = 2
 padding = 8
 horizontal_padding = 11
-frame_width = 0
+# frame_width = 0
 frame_color = "#323232"
 separator_color = "#E5B34F"
 
-font = SauceCodePro Nerd Font 10
+font = CaskaydiaCove Nerd Font 10
 
 line_height = 0
 markup = full
@@ -42,7 +80,7 @@ max_icon_size = 80
 
 icon_path = ~/.icons/Flatery-Dark/48x48/actions/:~/.icons/Flatery-Dark/48x48/apps/:~/icons/Flatery-Dark/48x48/devices/:~/.icons/Flatery-Dark/48x48/emblems/:~/.icons/Flatery-Dark/48x48/emotes/:~/.icons/Flatery-Dark/48x48/mimetypes/:~/.icons/Flatery-Dark/48x48/places/:~/.icons/Flatery-Dark/48x48/status/
 
-browser = brave-browser
+browser = firefox
 # dmenu path.
 dmenu = /usr/bin/rofi -dmenu -p dunst:
 
@@ -101,3 +139,5 @@ set_stack_tag = "music"
 [DND]
 summary = *Do Not Disturb*
 set_stack_tag = "dnd"
+
+vim: ft=cfg

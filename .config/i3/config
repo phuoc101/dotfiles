@@ -313,7 +313,7 @@ exec --no-startup-id copyq
 
 # start picom
 exec --no-startup-id picom
-# exec --no-startup-id ~/sys_tools/xborder/xborders -c ~/.config/xborder/config.json
+exec --no-startup-id ~/sys_tools/xborder/xborders -c ~/.config/xborder/config.json
 
 ### Workspace assignment ###
 assign [class="kitty"] $ws1

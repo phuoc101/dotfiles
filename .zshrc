@@ -46,7 +46,7 @@ source ~/.zsh/ros-funcs.zsh
 source ~/.zsh/nvim-funcs.zsh
 source ~/.zsh/nnn.zsh
 source ~/.zsh/zshenvs.zsh
-source ~/.zsh/sysinfo.zsh
+source ~/.zsh/sys-funcs.zsh
 source ~/.zsh/kitty.zsh
 # # P10k prompt
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
