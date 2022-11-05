@@ -1,4 +1,5 @@
 [global]
+startup_notification = yes
 title = Dunst
 class = Dunst
 monitor = 0
@@ -10,26 +11,11 @@ origin = top-right
 
 ### Geometry ###
 
-# dynamic width from 0 to 300
-# width = (0, 300)
-# constant width of 300
-width = 300
-
-# The maximum height of a single notification, excluding the frame.
-height = 300
-
-# Position the notification in the top right corner
-origin = top-right
-
-# Offset from the origin
-offset = 10x50
-
-# Scale factor. It is auto-detected if value is 0.
 scale = 0
 
 # Maximum number of notification (0 means no limit)
 notification_limit = 0
-
+geometry = "500x10-30+40"
 ### Progress bar ###
 
 # Turn on the progess bar. It appears when a progress hint is passed with
@@ -52,9 +38,9 @@ progress_bar_max_width = 300
 # separator_height = 2
 padding = 8
 horizontal_padding = 11
-# frame_width = 0
-frame_color = "#323232"
-separator_color = "#E5B34F"
+frame_width = 3
+frame_color = "#8AADF4"
+separator_color = frame
 
 font = CaskaydiaCove Nerd Font 10
 
@@ -74,7 +60,7 @@ show_indicators = no
 sticky_history = no
 history_length = 20
 always_run_script = true
-corner_radius = 0
+corner_radius = 5
 icon_position = left
 max_icon_size = 80
 
@@ -93,18 +79,19 @@ mouse_right_click = close_current
 
 [urgency_low]
 timeout = 3
-background = "#1F2531"
-foreground = "#FCFCFC"
+background = "#303446"
+foreground = "#C6D0F5"
 
 [urgency_normal]
 timeout = 6
-background = "#1F2531"
-foreground = "#FCFCFC"
+background = "#303446"
+foreground = "#C6D0F5"
 
 [urgency_critical]
 timeout = 0
-background = "#1F2531"
-foreground = "#FCFCFC"
+background = "#303446"
+foreground = "#C6D0F5"
+frame_color = "#EF9F76"
 
 [shortcuts]
 
