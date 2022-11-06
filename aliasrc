@@ -1,6 +1,7 @@
 alias open="xdg-open"
 alias ls="exa --icons"
 alias lsa="ls -al"
+alias tree="ls -T"
 # open text file in nvim
 alias cat="bat -p"
 alias fzf="sk"
