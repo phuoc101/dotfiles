@@ -129,10 +129,10 @@ interval=30
 # Date Time
 #
 [time]
-command=date '+%d/%m/%Y %H:%M:%S'
+command=date '+%d/%m/%Y %H:%M'
 label= 
 color=#74c7ec
-interval=1
+interval=5
 
 # Generic media player support
 #
