@@ -17,8 +17,9 @@ then
 fi
 
 reset_picom() {
-  killall picom
+  killall picom xborders
   picom &
+  ~/sys_tools/xborder/xborders -c ~/.config/xborder/config.json
 }
 
 reset_dunst() {
