@@ -23,7 +23,7 @@ window {
    padding: 10px;
    fullscreen: false;
    border:  3px;
-   border-radius: 10px;
+   border-radius: 0px;
    border-color: @border-color;
 }
 

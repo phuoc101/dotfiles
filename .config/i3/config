@@ -33,7 +33,7 @@ exec --no-startup-id nm-applet
 
 # Border
 # default_border pixel 4
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 3
 
 # Set inner/outer gaps
 gaps inner   8
@@ -314,8 +314,8 @@ exec --no-startup-id copyq
 # start picom
 # exec --no-startup-id picom
 # exec --no-startup-id ~/sys_tools/xborder/xborders -c ~/.config/xborder/config.json
-set $I3_DIR ~/.config/i3
-exec_always --no-startup-id $I3_DIR/reset_picom.zsh
+# set $I3_DIR ~/.config/i3
+# exec_always --no-startup-id $I3_DIR/reset_picom.zsh
 
 ### Workspace assignment ###
 assign [class="kitty"] $ws1
@@ -323,7 +323,9 @@ assign [class="Alacritty"] $ws1
 assign [class="Gnome-terminal"] $ws1
 
 assign [class="firefox"] $ws2
+for_window[class="firefox"] focus
 assign [class="brave-browser"] $ws2
+for_window[class="brave-browser"] focus
 
 assign [class="Signal"] $ws3
 for_window[class="Signal"] focus
