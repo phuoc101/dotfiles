@@ -6,8 +6,11 @@ cp -vir ~/.zshrc .zshrc
 # update i3
 trash ./.config/i3
 trash ./.config/i3blocks
+trash ./.config/aliasrc
 cp -vir ~/.config/i3 ./.config/i3
 cp -vir ~/.config/i3blocks ./.config/i3blocks
+cp -vir ~/.config/aliasrc ./.config/aliasrc
+cp -vir ~/.config/i3 ./.config/i3
 # update rofi
 trash ./.config/rofi
 cp -vir ~/.config/rofi ./.config/rofi
