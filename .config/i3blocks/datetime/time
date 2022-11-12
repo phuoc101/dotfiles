@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+TIME=$(date "+%H:%M")
+echo "<b>$TIME</b>"

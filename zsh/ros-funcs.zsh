@@ -1,5 +1,5 @@
 spythonpath() {
-  export PYTHONPATH=/usr/lib/python3/dist-packages:/usr/local/lib/python3.8/dist-packages:/home/phuoc101/.local/lib/python3.8/site-packages:$PYTHONPATH
+  export PYTHONPATH=/usr/lib/python3/dist-packages:/home/phuoc101/.local/lib/python3.8/site-packages:$PYTHONPATH
 }
 # source ros packages
 snoetic() {

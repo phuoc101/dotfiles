@@ -18,11 +18,11 @@ lang=$(ibus engine)
 
 # print language
 if [[ $lang == "xkb:us::eng" ]]; then
-  echo "EN"
+  print "<b>EN </b>"
 elif [[ $lang == "xkb:fi::fin" ]]; then
-  echo "FI"
+  echo "<b>FI </b>"
 elif [[ $lang == "Unikey" ]]; then
-  echo "VI"
+  echo "<b>VI </b>"
 else
-  echo "N/A"
+  echo "<b>N/A</b>"
 fi

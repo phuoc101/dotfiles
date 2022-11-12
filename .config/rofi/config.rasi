@@ -1,6 +1,6 @@
 configuration {
 
-	font: "CaskaydiaCove Nerd Font Bold 14";
+	font: "JetBrainsMono Nerd Font Bold 14";
 	width: 30;
 	line-margin: 10;
 	lines: 10;

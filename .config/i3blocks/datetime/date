@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+DATE=$(date "+%d/%m/%Y")
+echo "<b>$DATE</b>"

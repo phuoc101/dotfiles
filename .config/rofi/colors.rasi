@@ -8,13 +8,13 @@
    red:              #fab387;
 
    dark1:            #1e1e2e;
-   dark2:            #45475a;
+   dark2:            #313244;
    dark3:            #f38ba8;
    dark4:            #eba0ac;
 
    light1:           #e6e1cf;
 
-   background-color: @dark1;
+   background-color: @dark2;
    border-color:     @light1;
    text-color:       @dark3;
    dark-text-color:  @dark4;

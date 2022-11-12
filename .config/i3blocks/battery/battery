@@ -70,20 +70,20 @@ if ($acpi =~ /(\d\d:\d\d):/) {
 }
 
 # print text
-print "$full_text\n";
-print "$short_text\n";
+print "<b>$full_text</b>\n";
+print "<b>$short_text</b>\n";
 
 # consider color and urgent flag only on discharge
 if ($status eq 'Discharging') {
 
 	if ($percent < 20) {
-		print "#FF0000\n";
+		print "<b>#FF0000</b>\n";
 	} elsif ($percent < 40) {
-		print "#FFAE00\n";
+		print "<b>#FFAE00</b>\n";
 	} elsif ($percent < 60) {
-		print "#FFF600\n";
+		print "<b>#FFF600</b>\n";
 	} elsif ($percent < 85) {
-		print "#A8FF00\n";
+		print "<b>#A8FF00</b>\n";
 	}
 
 	if ($percent < 5) {

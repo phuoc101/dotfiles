@@ -9,7 +9,7 @@ case "$chosen" in
 	"  Bluetooth Settings") rofi-bluetooth ;;
 	# Need ibus
 	"  Language Select") $ROFI_DIR/rofi-lang.sh ;;
-	"勒  Reload services") killall picom dunst xborders; sleep 0.1; picom; dunst;  ~/sys_tools/xborder/xborders -c ~/.config/xborder/config.json ;;
+	"勒  Reload services") killall dunst; sleep 0.1; dunst;;
 	"  Display Settings") $ROFI_DIR/rofi-displays.sh ;;
 	"  Power Menu") $ROFI_DIR/powermenu.sh ;;
 	*) exit 1 ;;
