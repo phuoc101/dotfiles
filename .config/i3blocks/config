@@ -26,17 +26,23 @@
 # Each block command defaults to the script name to avoid boilerplate.
 # Change $SCRIPT_DIR to the location of your scripts!
 # command=$SCRIPT_DIR/$BLOCK_NAME
-separator_block_width=20
+full_text=<b>|</b>
+align=center
+color=#494d64
 markup=pango
+separator=false
+separator_block_width=7
 
 # Volume indicator
 [volume]
 command=$SCRIPT_DIR/volume/volume
-label=
+label= 
 interval=5
 signal=10
 color=#89b4fa
 #STEP=5%
+
+[separator]
 
 # Memory usage
 # The type defaults to "mem" if the instance is not specified.
@@ -47,14 +53,17 @@ label=
 color=#f9e2af
 interval=30
 
+[separator]
+
 # Battery indicator
 # The battery instance defaults to 0.
 [battery]
 command="$SCRIPT_DIR/battery/battery"
-label=
+label= 
 color=#f2cdcd
 interval=30
 
+[separator]
 # Date
 #
 [date]
@@ -63,17 +72,31 @@ label=
 color=#a6da95
 interval=5
 
+[separator]
 # Time
 [time]
 command="$SCRIPT_DIR/datetime/time"
-label=
+label= 
 color=#74c7ec
 interval=5
 
+[separator]
 # Keyboard layout
 [language]
-command=$SCRIPT_DIR/language/language
+command=~/.zsh/toggle_language.zsh;$SCRIPT_DIR/language/language
 label= 
 color=#89dceb
 interval=once
 signal=7
+
+[separator]
+
+# Print click data
+[power]
+align=center
+full_text="  "
+min_width=20
+color=#eba0ac
+command=/home/phuoc101/.config/rofi/scripts/powermenu.sh
+
+[separator]
