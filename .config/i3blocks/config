@@ -37,7 +37,7 @@ separator_block_width=7
 # The type defaults to "mem" if the instance is not specified.
 [memory]
 command=$SCRIPT_DIR/memory/memory
-label= 
+label= 
 #separator=false
 color=#e5c07b
 interval=30
@@ -89,15 +89,5 @@ label=
 color=#88cbd4
 interval=once
 signal=7
-
-[separator]
-
-# Print click data
-[power]
-align=center
-full_text="  "
-min_width=20
-color=#e06c75
-command=/home/phuoc101/.config/rofi/scripts/powermenu.sh
 
 [separator]

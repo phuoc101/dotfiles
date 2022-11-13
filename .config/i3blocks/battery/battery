@@ -70,20 +70,20 @@ if ($acpi =~ /(\d\d:\d\d):/) {
 }
 
 # print text
-print "<b>$full_text</b>\n";
-print "<b>$short_text</b>\n";
+print "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>$full_text</span>\n";
+print "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>$short_text</span>\n";
 
 # consider color and urgent flag only on discharge
 if ($status eq 'Discharging') {
 
 	if ($percent < 20) {
-		print "<b>#FF0000</b>\n";
+		print "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>#FF0000</span>\n";
 	} elsif ($percent < 40) {
-		print "<b>#FFAE00</b>\n";
+		print "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>#FFAE00</span>\n";
 	} elsif ($percent < 60) {
-		print "<b>#FFF600</b>\n";
+		print "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>#FFF600</span>\n";
 	} elsif ($percent < 85) {
-		print "<b>#A8FF00</b>\n";
+		print "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>#A8FF00</span>\n";
 	}
 
 	if ($percent < 5) {

@@ -18,11 +18,11 @@ lang=$(ibus engine)
 
 # print language
 if [[ $lang == "xkb:us::eng" ]]; then
-  print "<b>EN</b>"
+  print "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>EN</span>"
 elif [[ $lang == "xkb:fi::fin" ]]; then
-  echo "<b>FI</b>"
+  echo "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>FI</span>"
 elif [[ $lang == "Unikey" ]]; then
-  echo "<b>VI</b>"
+  echo "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>VI</span>"
 else
-  echo "<b>N/A</b>"
+  echo "<span font_desc='FiraCode Nerd Font 12' weight='bold' foreground='#dedede'>N/A</span>"
 fi
