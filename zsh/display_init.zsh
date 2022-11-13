@@ -1,9 +1,9 @@
 #! /usr/bin/zsh
 
 XRANDR_OUT=$(xrandr)
-MY_WALLPAPER_LARGE=~/Pictures/wallpapers/thevalley_large.png
-MY_WALLPAPER_SMALL=~/Pictures/wallpapers/thevalley_small.png
-MY_WALLPAPER_SMALL_RIGHT=~/Pictures/wallpapers/thevalley_small_right.png
+MY_WALLPAPER_LARGE=~/Pictures/wallpapers/lighthouse.png
+MY_WALLPAPER_SMALL=~/Pictures/wallpapers/lighthouse.png
+MY_WALLPAPER_SMALL_RIGHT=~/Pictures/wallpapers/lighthouse.png
 
 if [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1200+0+0"* ]] || [[ $XRANDR_OUT == *"HDMI-0 connected primary 1920x1200+0+0"* ]]; then
   autorandr --load home_tampere

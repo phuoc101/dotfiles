@@ -1,25 +1,23 @@
 /* global settings and color variables */
 * {
-   blue:             #73d0ff;
-   darkblue:         #B48EAD;
+   blue:             #61afef;
    cyan:             #89dceb;
-   lightcyan:        #94e2d5;
-   yellow:           #f9e2af;
-   red:              #fab387;
+   yellow:           #e5c07b;
+   red:              #e06c75;
 
-   dark1:            #1e1e2e;
-   dark2:            #313244;
-   dark3:            #f38ba8;
+   dark1:            #282c34;
+   dark2:            #1e222a;
+   white:            #dedede;
    dark4:            #eba0ac;
 
-   light1:           #e6e1cf;
+   light1:           #abb2bf;
 
    background-color: @dark2;
    border-color:     @light1;
-   text-color:       @dark3;
+   text-color:       @white;
    dark-text-color:  @dark4;
    main-color:       @blue;
-   highlight:        @light1;
+   highlight:        @cyan;
    urgent-color:     @red;
-   selected-color:   @yellow;
+   selected-color:   @light1;
 }

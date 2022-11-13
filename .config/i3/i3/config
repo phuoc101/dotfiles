@@ -278,16 +278,16 @@ bar {
     # strip_workspace_numbers yes
 
     colors {
-      background #1E1E2E
-        statusline #BFBDB6
-        separator  #81A1C1
+      background #181a1f
+      statusline #BFBDB6
+      separator  #81A1C1
 
-#                  border  backgr. text
-        focused_workspace  #F9E2AF #F9E2AF #1F2531
-        active_workspace   #81A1C1 #1F2531 #ECEFF4
-        inactive_workspace #45475a #45475A #ECEFF4
-        binding_mode       #D08770 #D08770 #ECEFF4
-        urgent_workspace   #BF616A #BF616A #ECEFF4
+      #                  border  backgr. text
+      focused_workspace  #abb2bf #abb2bf #1F2531
+      active_workspace   #81A1C1 #1F2531 #dedede
+      inactive_workspace #45475A #4b5263 #dedede
+      binding_mode       #D08770 #D08770 #dedede
+      urgent_workspace   #BF616A #BF616A #dedede
     }
 }
 
@@ -400,7 +400,7 @@ workspace $ws20 output $lap_monitor
 set $bgcolor #2e3440
 set $ibgcolor #3b4252
 set $textcolor #ECEFF4
-set $bordercolor #FFAD66
+set $bordercolor #e5c07b
 set $indicolor #ECEFF4
 set $itextcolor #4c566a
 set $ubgcolor #bf616a

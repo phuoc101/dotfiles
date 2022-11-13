@@ -28,21 +28,10 @@
 # command=$SCRIPT_DIR/$BLOCK_NAME
 full_text=<b>|</b>
 align=center
-color=#494d64
+color=#45475A
 markup=pango
 separator=false
 separator_block_width=7
-
-# Volume indicator
-[volume]
-command=$SCRIPT_DIR/volume/volume
-label= 
-interval=5
-signal=10
-color=#89b4fa
-#STEP=5%
-
-[separator]
 
 # Memory usage
 # The type defaults to "mem" if the instance is not specified.
@@ -50,8 +39,19 @@ color=#89b4fa
 command=$SCRIPT_DIR/memory/memory
 label= 
 #separator=false
-color=#f9e2af
+color=#e5c07b
 interval=30
+
+[separator]
+
+# Volume indicator
+[volume]
+command=$SCRIPT_DIR/volume/volume
+label= 
+interval=5
+signal=10
+color=#98c379
+#STEP=5%
 
 [separator]
 
@@ -60,7 +60,7 @@ interval=30
 [battery]
 command="$SCRIPT_DIR/battery/battery"
 label= 
-color=#f2cdcd
+color=#61afef
 interval=30
 
 [separator]
@@ -69,15 +69,16 @@ interval=30
 [date]
 command="$SCRIPT_DIR/datetime/date"
 label= 
-color=#a6da95
+color=#74c7ec
 interval=5
 
 [separator]
+
 # Time
 [time]
 command="$SCRIPT_DIR/datetime/time"
 label= 
-color=#74c7ec
+color=#7bc99c
 interval=5
 
 [separator]
@@ -85,7 +86,7 @@ interval=5
 [language]
 command=~/.zsh/toggle_language.zsh;$SCRIPT_DIR/language/language
 label= 
-color=#89dceb
+color=#88cbd4
 interval=once
 signal=7
 
@@ -96,7 +97,7 @@ signal=7
 align=center
 full_text="  "
 min_width=20
-color=#eba0ac
+color=#e06c75
 command=/home/phuoc101/.config/rofi/scripts/powermenu.sh
 
 [separator]
