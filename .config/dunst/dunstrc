@@ -39,14 +39,14 @@ progress_bar_max_width = 300
 padding = 8
 horizontal_padding = 11
 frame_width = 3
-frame_color = "#61afef"
+frame_color = "#abb2bf"
 separator_color = frame
 
-font = CaskaydiaCove Nerd Font 10
+font = FiraCode Nerd Font 10
 
 line_height = 0
 markup = full
-format = "<span size='x-large' font_desc='Plex Code Pro 10' weight='bold' foreground='#90c7f3'>%s</span>\n%b"
+format = "<span size='x-large' font_desc='Plex Code Pro 10' weight='bold' foreground='#e5c07b'>%s</span>\n%b"
 alignment = left
 
 idle_threshold = 120
@@ -79,18 +79,18 @@ mouse_right_click = close_current
 
 [urgency_low]
 timeout = 3
-background = "#3e4452"
-foreground = "#dedede"
+background = "#353b45"
+foreground = "#9498A2"
 
 [urgency_normal]
 timeout = 6
-background = "#3b4048"
-foreground = "#dedede"
+background = "#3e4451"
+foreground = "#abb2bf"
 
 [urgency_critical]
 timeout = 0
 background = "#e06c75"
-foreground = "#dedede"
+foreground = "#b6bdca"
 frame_color = "#cc626a"
 
 [shortcuts]
