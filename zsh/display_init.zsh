@@ -26,6 +26,7 @@ elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
   feh --bg-scale $MY_WALLPAPER_SMALL
   notify-send "Initialized display" "mobile"
 fi
+source ~/.config/polybar/scripts/launch.sh
 notify-send "Updating betterlockscreen" "$MY_WALLPAPER_LARGE"
 betterlockscreen -u $MY_WALLPAPER_LARGE
 notify-send "betterlockscreen updated" "$MY_WALLPAPER_LARGE"
