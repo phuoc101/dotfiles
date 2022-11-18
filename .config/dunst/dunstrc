@@ -42,7 +42,7 @@ frame_width = 3
 frame_color = "#abb2bf"
 separator_color = frame
 
-font = FiraCode Nerd Font 10
+font = JetBrainsMono Nerd Font 10
 
 line_height = 0
 markup = full
@@ -89,7 +89,7 @@ foreground = "#abb2bf"
 
 [urgency_critical]
 timeout = 0
-background = "#e06c75"
+background = "#3e4451"
 foreground = "#b6bdca"
 frame_color = "#cc626a"
 
@@ -110,7 +110,7 @@ close_all = ctrl+shift+space
 # On the US keyboard layout "grave" is normally above TAB and left
 # of "1". Make sure this key actually exists on your keyboard layout,
 # e.g. check output of 'xmodmap -pke'
-history = ctrl+grave
+history = ctrl+F1
 
 # Context menu.
 context = ctrl+shift+period

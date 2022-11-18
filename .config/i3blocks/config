@@ -47,7 +47,7 @@ interval=30
 # Volume indicator
 [volume]
 command=$SCRIPT_DIR/volume/volume
-label= 
+label=墳 
 interval=5
 signal=10
 color=#98c379
@@ -85,7 +85,7 @@ interval=5
 # Keyboard layout
 [language]
 command=~/.zsh/toggle_language.zsh;$SCRIPT_DIR/language/language
-label= 
+label=  
 color=#88cbd4
 interval=once
 signal=7
