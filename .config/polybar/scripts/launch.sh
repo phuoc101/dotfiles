@@ -7,7 +7,11 @@ polybar-msg cmd quit
 
 # Launch bar1 and bar2
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-polybar sub 2>&1 | tee -a /tmp/polybar2.log & disown
-polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
+if xrandr | grep -q 'HDMI-0 connected'; then
+  polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
+  polybar sub 2>&1 | tee -a /tmp/polybar2.log & disown
+else
+  polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
+fi
 
 echo "Bars launched..."

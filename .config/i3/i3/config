@@ -33,13 +33,13 @@ exec --no-startup-id nm-applet
 
 # Border
 # default_border pixel 4
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 
 # Set inner/outer gaps
-gaps inner   2
-gaps outer   2
-gaps top     2
-gaps bottom  2
+gaps inner   4
+gaps outer   4
+gaps top     4
+gaps bottom  4
 # smart_borders on
 
 # Use pactl to adjust volume in PulseAudio.

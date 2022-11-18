@@ -7,6 +7,7 @@ cp -vir ~/.zshrc .zshrc
 trash ./.config/i3
 trash ./.config/i3blocks
 trash ./.config/aliasrc
+trash ./.config/polybar
 cp -vir ~/.config/i3 ./.config/i3
 cp -vir ~/.config/i3blocks ./.config/i3blocks
 cp -vir ~/.config/polybar ./.config/polybar
