@@ -69,3 +69,4 @@ ssdk() {
 }
 
 source ~/.zsh/ssh.zsh
+# export ROS_MASTER_URI=http://192.168.50.3:11311

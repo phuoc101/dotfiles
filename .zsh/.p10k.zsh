@@ -32,7 +32,7 @@
   functions -M my_git_formatter 2>/dev/null
   function prompt_my_ros_env() {
       if [[ -v ROS_DISTRO ]]; then
-          p10k segment -f 193 -t "  $ROS_DISTRO"
+          p10k segment -f 193 -t " $ROS_DISTRO"
       fi
   }
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
@@ -47,8 +47,8 @@
     nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
     nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
     nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
-    command_execution_time  # duration of the last command
     my_ros_env
+    command_execution_time  # duration of the last command
     status
     # # =========================[ Line #2 ]=========================
     newline                 # \n
