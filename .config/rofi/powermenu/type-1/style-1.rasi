@@ -58,19 +58,19 @@ inputbar {
     margin:                      0px;
     padding:                     0px;
     border:                      0px;
-    border-radius:               0px;
+    border-radius:               6px;
     border-color:                @selected;
-    background-color:            transparent;
+    background-color:            @background-alt;
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "prompt"];
+    children:                    [ "textbox-prompt-colon", "entry"];
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "";
-    padding:                     10px 14px;
-    border-radius:               10px;
+    str:                         " ";
+    padding:                     0px 5px 0px 11px;
+    border-radius:               6px;
     background-color:            @urgent;
     text-color:                  @background;
 }
@@ -80,6 +80,14 @@ prompt {
     border-radius:               10px;
     background-color:            @active;
     text-color:                  @background;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder-color:           inherit;
 }
 
 /*****----- Message -----*****/

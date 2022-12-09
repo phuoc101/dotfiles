@@ -95,31 +95,38 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    margin:                      0px;
-    padding:                     20px 10px;
+    margin:                      0px 0px 10px 0px;
+    padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               6px;
     border-color:                @border-colour;
-    background-color:            transparent;
+    background-color:            @alternate-background;
     text-color:                  @foreground-colour;
     children:                    [ "prompt", "entry" ];
 }
 
 prompt {
     enabled:                     true;
+    padding: 										 0px 5px 0px 10px;
+    border-radius:               6px;
+    background-color:            @selected;
+    text-color:                  @alternate-background;
+}
+textbox-prompt-colon {
+    enabled:                     true;
+    padding:                     0px;
+    expand:                      false;
+    str:                         " ";
     background-color:            inherit;
     text-color:                  inherit;
 }
-
 entry {
     enabled:                     true;
+    padding:                     0px;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "search...";
-    placeholder-color:           inherit;
 }
-
 
 /*****----- Listview -----*****/
 listview {

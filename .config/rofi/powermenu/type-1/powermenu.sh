@@ -18,7 +18,7 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown=' Shutdown'
+poweroff=' Power Off'
 reboot=' Reboot'
 lock=' Lock'
 suspend=' Suspend'
@@ -28,7 +28,7 @@ no=' No'
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -dmenu \
+	rofi -dmenu -i \
 		-p "$host" \
 		-mesg "Uptime: $uptime" \
 		-theme ${dir}/${theme}.rasi
@@ -37,11 +37,11 @@ rofi_cmd() {
 # Confirmation CMD
 confirm_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
-		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
+		-theme-str 'mainbox {children: [ "inputbar", "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 1;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
-		-dmenu \
+		-dmenu -i \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
 		-theme ${dir}/${theme}.rasi
@@ -54,14 +54,14 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$poweroff" | rofi_cmd
 }
 
 # Execute Command
 run_cmd() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
-		if [[ $1 == '--shutdown' ]]; then
+		if [[ $1 == '--poweroff' ]]; then
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
@@ -88,8 +88,8 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $shutdown)
-		run_cmd --shutdown
+    $poweroff)
+		run_cmd --poweroff
         ;;
     $reboot)
 		run_cmd --reboot
