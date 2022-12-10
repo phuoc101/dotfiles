@@ -85,10 +85,10 @@ bindsym $mod+q kill
 
 # start rofi (program launcher)
 set $ROFI_SCRIPT_DIR ~/.config/rofi/scripts
-bindsym $mod+d exec ~/.config/rofi/launchers/type-1/launcher.sh
+bindsym $mod+d exec ~/.config/rofi/launchers/launcher.sh
 # bindsym $mod+Tab exec rofi -show window -show-icons
 # bindsym $mod+Shift+C exec rofi -show calc -modi calc -no-show-match -no-sort
-bindsym $mod+shift+P exec ~/.config/rofi/powermenu/type-1/powermenu.sh
+bindsym $mod+shift+P exec ~/.config/rofi/powermenu/powermenu.sh
 # workspace navigation
 bindsym $mod+Control+j workspace next
 bindsym $mod+Control+k workspace prev
