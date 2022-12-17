@@ -24,6 +24,8 @@ export MASTERS_DIR=/media/phuoc101/imaunicorn/masters
 export PROJECTS_DIR=/media/phuoc101/imaunicorn/projects
 export OBSIDIAN_DIR=/media/phuoc101/imaunicorn/backup/obsidian
 export ALACRITTY_DIR=/home/phuoc101/.config/alacritty
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+snvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}

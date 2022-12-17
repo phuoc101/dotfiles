@@ -8,7 +8,7 @@ snoetic() {
 }
 
 
-#source ros 2
+#source ros 2 foxy
 sfoxy() {
   source /opt/ros/foxy/setup.zsh
   if [ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh ]; then
@@ -22,6 +22,7 @@ sfoxy() {
   eval "$(register-python-argcomplete3 colcon)"
 }
 
+# source ros 2 galactic
 sgalactic_autocmp() {
   # argcomplete for ros_galactic & colcon
   eval "$(register-python-argcomplete3 ros2)"
@@ -37,6 +38,13 @@ sgalactic() {
     source /usr/share/colcon_cd/function/colcon_cd.sh
   fi
   sgalactic_autocmp
+}
+
+# source torch + galactic
+sgalactic_torch() {
+  sgalactic
+  source ~/venvs/torch_galactic/bin/activate
+  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/venvs/torch_galactic/lib/python3.8/site-packages
 }
 
 #source px4 ros_foxy
