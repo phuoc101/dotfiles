@@ -50,7 +50,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
 # Toggle border
-bindsym $mod+Shift+b border toggle
+bindsym $mod+control+b border toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -65,6 +65,7 @@ bindsym $mod+t exec kitty; workspace 1
 
 # start a browser
 bindsym $mod+b exec brave-browser; workspace 2
+bindsym $mod+shift+b exec firefox; workspace 2
 
 # start a browser
 bindsym $mod+f exec nautilus
@@ -243,14 +244,10 @@ focus_follows_mouse no
 exec --no-startup-id udiskie
 
 # Configure multi-monitor, and launch polybars
-exec --no-startup-id /home/phuoc101/.zsh/display_init.zsh
+exec --no-startup-id /home/phuoc101/.zsh/init.zsh
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
-# start syncthing
-exec --no-startup-id /usr/bin/syncthing serve --no-browser --logfile=default
-# start clipboard manager
-exec --no-startup-id copyq
 
 # start picom
 # exec --no-startup-id picom
