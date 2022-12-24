@@ -105,4 +105,4 @@ init_turtlebot3_ros_noetic() {
 }
 
 source /usr/share/gazebo/setup.sh
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/.gazebo/models
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH$HOME/.gazebo/models

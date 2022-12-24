@@ -33,9 +33,11 @@ elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
 fi
 # Launching background apps
 copyq &;
-kdeconnect-indicator &;
 /usr/bin/syncthing serve --no-browser --logfile=default &;
 # Update lockscreen
 notify-send "Updating betterlockscreen" "$MY_WALLPAPER_LARGE"
 betterlockscreen -u $MY_WALLPAPER_LARGE
 notify-send "betterlockscreen updated" "$MY_WALLPAPER_LARGE"
+# Start kde connect
+kdeconnect-indicator &;
+notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
