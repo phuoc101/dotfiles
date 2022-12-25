@@ -4,3 +4,6 @@
 [submodule ".zsh/conda-zsh-completion"]
 	path = .zsh/conda-zsh-completion
 	url = https://github.com/conda-incubator/conda-zsh-completion.git
+[submodule ".zsh/zsh-syntax-highlighting"]
+	path = .zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
