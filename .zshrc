@@ -24,7 +24,7 @@ HISTFILE=~/.cache/zsh/history
 # additional shell scripts
 source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-highlight-config.zsh
+source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Basic auto/tab complete:
