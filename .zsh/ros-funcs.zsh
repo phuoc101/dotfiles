@@ -55,8 +55,9 @@ spx4_noetic_gazebo() {
   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/px4_dev/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
 }
 
-activate_torch_ros_venv() {
-  source ~/torch_ros_venv/bin/activate
+snoetic_torch() {
+  source ~/venvs/torch_noetic/bin/activate
+  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/venvs/torch_noetic/lib/python3.8/site-packages
 }
 
 snoetic_pkgs() {

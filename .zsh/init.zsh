@@ -1,9 +1,9 @@
 #! /usr/bin/zsh
 
 XRANDR_OUT=$(xrandr)
-MY_WALLPAPER_LARGE=~/Pictures/wallpapers/coding_rig/hardcoding_2k.jpg
-MY_WALLPAPER_SMALL=~/Pictures/wallpapers/coding_rig/hardcoding3.jpg
-MY_WALLPAPER_SMALL_RIGHT=~/Pictures/wallpapers/coding_rig/hardcoding2.jpg
+MY_WALLPAPER_LARGE=~/Pictures/wallpapers/elden-ring/malenia.jpg
+MY_WALLPAPER_SMALL=~/Pictures/wallpapers/elden-ring/ranni.jpg
+MY_WALLPAPER_SMALL_RIGHT=~/Pictures/wallpapers/elden-ring/blaidd.jpg
 
 if [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1200+0+0"* ]] || [[ $XRANDR_OUT == *"HDMI-0 connected primary 1920x1200+0+0"* ]]; then
   autorandr --load home_tampere
@@ -25,6 +25,11 @@ elif [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"
   xrandr --output HDMI-0 --primary
   feh --bg-scale $MY_WALLPAPER_SMALL --bg-scale $MY_WALLPAPER_SMALL_RIGHT
   notify-send "Initialized display" "homeVN"
+elif [[ $XRANDR_OUT == *"HDMI-0 connected 1720x1440+0+0"* ]]; then
+  autorandr --load work1720
+  xrandr --output HDMI-0 --primary
+  feh --bg-scale $MY_WALLPAPER_SMALL --bg-scale $MY_WALLPAPER_SMALL_RIGHT
+  notify-send "Initialized display" "work1720"
 elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
   autorandr --load mobile
   xrandr --output eDP-1-1 --primary
@@ -41,3 +46,7 @@ notify-send "betterlockscreen updated" "$MY_WALLPAPER_LARGE"
 # Start kde connect
 kdeconnect-indicator &;
 notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
+alsactl init;
+notify-send "ALSA initiated"
+
+
