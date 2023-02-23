@@ -1,3 +1,5 @@
+alias vim="nvim"
+alias vimc="nvim --clean"
 alias open="xdg-open"
 alias ls="exa --icons -s extension -l"
 alias lsa="ls -al"

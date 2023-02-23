@@ -4,7 +4,76 @@ spythonpath() {
 # source ros packages
 snoetic() {
   source /opt/ros/noetic/setup.zsh
-  alias tf='cd /var/tmp && rosrun tf view_frames && zathura frames.pdf &'
+  # Source pytorch+rospy environment
+  source ~/venvs/torch_noetic/bin/activate
+  # Source ros pkgs
+  source ~/ros_dev/ros_noetic_ws/devel/setup.zsh
+  source ~/px4_dev/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/px4_dev/PX4-Autopilot ~/px4_dev/PX4-Autopilot/build/px4_sitl_default
+  source /media/phuoc101/imaunicorn/projects/catkin_ws/devel/setup.zsh
+  source /media/phuoc101/imaunicorn/projects/autosos_dronesim/autosos_ros_ws/devel/setup.zsh
+  # Change environment variables
+  export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/px4_dev/PX4-Autopilot
+  export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/px4_dev/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
+  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/venvs/torch_noetic/lib/python3.8/site-packages
+  # alias tf='cd /var/tmp && rosrun tf view_frames && zathura frames.pdf &'
+}
+
+
+#source ros 2 foxy
+sfoxy() {
+  source /opt/ros/foxy/setup.zsh
+  if [ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh ]; then
+    source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+  fi
+  if [ -f /usr/share/colcon_cd/function/colcon_cd.sh ]; then
+    source /usr/share/colcon_cd/function/colcon_cd.sh
+  fi
+  # argcomplete for ros_foxy & colcon
+  eval "$(register-python-argcomplete3 ros_foxy)"
+  eval "$(register-python-argcomplete3 colcon)"
+}
+
+# source ros 2 galactic
+sgalactic_autocmp() {
+  # argcomplete for ros_galactic & colcon
+  eval "$(register-python-argcomplete3 ros2)"
+  eval "$(register-python-argcomplete3 colcon)"
+}
+
+sgalactic() {
+  source /opt/ros/galactic/setup.zsh
+  if [ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh ]; then
+    source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+  fi
+  if [ -f /usr/share/colcon_cd/function/colcon_cd.sh ]; then
+    source /usr/share/colcon_cd/function/colcon_cd.sh
+  fi
+  sgalactic_autocmp
+}
+
+# source torch + galactic
+sgalactic_torch() {
+  sgalactic
+  source ~/venvs/torch_galactic/bin/activate
+  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/venvs/torch_galactic/lib/python3.8/site-packages
+}
+
+#source px4 ros_foxy
+spx4_noetic_gazebo() {
+  snoetic
+  source ~/px4_dev/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/px4_dev/PX4-Autopilot ~/px4_dev/PX4-Autopilot/build/px4_sitl_default
+  export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/px4_dev/PX4-Autopilot
+  export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/px4_dev/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
+}
+
+snoetic_torch() {
+  source ~/venvs/torch_noetic/bin/activate
+  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/venvs/torch_noetic/lib/python3.8/site-packages
+}
+
+snoetic_pkgs() {
+  snoetic
+  source ~/ros_dev/ros_noetic_ws/devel/setup.zsh
 }
 
 

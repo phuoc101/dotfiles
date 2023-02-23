@@ -24,12 +24,6 @@ sbase_conda_path() {
   export PYTHONPATH=$PYTHONPATH:/home/phuoc101/anaconda3/lib/python3.9/site-packages
 }
 
-stf_gpu_conda_path() {
-  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/anaconda3/envs/tf_gpu/lib/python3.9/site-packages
-  
-}
-
-storch_conda_path() {
-  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/anaconda3/envs/pytorch/lib/python3.8/site-packages
-  
+sconda_env() {
+  export PYTHONPATH=$PYTHONPATH:/home/phuoc101/anaconda3/envs/$1/lib/python3.8/site-packages
 }

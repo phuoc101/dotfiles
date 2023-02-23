@@ -91,7 +91,9 @@ bindsym $mod+d exec ~/.config/rofi/launchers/launcher.sh
 bindsym $mod+shift+P exec ~/.config/rofi/powermenu/powermenu.sh
 # workspace navigation
 bindsym $mod+Control+j workspace next
+bindsym $mod+Tab workspace next
 bindsym $mod+Control+k workspace prev
+bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+period exec rofimoji
 
 # change focus
@@ -155,16 +157,16 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-bindsym $mod+F1 workspace 11
-bindsym $mod+F2 workspace 12
-bindsym $mod+F3 workspace 13
-bindsym $mod+F4 workspace 14
-bindsym $mod+F5 workspace 15
-bindsym $mod+F6 workspace 16
-bindsym $mod+F7 workspace 17
-bindsym $mod+F8 workspace 18
-bindsym $mod+F9 workspace 19
-bindsym $mod+F10 workspace 20
+bindsym $mod+Control+1 workspace 11
+bindsym $mod+Control+2 workspace 12
+bindsym $mod+Control+3 workspace 13
+bindsym $mod+Control+4 workspace 14
+bindsym $mod+Control+5 workspace 15
+bindsym $mod+Control+6 workspace 16
+bindsym $mod+Control+7 workspace 17
+bindsym $mod+Control+8 workspace 18
+bindsym $mod+Control+9 workspace 19
+bindsym $mod+Control+0 workspace 20
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -177,16 +179,16 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+F1 move container to workspace 11
-bindsym $mod+Shift+F2 move container to workspace 12
-bindsym $mod+Shift+F3 move container to workspace 13
-bindsym $mod+Shift+F4 move container to workspace 14
-bindsym $mod+Shift+F5 move container to workspace 15
-bindsym $mod+Shift+F6 move container to workspace 16
-bindsym $mod+Shift+F7 move container to workspace 17
-bindsym $mod+Shift+F8 move container to workspace 18
-bindsym $mod+Shift+F9 move container to workspace 19
-bindsym $mod+Shift+F10 move container to workspace 20
+bindsym $mod+Shift+Control+1 move container to workspace 11
+bindsym $mod+Shift+Control+2 move container to workspace 12
+bindsym $mod+Shift+Control+3 move container to workspace 13
+bindsym $mod+Shift+Control+4 move container to workspace 14
+bindsym $mod+Shift+Control+5 move container to workspace 15
+bindsym $mod+Shift+Control+6 move container to workspace 16
+bindsym $mod+Shift+Control+7 move container to workspace 17
+bindsym $mod+Shift+Control+8 move container to workspace 18
+bindsym $mod+Shift+Control+9 move container to workspace 19
+bindsym $mod+Shift+Control+0 move container to workspace 20
 
 # reload the configuration file
 # bindsym $mod+Shift+c reload
@@ -247,6 +249,8 @@ exec --no-startup-id /home/phuoc101/.zsh/init.zsh
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
+# map esc to tilde (for 65 keyboard)
+exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
 
 # start picom
 # exec --no-startup-id picom
@@ -293,6 +297,8 @@ for_window[class="QtCreator"] focus
 
 assign [class="DesktopEditors"] 8
 for_window[class="DesktopEditors"] focus
+assign [class="ONLYOFFICE"] 8
+for_window[class="ONLYOFFICE"] focus
 
 assign [class="teams"] 9
 for_window[class="teams"] focus
