@@ -250,7 +250,7 @@ exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
 # map esc to tilde (for 65 keyboard)
-exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
+
 
 # start picom
 # exec --no-startup-id picom

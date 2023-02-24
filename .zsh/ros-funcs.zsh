@@ -7,15 +7,11 @@ snoetic() {
   # Source pytorch+rospy environment
   source ~/venvs/torch_noetic/bin/activate
   # Source ros pkgs
-  source ~/ros_dev/ros_noetic_ws/devel/setup.zsh
-  source ~/px4_dev/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/px4_dev/PX4-Autopilot ~/px4_dev/PX4-Autopilot/build/px4_sitl_default
-  source /media/phuoc101/imaunicorn/projects/catkin_ws/devel/setup.zsh
-  source /media/phuoc101/imaunicorn/projects/autosos_dronesim/autosos_ros_ws/devel/setup.zsh
-  # Change environment variables
-  export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/px4_dev/PX4-Autopilot
-  export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/px4_dev/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
   export PYTHONPATH=$PYTHONPATH:/home/phuoc101/venvs/torch_noetic/lib/python3.8/site-packages
   # alias tf='cd /var/tmp && rosrun tf view_frames && zathura frames.pdf &'
+  source ~/ros_dev/ros_noetic_ws/devel/setup.zsh
+  source /media/phuoc101/imaunicorn/projects/autosos_dronesim/autosos_ros_ws/devel/setup.zsh
+  source /media/phuoc101/imaunicorn/projects/catkin_ws/devel/setup.zsh
 }
 
 

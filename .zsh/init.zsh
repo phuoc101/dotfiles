@@ -46,7 +46,8 @@ notify-send "betterlockscreen updated" "$MY_WALLPAPER_LARGE"
 # Start kde connect
 kdeconnect-indicator &;
 notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
+# Start ALSA service (for sound)
 alsactl init;
 notify-send "ALSA initiated"
-
-
+# Remap Escape to tilde
+xmodmap -e 'keysym Escape = Escape asciitilde Escape'
