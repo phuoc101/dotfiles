@@ -127,6 +127,8 @@
   #   # example               # example user-defined segment (see prompt_example function below)
   # )
 
+  typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
+
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
@@ -229,9 +231,9 @@
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=81
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
-  typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
-  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=""
-  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+  # Replace removed segment suffixes with this symbol.
+  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   typeset -g POWERLEVEL9K_DIR_PATH_HIGHLIGHT_BOLD=true
   # Replace removed segment suffixes with this symbol.
   # Color of the shortened directory segments.

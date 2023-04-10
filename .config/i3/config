@@ -250,7 +250,7 @@ exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
 # map esc to tilde (for 65 keyboard)
-
+# exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
 
 # start picom
 # exec --no-startup-id picom
@@ -262,6 +262,7 @@ exec --no-startup-id ibus-daemon --xim -d -r
 for_window[class="Nautilus"] floating enable
 
 assign [class="kitty"] 1
+assign [class="org.wezfurlong.wezterm"] 1
 assign [class="Alacritty"] 1
 assign [class="Gnome-terminal"] 1
 
@@ -299,6 +300,8 @@ assign [class="DesktopEditors"] 8
 for_window[class="DesktopEditors"] focus
 assign [class="ONLYOFFICE"] 8
 for_window[class="ONLYOFFICE"] focus
+assign [class="Inkscape"] 8
+for_window[class="Inkscape"] focus
 
 assign [class="teams"] 9
 for_window[class="teams"] focus

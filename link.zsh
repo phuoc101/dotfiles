@@ -12,6 +12,7 @@ trash ~/.zsh
 trash ~/.local/bin/dark_mode
 trash ~/.local/bin/light_mode
 trash ~/.tmux.conf
+trash ~/.wezterm.lua
 
 # Link config files
 ln -s ~/dotfiles/.config/aliasrc ~/.config/aliasrc
@@ -27,3 +28,4 @@ ln -s ~/dotfiles/.zsh ~/.zsh
 ln -s ~/dotfiles/dark_mode ~/.local/bin/dark_mode
 ln -s ~/dotfiles/light_mode ~/.local/bin/light_mode
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua

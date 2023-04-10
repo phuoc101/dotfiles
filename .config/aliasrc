@@ -1,5 +1,6 @@
 alias vim="nvim"
 alias vimc="nvim --clean"
+alias viml="nvim +'colorscheme github_light'"
 alias open="xdg-open"
 alias ls="exa --icons -s extension -l"
 alias lsa="ls -al"
@@ -14,5 +15,4 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias fd="fdfind"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
-# alias viml="nvim +'colorscheme ayu' +'set background=light' "
 # alias vimd="nvim +'set background=dark'"

@@ -8,12 +8,15 @@ gpustats() {
 }
 
 which_term(){
-  xprop -id $WINDOWID WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/\1/'
+  basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/ .*$//')
 }
 
 if [ $(which_term) == "kitty" ] 
 then
   alias ssh="kitty +kitten ssh"
+elif [ $(which_term) == "wezterm-gui" ] 
+then
+  alias ssh="wezterm ssh"
 fi
 
 reset_picom() {
