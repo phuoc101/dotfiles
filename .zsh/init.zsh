@@ -1,5 +1,12 @@
 #! /usr/bin/zsh
 
+# Start kde connect
+kdeconnect-indicator &;
+notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
+# Start ALSA service (for sound)
+alsactl init;
+notify-send "ALSA initiated"
+
 XRANDR_OUT=$(xrandr)
 MY_WALLPAPER_LARGE=~/Pictures/wallpapers/elden-ring/malenia.jpg
 MY_WALLPAPER_SMALL=~/Pictures/wallpapers/elden-ring/ranni.jpg
@@ -43,11 +50,3 @@ copyq &;
 notify-send "Updating betterlockscreen" "$MY_WALLPAPER_LARGE"
 betterlockscreen -u $MY_WALLPAPER_LARGE
 notify-send "betterlockscreen updated" "$MY_WALLPAPER_LARGE"
-# Start kde connect
-kdeconnect-indicator &;
-notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
-# Start ALSA service (for sound)
-alsactl init;
-notify-send "ALSA initiated"
-# Remap Escape to tilde
-xmodmap -e 'keysym Escape = Escape asciitilde Escape'

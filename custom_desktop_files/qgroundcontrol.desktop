@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=QGroundControl
+GenericName=Ground Control Station
+Comment=Intuitive and Powerful Ground Control Station for the MAVLink protocol
+Exec=/home/phuoc101/.local/bin/QGroundControl
+Icon=qgroundcontrol
+Categories=System;Development

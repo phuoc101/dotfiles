@@ -33,7 +33,7 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)   # Include hidden files.
-
+#
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
@@ -57,15 +57,15 @@ source ~/.config/aliasrc
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# pip autocompletion
-eval "$(pip completion --zsh)"
-
-#export TERM=xerm-color
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# # pip autocompletion
+# eval "$(pip completion --zsh)"
+#
+# #export TERM=xerm-color
+#
+source ~/.zsh/ssh.zsh
+# #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 ssdk() {
   export SDKMAN_DIR="$HOME/.sdkman"
   [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
 
-source ~/.zsh/ssh.zsh

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Balena Etcher
+Comment=Flash OS images to SD cards & USB drives
+Exec=/home/phuoc101/.local/bin/BalenaEtcher
+Icon=balena-etcher-electron
+Categories=System;Development
