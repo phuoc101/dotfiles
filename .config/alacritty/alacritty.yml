@@ -12,13 +12,13 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font
     style:  Bold Italic
-  size: 8.0
+  size: 7.0
 
 # window options
 window:
   padding:
     x: 10
-    y: 5
+    y: 10
   class:
     instance: Alacritty
     general: Alacritty
@@ -30,8 +30,15 @@ import:
 shell:
   program: /usr/bin/zsh
 
+cursor:
+  vi_mode_style:
+    shape: Block
+    blink_interval: 750
+
 # keybindings
 key_bindings:
-  - { key: T, mods: Control|Shift, action: CreateNewWindow }
+  - { key: Return, mods: Control|Shift, action: CreateNewWindow }
   - { key: J, mods: Control, action: ScrollHalfPageDown }
   - { key: K, mods: Control, action: ScrollHalfPageUp }
+  # Vi Mode
+  - { key: Space,  mods: Control, mode: ~Search, action: ToggleViMode}

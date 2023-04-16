@@ -13,7 +13,7 @@ end
 -- This is where you actually apply your config choices
 
 -- Changing the color scheme:
-config.color_scheme = "Vs Code Dark+ (Gogh)"
+config.color_scheme = "Ayu Dark (Gogh)"
 
 -- Font
 config.font = wezterm.font("JetBrainsMono Nerd Font")

@@ -60,7 +60,7 @@ bindsym $mod+Escape exec betterlockscreen -l dimblur
 
 # start a terminal
 # bindsym $mod+t exec i3-sensible-terminal; workspace $ws1
-bindsym $mod+t exec kitty; workspace 1
+bindsym $mod+t exec alacritty; workspace 1
 
 # start a browser
 bindsym $mod+b exec brave-browser; workspace 2
@@ -142,7 +142,7 @@ bindsym $mod+g floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 # focus the child container
 # bindsym $mod+c focus child
 
@@ -249,6 +249,8 @@ exec --no-startup-id /home/phuoc101/.zsh/init.zsh
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
+# Autotiling
+exec_always autotiling -w 1 --limit 2
 # map esc to tilde (for 65 keyboard)
 # exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
 

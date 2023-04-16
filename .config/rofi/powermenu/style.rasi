@@ -60,7 +60,7 @@ inputbar {
     border:                      0px;
     border-radius:               6px;
     border-color:                @selected;
-    background-color:            @background-alt;
+    background-color:            @background;
     text-color:                  @foreground;
     children:                    [ "textbox-prompt-colon", "entry"];
 }

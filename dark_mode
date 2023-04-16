@@ -1,9 +1,10 @@
 #!/usr/bin/zsh
-export DOTFILES_DIR=/media/phuoc101/imaunicorn/backup/linux_setups/dotfiles
-export KITTY_DARK_THEME=VSCode_Dark
-export KITTY_LIGHT_THEME=Doom_One_Light
-export NVIM_BG=dark
-sed -i 's/'"$KITTY_LIGHT_THEME"'.conf/'"$KITTY_DARK_THEME"'.conf/' ~/.config/kitty/kitty.conf
-# sed -i 's/light/dark/' $DOTFILES_DIR/alacritty/alacritty.yml
+export DOTFILES_DIR=~/dotfiles
+# export KITTY_DARK_THEME=VSCode_Dark
+# export KITTY_LIGHT_THEME=Doom_One_Light
+# export NVIM_BG=dark
+# sed -i 's/'"$KITTY_LIGHT_THEME"'.conf/'"$KITTY_DARK_THEME"'.conf/' ~/.config/kitty/kitty.conf
+# kill -SIGUSR1 $(pgrep kitty)
+sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
+sed -i 's/colorscheme = "dayfox"/colorscheme = "carbonfox"/' $DOTFILES_DIR/.config/nvim/lua/plugins/colorscheme.lua
 # gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-dark.jpg
-kill -SIGUSR1 $(pgrep kitty)
