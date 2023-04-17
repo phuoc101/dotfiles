@@ -1,9 +1,9 @@
 #!/usr/bin/zsh
 export DOTFILES_DIR=~/dotfiles
-# export KITTY_DARK_THEME=VSCode_Dark
-# export KITTY_LIGHT_THEME=Doom_One_Light
-# sed -i 's/'"$KITTY_DARK_THEME"'.conf/'"$KITTY_LIGHT_THEME"'.conf/' ~/.config/kitty/kitty.conf
-# kill -SIGUSR1 $(pgrep kitty) 
+export KITTY_DARK_THEME=oxocarbon
+export KITTY_LIGHT_THEME=Doom_One_Light
+sed -i 's/'"$KITTY_DARK_THEME"'.conf/'"$KITTY_LIGHT_THEME"'.conf/' ~/.config/kitty/kitty.conf
+kill -SIGUSR1 $(pgrep kitty) 
 sed -i 's/dark/light/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
 sed -i 's/colorscheme = "carbonfox"/colorscheme = "dayfox"/' $DOTFILES_DIR/.config/nvim/lua/plugins/colorscheme.lua
 # gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-light.jpg
