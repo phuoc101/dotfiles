@@ -8,6 +8,9 @@
 # Enable colors and change prompt:
 autoload -U colors && colors
 
+# Enable calculator
+autoload zcalc
+
 setopt +o nomatch
 
 # # Enable substitution in the prompt.
@@ -22,7 +25,7 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # additional shell scripts
-source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+# source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -52,6 +55,8 @@ source ~/.zsh/kitty.zsh
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/.p10k.zsh
 source ~/.config/aliasrc
+# Enabling zoxide
+eval "$(zoxide init zsh)"
 # # Enabling starship prompt
 # eval "$(starship init zsh)"
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -62,7 +67,7 @@ source ~/.config/aliasrc
 #
 # #export TERM=xerm-color
 #
-# source ~/.zsh/ssh.zsh
+source ~/.zsh/ssh.zsh
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 ssdk() {
   export SDKMAN_DIR="$HOME/.sdkman"

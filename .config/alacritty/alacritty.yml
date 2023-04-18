@@ -1,18 +1,18 @@
 # Font configuration
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font
     style:  Regular
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font
     style:  Bold
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font
     style:  Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font
     style:  Bold Italic
-  size: 7.0
+  size: 9.0
 
 # window options
 window:
@@ -38,7 +38,8 @@ cursor:
 # keybindings
 key_bindings:
   - { key: Return, mods: Control|Shift, action: CreateNewWindow }
-  - { key: J, mods: Control, action: ScrollHalfPageDown }
-  - { key: K, mods: Control, action: ScrollHalfPageUp }
+  - { key: J, mods: Control|Alt, action: ScrollHalfPageDown }
+  - { key: K, mods: Control|Alt, action: ScrollHalfPageUp }
   # Vi Mode
   - { key: Space,  mods: Control, mode: ~Search, action: ToggleViMode}
+  - { key: Back, mods: Control, chars: "\x17" }
