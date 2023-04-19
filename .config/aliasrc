@@ -8,7 +8,6 @@ alias tree="ls -T"
 # open text file in nvim
 alias nnn="nnn -ed"
 alias cat="bat -p"
-# alias fzf="sk"
 alias du="dust"
 alias lg="lazygit"
 alias cp="cp -iv"

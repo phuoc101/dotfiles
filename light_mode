@@ -3,5 +3,6 @@ export DOTFILES_DIR=~/dotfiles
 sed -i 's/dark.conf/light.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep kitty) 
 sed -i 's/dark/light/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
-sed -i 's/colorscheme = "carbonfox"/colorscheme = "dayfox"/' $DOTFILES_DIR/.config/nvim/lua/plugins/colorscheme.lua
+sed -i 's/colorscheme carbonfox/colorscheme dayfox/' $DOTFILES_DIR/.config/nvim/init.lua
+reload_nvim_theme -c dayfox
 # gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-light.jpg

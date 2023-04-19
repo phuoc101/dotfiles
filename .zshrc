@@ -25,7 +25,9 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # additional shell scripts
-# source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+# Enabling zoxide
+# eval "$(zoxide init zsh)"
+source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -55,8 +57,6 @@ source ~/.zsh/kitty.zsh
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/.p10k.zsh
 source ~/.config/aliasrc
-# Enabling zoxide
-eval "$(zoxide init zsh)"
 # # Enabling starship prompt
 # eval "$(starship init zsh)"
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -74,3 +74,9 @@ ssdk() {
   [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
 
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_LAZY_LOAD=true
+source ~/.zsh/zsh-nvm/zsh-nvm.plugin.zsh
+# source ~/.zsh/zsh-lazyload/zsh-lazyload.zsh

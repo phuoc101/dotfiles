@@ -4,5 +4,6 @@ export NVIM_BG=dark
 sed -i 's/light.conf/dark.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep kitty)
 sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
-sed -i 's/colorscheme = "dayfox"/colorscheme = "carbonfox"/' $DOTFILES_DIR/.config/nvim/lua/plugins/colorscheme.lua
+sed -i 's/colorscheme dayfox/colorscheme carbonfox/' $DOTFILES_DIR/.config/nvim/init.lua
+reload_nvim_theme -c carbonfox
 # gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-dark.jpg

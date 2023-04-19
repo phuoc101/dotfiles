@@ -1,0 +1,50 @@
+#!/usr/bin/python3
+#
+# dwm-theme-switcher
+#
+# (c) 2017 Daniel Jankowski
+
+
+import os
+import argparse
+from neovim import attach
+
+
+def get_all_instances():
+    instances = []
+
+    # get the content of /tmp
+    directory_content = os.listdir("/run/user/1000/")
+    for directory in directory_content:
+        # check if it contains directories starting with nvim
+        if directory.startswith("nvim"):
+            # check if the nvim directories contains a socket
+            # dc = os.listdir("/run/user/1000/" + directory)
+            # if "0" in dc:
+            instances.append("/run/user/1000/" + directory)
+    return instances
+
+
+def reload(instance, colorscheme):
+    # connect over the socker
+    nvim = attach("socket", path=instance)
+
+    # execute the reload command
+    nvim.command(f"colorscheme {colorscheme}")
+
+
+def main(opt):
+    # search for neovim instances
+    instances = get_all_instances()
+
+    # connect to instances and reload them
+    for instance in instances:
+        reload(instance, opt.colorscheme)
+    pass
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--colorscheme", default="carbonfox")
+    opt = parser.parse_args()
+    main(opt)
