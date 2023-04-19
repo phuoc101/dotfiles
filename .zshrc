@@ -37,6 +37,8 @@ source_z() {
   _comp_options+=(globdots)
 }
 lazyload zshz -- "source_z"
+
+lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -72,7 +74,6 @@ source ~/.config/aliasrc
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # # pip autocompletion
-# eval "$(pip completion --zsh)"
 #
 # #export TERM=xerm-color
 #
