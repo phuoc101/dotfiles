@@ -27,7 +27,16 @@ HISTFILE=~/.cache/zsh/history
 # additional shell scripts
 # Enabling zoxide
 # eval "$(zoxide init zsh)"
-source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+source ~/.zsh/zsh-lazyload/zsh-lazyload.zsh
+source_z() {
+  source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+  autoload -U compinit
+  zstyle ':completion:*' menu select
+  zmodload zsh/complist
+  compinit
+  _comp_options+=(globdots)
+}
+lazyload zshz -- "source_z"
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -79,4 +88,3 @@ ssdk() {
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_LAZY_LOAD=true
 source ~/.zsh/zsh-nvm/zsh-nvm.plugin.zsh
-# source ~/.zsh/zsh-lazyload/zsh-lazyload.zsh
