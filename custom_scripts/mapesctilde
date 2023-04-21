@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+
+# Remap Escape to tilde
+xmodmap -e 'keysym Escape = Escape asciitilde Escape'
+notify-send "Mapped Escape to tilde"

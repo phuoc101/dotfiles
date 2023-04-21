@@ -36,9 +36,16 @@ source_z() {
   compinit
   _comp_options+=(globdots)
 }
-lazyload zshz -- "source_z"
 
+load_nvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+lazyload zshz -- "source_z"
 lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
+lazyload nvm npm node nvim -- 'load_nvm'
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -83,9 +90,5 @@ ssdk() {
   export SDKMAN_DIR="$HOME/.sdkman"
   [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export NVM_LAZY_LOAD=true
-source ~/.zsh/zsh-nvm/zsh-nvm.plugin.zsh
+# export NVM_LAZY_LOAD=true
+# source ~/.zsh/zsh-nvm/zsh-nvm.plugin.zsh

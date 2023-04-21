@@ -12,6 +12,8 @@ trash ~/.zshrc
 trash ~/.zsh
 trash ~/.local/bin/dark_mode
 trash ~/.local/bin/light_mode
+trash ~/.local/bin/mapesctilde
+trash ~/.local/bin/init_stuffs
 trash ~/.tmux.conf
 trash ~/.wezterm.lua
 trash ~/.icons/extras/
@@ -30,8 +32,7 @@ ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/sioyek ~/.config/sioyek
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.zsh ~/.zsh
-ln -s ~/dotfiles/dark_mode ~/.local/bin/dark_mode
-ln -s ~/dotfiles/light_mode ~/.local/bin/light_mode
+ln -s ~/dotfiles/custom_scripts/* ~/.local/bin
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua
 ln -s ~/dotfiles/.icons/extras/ ~/.icons/
