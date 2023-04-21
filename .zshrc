@@ -24,10 +24,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
-# additional shell scripts
 # Enabling zoxide
 # eval "$(zoxide init zsh)"
-source ~/.zsh/zsh-lazyload/zsh-lazyload.zsh
+# additional shell scripts
 source_z() {
   source ~/.zsh/zsh-z/zsh-z.plugin.zsh
   autoload -U compinit
@@ -40,12 +39,19 @@ source_z() {
 load_nvm() {
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+load_nvm_completion() {
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
+# Lazy loading stuffs to speed up start time
+source ~/.zsh/zsh-lazyload/zsh-lazyload.zsh
 lazyload zshz -- "source_z"
 lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
-lazyload nvm npm node nvim -- 'load_nvm'
+lazyload nvm npm node -- 'load_nvm'
+lazyload nvm npm node -- 'load_nvm_completion'
+
+# Some nice zsh utils
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

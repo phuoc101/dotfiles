@@ -8,6 +8,7 @@ trash ~/.config/rofi
 trash ~/.config/kitty
 trash ~/.config/nvim
 trash ~/.config/sioyek
+trash ~/.config/zathura
 trash ~/.zshrc
 trash ~/.zsh
 trash ~/.local/bin/dark_mode
@@ -29,6 +30,7 @@ ln -s ~/dotfiles/.config/polybar ~/.config/polybar
 ln -s ~/dotfiles/.config/rofi ~/.config/rofi
 ln -s ~/dotfiles/.config/kitty ~/.config/kitty
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+ln -s ~/dotfiles/.config/zathura ~/.config/zathura
 ln -s ~/dotfiles/.config/sioyek ~/.config/sioyek
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.zsh ~/.zsh
