@@ -48,12 +48,11 @@ load_nvm_completion() {
 source ~/.zsh/zsh-lazyload/zsh-lazyload.zsh
 lazyload zshz -- "source_z"
 lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
-lazyload nvm npm node -- 'load_nvm'
-lazyload nvm npm node -- 'load_nvm_completion'
+lazyload nvm npm node nvim -- 'export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
 
 # Some nice zsh utils
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-highlight-config.zsh
+# source ~/.zsh/zsh-highlight-config.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Basic auto/tab complete:
@@ -85,7 +84,6 @@ source ~/.config/aliasrc
 # eval "$(starship init zsh)"
 # ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # # pip autocompletion
 #
 # #export TERM=xerm-color

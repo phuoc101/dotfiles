@@ -138,6 +138,11 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.AdjustPaneSize({ "Right", 5 }),
 	},
+	{
+		key = "v",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.PasteFrom("Clipboard"),
+	},
 	-- Send "CTRL-W" to the terminal when pressing CTRL-W, CTRL-W
 	-- {
 	-- 	key = "w",

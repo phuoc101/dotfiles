@@ -11,14 +11,6 @@ which_term(){
   basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/ .*$//')
 }
 
-if [ $(which_term) == "kitty" ] 
-then
-  alias ssh="kitty +kitten ssh"
-elif [ $(which_term) == "wezterm-gui" ] 
-then
-  alias ssh="wezterm ssh"
-fi
-
 reset_picom() {
   killall picom xborders
   picom &

@@ -4,7 +4,8 @@ opt_all=false
 opt_screen=false
 opt_lock=false
 opt_bg=false
-while getopts "slab" OPTION;
+opt_polybar=false
+while getopts "slabp" OPTION;
 do
     case "$OPTION" in
         a) 
@@ -13,15 +14,15 @@ do
           ;;
         l) 
           opt_lock=true
-          notify-send "INIT LOCKSCREEN"
           ;;
         s) 
           opt_screen=true
-          notify-send "INIT SCREEN"
           ;;
         b) 
           opt_bg=true
-          notify-send "INIT BACKGROUND PROGRAMS"
+          ;;
+        p) 
+          opt_polybar=true
           ;;
         \?) 
           echo "Invalid option -OPTARG" >&2
@@ -30,9 +31,14 @@ do
     esac
 done
 
-# Start kde connect
-if [ "$opt_all" == true ] | [ "$opt_bg" == true ]
+if [ "$opt_all" == true ] || [ "$opt_polybar" == true ]
 then
+source ~/.config/polybar/scripts/launch.sh
+fi
+# Start kde connect
+if [ "$opt_all" == true ] || [ "$opt_bg" == true ]
+then
+  notify-send "INIT BACKGROUND PROGRAMS"
   echo "all: $opt_all"
   kdeconnect-indicator &
   notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
@@ -46,8 +52,9 @@ then
   notify-send "Syncthing initiated"
 fi
 
-if [ "$opt_screen" == true ] | [ "$opt_all"  == true ]
+if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
 then
+  notify-send "INIT SCREEN"
   XRANDR_OUT=$(xrandr)
   MY_WALLPAPER_LARGE=~/Pictures/wallpapers/elden-ring/malenia.jpg
   MY_WALLPAPER_SMALL=~/Pictures/wallpapers/elden-ring/ranni.jpg
@@ -87,8 +94,9 @@ then
 fi
 #
 # Update lockscreen
-if [ $opt_lock == true ] | [ $opt_all == true ]
+if [ $opt_lock == true ] || [ $opt_all == true ]
 then
+  notify-send "INIT LOCKSCREEN"
   notify-send "Updating betterlockscreen" "$MY_WALLPAPER_LARGE"
   betterlockscreen -u $MY_WALLPAPER_LARGE
   notify-send "betterlockscreen updated" "$MY_WALLPAPER_LARGE"

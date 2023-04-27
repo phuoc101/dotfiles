@@ -1,3 +1,4 @@
+export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
 #fzf functions#
 ffindf() {
   fdfind --type f | sk --preview="bat {} --color=always"
