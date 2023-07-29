@@ -94,7 +94,5 @@ ssdk() {
   export SDKMAN_DIR="$HOME/.sdkman"
   [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
-# export NVM_LAZY_LOAD=true
-# source ~/.zsh/zsh-nvm/zsh-nvm.plugin.zsh
 
 [ -f ~/.zsh/.fzf.zsh ] && source ~/.zsh/.fzf.zsh
