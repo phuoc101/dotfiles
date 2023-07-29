@@ -2,10 +2,10 @@
 export DOTFILES_DIR=~/dotfiles
 export NVIM_BG=dark
 sed -i 's/light.conf/dark.conf/' ~/.config/kitty/kitty.conf
-kill -SIGUSR1 $(pgrep kitty)
+kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
 sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
 sed -i 's/colorscheme dayfox/colorscheme carbonfox/' $DOTFILES_DIR/.config/nvim/init.lua
-reload_nvim_theme -c carbonfox
+# reload_nvim_theme -c carbonfox
 
 # Change zsh highlight
 # trash ~/.zsh/zsh-highlight-config.zsh
@@ -15,7 +15,7 @@ reload_nvim_theme -c carbonfox
 # echo 'ZSH_HIGHLIGHT_STYLES[comment]="none"' >> ~/.zsh/zsh-highlight-config.zsh
 # source ~/.zsh/zsh-highlight-config.zsh
 
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Gnome wallpapers
 # gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-dark.jpg

@@ -1,10 +1,10 @@
 #!/usr/bin/zsh
 export DOTFILES_DIR=~/dotfiles
 sed -i 's/dark.conf/light.conf/' ~/.config/kitty/kitty.conf
-kill -SIGUSR1 $(pgrep kitty) 
+kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
 sed -i 's/dark/light/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
 sed -i 's/colorscheme carbonfox/colorscheme dayfox/' $DOTFILES_DIR/.config/nvim/init.lua
-reload_nvim_theme -c dayfox
+# reload_nvim_theme -c dayfox
 
 # Change zsh highlight
 # trash ~/.zsh/zsh-highlight-config.zsh

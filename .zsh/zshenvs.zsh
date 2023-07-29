@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 export PATH=$PATH:/home/phuoc101/.local/bin:/opt/gradle/gradle-6.3/bin
 export PATH=/usr/lib/ccache:$PATH
+export PATH=~/go/bin:$PATH
 export PATH=/usr/local/cuda-11.3/bin:$PATH
 # export PATH=/usr/lib/cuda-11.2/bin:$PATH
 export EDITOR='nvim'
