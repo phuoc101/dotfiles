@@ -35,7 +35,7 @@ exec --no-startup-id nm-applet
 for_window [class=".*"] border pixel 3
 
 # Set inner/outer gaps
-gaps inner   3
+gaps inner   8
 gaps outer   8
 gaps top     45
 gaps bottom  4
@@ -63,8 +63,8 @@ bindsym $mod+Escape exec betterlockscreen -l dimblur
 bindsym $mod+t exec kitty; workspace 1
 
 # start a browser
-bindsym $mod+b exec brave-browser; workspace 2
-bindsym $mod+shift+b exec firefox; workspace 2
+bindsym $mod++b exec firefox; workspace 2
+bindsym $mod+shift+b exec brave-browser; workspace 2
 
 # start a browser
 bindsym $mod+f exec nautilus
@@ -325,7 +325,7 @@ assign [class="obs"] 20
 for_window[class="obs"] focus
 
 ### Monitor config ###
-set $lap_monitor EDP-1-1
+set $lap_monitor EDP-1-0
 set $ext_monitor HDMI-0
 
 # bind workspaces to monitor

@@ -34,10 +34,10 @@ cyan       = #56B6c2
 
 [bar/main]
 width = 99%
-height = 18pt
+height = 28pt
 radius = 0
 monitor = HDMI-0
-monitor-fallback = eDP-1-1
+monitor-fallback = eDP-1-0
 pin-workspaces = true
 background = ${colors.background}
 foreground = ${colors.white}
@@ -87,7 +87,7 @@ tray-padding = 3
 ; ==== MODULES =====
 [module/launcher]
 type = custom/text
-content =  
+content = 󰀻
 content-background = ${colors.blue}
 content-foreground = ${colors.dark}
 content-padding = 2
@@ -106,24 +106,24 @@ reverse-scroll = false
 fuzzy-match = true
 ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;犯
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
+ws-icon-2 = 3;
+ws-icon-3 = 4;󰙯
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;󰏆
 ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-10 = 11;﫯
-ws-icon-11 = 12;落
-ws-icon-12 = 13;落
-ws-icon-13 = 14;落
-ws-icon-14 = 15;落
-ws-icon-15 = 16;落
-ws-icon-16 = 17;落
-ws-icon-17 = 18;落
+ws-icon-9 = 10;󰂫
+ws-icon-10 = 11;
+ws-icon-11 = 12;
+ws-icon-12 = 13;
+ws-icon-13 = 14;
+ws-icon-14 = 15;
+ws-icon-15 = 16;
+ws-icon-16 = 17;
+ws-icon-17 = 18;
 ws-icon-18 = 19;
-ws-icon-19 = 20;
+ws-icon-19 = 20;󰡇
 format = <label-state> <label-mode>
 label-focused = %icon% %index% 
 label-focused-foreground = ${colors.blue}
@@ -154,7 +154,7 @@ label-urgent-padding = 1
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume-prefix = "墳 "
+format-volume-prefix = "󰕾 "
 format-volume = <label-volume>
 format-volume-prefix-foreground = ${colors.purple}
 
@@ -170,13 +170,14 @@ exec = ~/.config/polybar/scripts/ibus-engine.sh &
 exec-if = pgrep -x ibus-daemon
 tail = true
 click-left = ~/.zsh/toggle_language.zsh &
+interval = 0
 format-prefix = "  "
 format-prefix-foreground = ${colors.green}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "󰍛 "
 format-prefix-foreground = ${colors.blue1}
 label = %percentage_used:2%%
 
