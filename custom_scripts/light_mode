@@ -4,7 +4,7 @@ sed -i 's/dark.conf/light.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
 sed -i 's/dark/light/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
 sed -i 's/colorscheme carbonfox/colorscheme dayfox/' $DOTFILES_DIR/.config/nvim/init.lua
-# reload_nvim_theme -c dayfox
+reload_nvim_theme -c dayfox
 
 # Change zsh highlight
 # trash ~/.zsh/zsh-highlight-config.zsh
@@ -14,6 +14,17 @@ sed -i 's/colorscheme carbonfox/colorscheme dayfox/' $DOTFILES_DIR/.config/nvim/
 # echo 'ZSH_HIGHLIGHT_STYLES[comment]="none"' >> ~/.zsh/zsh-highlight-config.zsh
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+killall -9 superpaper
+XRANDR_OUT=$(xrandr)
+if [[ $XRANDR_OUT == *"HDMI-0 connected"* ]]; then
+  notify-send "INIT MULTISCREEN LIGHT WALLPAPER"
+  superpaper --profile multi_light
+elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
+  notify-send "INIT LIGHT WALLPAPER"
+  superpaper --profile single_light
+fi
+
 # ZSH_HIGHLIGHT_STYLES[root]="bg=red"
 # ZSH_HIGHLIGHT_STYLES[precommand]=fg=#48B9C7,bold
 # ZSH_HIGHLIGHT_STYLES[arg0]=fg=#575279,bold

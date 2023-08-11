@@ -5,7 +5,7 @@ sed -i 's/light.conf/dark.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
 sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
 sed -i 's/colorscheme dayfox/colorscheme carbonfox/' $DOTFILES_DIR/.config/nvim/init.lua
-# reload_nvim_theme -c carbonfox
+reload_nvim_theme -c carbonfox
 
 # Change zsh highlight
 # trash ~/.zsh/zsh-highlight-config.zsh
@@ -16,6 +16,16 @@ sed -i 's/colorscheme dayfox/colorscheme carbonfox/' $DOTFILES_DIR/.config/nvim/
 # source ~/.zsh/zsh-highlight-config.zsh
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+killall -9 superpaper
+
+XRANDR_OUT=$(xrandr)
+if [[ $XRANDR_OUT == *"HDMI-0 connected"* ]]; then
+  notify-send "INIT MULTISCREEN DARK WALLPAPER"
+  superpaper --profile multi_dark
+elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
+  notify-send "INIT DARK WALLPAPER"
+  superpaper --profile single_dark
+fi
 
 # Gnome wallpapers
 # gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-dark.jpg
