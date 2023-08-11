@@ -67,7 +67,7 @@ fixed-center = true
 font-0 = "JetBrainsMono Nerd Font:style=Bold:size=11;2"
 modules-left = launcher i3
 modules-center = date time
-modules-right = ipc-dunst ibus memory pulseaudio battery
+modules-right = kdeconnect ipc-dunst ibus memory pulseaudio battery
 cursor-click = pointer
 cursor-scroll = ns-resize
 enable-ipc = true
@@ -78,7 +78,7 @@ tray-padding = 3
 
 [bar/sub]
 inherit = bar/main
-monitor = eDP-1-1
+monitor = eDP-1-0
 tray-position = none
 tray-detached = false 
 tray-padding = 3
@@ -174,6 +174,12 @@ interval = 0
 format-prefix = "  "
 format-prefix-foreground = ${colors.green}
 
+[module/kdeconnect]  
+type = custom/script  
+exec = "~/.config/polybar/scripts/kdeconnect_polybar.sh -d"  
+tail = true
+interval = 0
+
 [module/memory]
 type = internal/memory
 interval = 2
@@ -181,11 +187,11 @@ format-prefix = "󰍛 "
 format-prefix-foreground = ${colors.blue1}
 label = %percentage_used:2%%
 
-[network-base]
-type = internal/network
-interval = 5
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
+; [network-base]
+; type = internal/network
+; interval = 5
+; format-connected = <label-connected>
+; format-disconnected = <label-disconnected>
 
 ; [module/wlan]
 ; inherit = network-base
@@ -220,7 +226,7 @@ format-charging = <ramp-capacity> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 label-charging = %percentage%% 
 label-discharging = %percentage%%
-label-full = %{F#98c379} %{F-} %percentage%%
+label-full = %{F#98c379} %{F-} %percentage%% 
 label-low = %{F#e06c75} %{F-} %percentage%%
 ramp-capacity-0 =%{F#F0C674} %{F-}
 ramp-capacity-1 =%{F#F0C674} %{F-}

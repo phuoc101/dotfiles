@@ -1,0 +1,43 @@
+#! /usr/bin/bash
+
+dark_mode=true
+while getopts "dl" OPTION;
+do
+    case "$OPTION" in
+        d) 
+          dark_mode=true
+          ;;
+        l) 
+          dark_mode=false
+          ;;
+        \?) 
+          echo "Invalid option -OPTARG" >&2
+          exit 1
+          ;;
+    esac
+done
+
+if [ "$dark_mode" == true ]
+then
+  notify-send "Set dark mode walls"
+  MY_WALLS_DIR=~/dotfiles/wallpapers_dark/
+else
+  notify-send "Set light mode walls"
+  MY_WALLS_DIR=~/dotfiles/wallpapers_light/
+fi
+MY_WALLPAPER_LARGE=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
+MY_WALLPAPER_SMALL=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
+MY_WALLPAPER_SMALL_RIGHT=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
+
+XRANDR_OUT=$(xrandr)
+if [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-0 connected primary 1920x1080"* ]]; then
+  autorandr --load home_vn
+  xrandr --output HDMI-0 --primary
+  feh --bg-scale $MY_WALLPAPER_SMALL --bg-scale $MY_WALLPAPER_SMALL_RIGHT
+  notify-send "Initialized display" "home_vn"
+elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
+  autorandr --load mobile
+  xrandr --output eDP-1-0 --primary
+  feh --bg-scale $MY_WALLPAPER_SMALL
+  notify-send "Initialized display" "mobile"
+fi
