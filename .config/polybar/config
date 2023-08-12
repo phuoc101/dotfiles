@@ -91,7 +91,7 @@ content = 󰀻
 content-background = ${colors.blue}
 content-foreground = ${colors.dark}
 content-padding = 2
-click-left = ~/.config/polybar/scripts/launcher.sh &
+click-left = ~/.config/rofi/launchers/launcher.sh &
 
 [module/i3]
 type = internal/i3

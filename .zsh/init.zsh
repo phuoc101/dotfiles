@@ -7,7 +7,7 @@ notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
 alsactl init;
 notify-send "ALSA initiated"
 
-set_walls
+init_displays -d
 
 # Launching background apps
 copyq &;
