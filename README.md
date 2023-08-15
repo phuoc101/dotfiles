@@ -31,7 +31,8 @@
   - [Telegram](https://desktop.telegram.org/)
   - [Whatsdesk](https://gitlab.com/zerkc/whatsdesk)
   - [Veracrypt](https://www.veracrypt.fr/en/Downloads.html)
+  - [OpenShot](https://www.openshot.org/ppa/)
 - From flatpak:
   - `flatpak install flathub md.obsidian.Obsidian`
 - From apt:
-  - `sudo apt install flameshot obs-studio open`
+  - `sudo apt install flameshot obs-studio handbrake`
