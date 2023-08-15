@@ -277,6 +277,8 @@ assign [class="Signal"] 3
 for_window[class="Signal"] focus
 assign [class="TelegramDesktop"] 3
 for_window[class="TelegramDesktop"] focus
+assign [class="whatsdesk"] 3
+for_window[class="whatsdesk"] focus
 
 assign [class="discord"] 4
 for_window[class="discord"] focus
