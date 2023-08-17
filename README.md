@@ -9,7 +9,9 @@
       - [AstroNvim](https://github.com/AstroNvim/AstroNvim)
       - [User config for AstroNvim](https://github.com/phuoc101/astronvim_config)
 - From apt:
-  - `sudo apt install i3 polybar rofi arandr autorandr qt5-style-kvantum`
+  - `sudo apt install i3 polybar rofi arandr autorandr qt5-style-kvantum brightnessctl`
+  - **NOTE**: To make brightnessctl work without sudo, add user to the video group with: 
+    - `sudo usermod -aG video ${USER}`
 - Icon theme: [Flatery](https://www.pling.com/p/1332404/)
 - GTK theme: [Fluent](https://www.pling.com/p/1477941/)
 - Kvantum theme: [Fluent](https://www.pling.com/p/1499836/)

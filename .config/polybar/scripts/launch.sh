@@ -13,6 +13,6 @@ if xrandr | grep -q 'HDMI-0 connected'; then
   polybar sub 2>&1 | tee -a /tmp/polybar2.log & disown
   notify-send "Polybar" "Launched main and sub bars"
 else
-  polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
+  polybar main_2k 2>&1 | tee -a /tmp/polybar1.log & disown
   notify-send "Polybar" "Launched main bar"
 fi

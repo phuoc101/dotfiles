@@ -63,8 +63,8 @@ bindsym $mod+Escape exec betterlockscreen -l dimblur
 bindsym $mod+t exec kitty; workspace 1
 
 # start a browser
-bindsym $mod++b exec firefox; workspace 2
-bindsym $mod+shift+b exec brave-browser; workspace 2
+bindsym $mod+b exec brave-browser; workspace 2
+bindsym $mod+shift+b exec firefox; workspace 2
 
 # start a browser
 bindsym $mod+f exec nautilus
