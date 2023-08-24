@@ -317,10 +317,7 @@ for_window[class="Blender"] focus
 assign [class="openshot"] 10
 for_window[class="openshot"] focus
 
-assign [class="thunderbird"] 11
-for_window[class="thunderbird"] focus
-
-assign [class="obsidian"] 19
+assign [class="obsidian"] 11
 for_window[class="obsidian"] focus
 
 assign [class="obs"] 20
