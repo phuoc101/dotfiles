@@ -40,8 +40,9 @@ if [ "$opt_all" == true ] || [ "$opt_bg" == true ]
 then
   notify-send "INIT BACKGROUND PROGRAMS"
   echo "all: $opt_all"
+  sleep 1
   kdeconnect-indicator &
-  notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
+  # notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
   # Start ALSA service (for sound)
   alsactl init;
   notify-send "ALSA initiated"
@@ -61,7 +62,7 @@ fi
 # Update lockscreen
 if [ $opt_lock == true ] || [ $opt_all == true ]
 then
-  MY_LOCKSCREEN=~/dotfiles/wallpapers_dark/dark_gundam6.jpg
+  MY_LOCKSCREEN=~/dotfiles/wallpapers_dark/dark_gundam04.jpg
   notify-send "INIT LOCKSCREEN"
   notify-send "Updating betterlockscreen" "$MY_LOCKSCREEN"
   betterlockscreen -u $MY_LOCKSCREEN

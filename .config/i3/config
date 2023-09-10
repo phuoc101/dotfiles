@@ -244,9 +244,11 @@ focus_follows_mouse no
 # auto mount hard disks
 exec --no-startup-id udiskie
 
+# # kde connect
+# exec --no-startup-id /usr/lib/kdeconnectd
+
 # Configure multi-monitor, and launch polybars
-exec --no-startup-id /home/phuoc101/.zsh/init.zsh
-exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
+exec_always --no-startup-id ~/.local/bin/init_stuffs -a
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r
 # Autotiling

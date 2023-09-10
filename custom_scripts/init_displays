@@ -1,43 +1,78 @@
 #! /usr/bin/bash
 
+# ---
+# Options handling
 dark_mode=true
-while getopts "dl" OPTION;
-do
-    case "$OPTION" in
-        d) 
-          dark_mode=true
-          ;;
-        l) 
-          dark_mode=false
-          ;;
-        \?) 
-          echo "Invalid option -OPTARG" >&2
-          exit 1
-          ;;
-    esac
+while getopts "dl" OPTION; do
+	case "$OPTION" in
+	d)
+		dark_mode=true
+		;;
+	l)
+		dark_mode=false
+		;;
+	\?)
+		echo "Invalid option -OPTARG" >&2
+		exit 1
+		;;
+	esac
 done
 
-if [ "$dark_mode" == true ]
-then
-  notify-send "Set dark mode walls"
-  MY_WALLS_DIR=~/dotfiles/wallpapers_dark/
+# ---
+# Wallpapers setup
+if [ "$dark_mode" == true ]; then
+	notify-send "Set dark mode walls"
+	MY_WALLS_DIR=~/dotfiles/wallpapers_dark/
 else
-  notify-send "Set light mode walls"
-  MY_WALLS_DIR=~/dotfiles/wallpapers_light/
+	notify-send "Set light mode walls"
+	MY_WALLS_DIR=~/dotfiles/wallpapers_light/
 fi
 MY_WALLPAPER_LARGE=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
 MY_WALLPAPER_SMALL=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
 MY_WALLPAPER_SMALL_RIGHT=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
 
+# ---
+# Polybar setup
+
+kill_poly() {
+	sleep 1
+	# Terminate already running bar instances
+	# If all your bars have ipc enabled, you can use
+	polybar-msg cmd quit
+	# Otherwise you can use the nuclear option:
+	# killall -q polybar
+	echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
+}
+
+# Display-dependent polybar init
+init_poly_2() {
+	polybar main 2>&1 | tee -a /tmp/polybar1.log &
+	disown
+	polybar sub 2>&1 | tee -a /tmp/polybar2.log &
+	disown
+	notify-send "Polybar" "Launched main and sub bars"
+}
+
+init_poly_1() {
+	polybar main_2k 2>&1 | tee -a /tmp/polybar1.log &
+	disown
+	notify-send "Polybar" "Launched main bar"
+}
+
+# ---
 XRANDR_OUT=$(xrandr)
 if [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-0 connected primary 1920x1080"* ]]; then
-  autorandr --load home_vn
-  xrandr --output HDMI-0 --primary
-  feh --bg-scale $MY_WALLPAPER_SMALL --bg-scale $MY_WALLPAPER_SMALL_RIGHT
-  notify-send "Initialized display" "home_vn"
+	autorandr --load home_vn
+	xrandr --output HDMI-0 --primary
+	feh --bg-scale $MY_WALLPAPER_SMALL --bg-scale $MY_WALLPAPER_SMALL_RIGHT
+	notify-send "Initialized display" "home_vn"
+	kill_poly
+	init_poly_2
 elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
-  autorandr --load mobile
-  xrandr --output eDP-1-0 --primary
-  feh --bg-scale $MY_WALLPAPER_SMALL
-  notify-send "Initialized display" "mobile"
+	autorandr --load mobile
+	xrandr --output eDP-1-0 --primary
+	feh --bg-scale $MY_WALLPAPER_SMALL
+	notify-send "Initialized display" "mobile"
+	kill_poly
+	init_poly_1
 fi
