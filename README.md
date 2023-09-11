@@ -37,13 +37,14 @@
   - [nnn](https://github.com/jarun/nnn/tree/master) and [plugins](https://github.com/jarun/nnn/blob/master/plugins/README.md) (make with O_NERD=1)
   - [ani-cli](https://github.com/pystardust/ani-cli)
   - [Syncthing](https://syncthing.net/downloads/)
+  - [autotiling](https://github.com/nwg-piotr/autotiling) (need to install python3-i3ipc)
 
 - From apt:
 
   - Udiskie: auto mount external drives
   - CopyQ: clipboard manager
   - Btop: system monitoring
-  - Command: `sudo apt install udiskie copyq btop`
+  - Command: `sudo apt install udiskie copyq btop python3-i3ipc`
 
 ## Apps
 
