@@ -61,14 +61,14 @@ init_poly_1() {
 
 # ---
 XRANDR_OUT=$(xrandr)
-if [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-0 connected primary 1920x1080"* ]]; then
+if [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-0 connected primary 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 connected primary 1920x1080"* ]]; then
 	autorandr --load home_vn
 	xrandr --output HDMI-0 --primary
 	feh --bg-scale $MY_WALLPAPER_SMALL --bg-scale $MY_WALLPAPER_SMALL_RIGHT
 	notify-send "Initialized display" "home_vn"
 	kill_poly
 	init_poly_2
-elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
+elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 disconnected"* ]]; then
 	autorandr --load mobile
 	xrandr --output eDP-1-0 --primary
 	feh --bg-scale $MY_WALLPAPER_SMALL

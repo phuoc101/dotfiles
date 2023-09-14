@@ -20,9 +20,7 @@ lang=$(ibus engine)
 if [[ $lang == "xkb:us::eng" ]]; then
   ibus engine xkb:fi::fin
 elif [[ $lang == "xkb:fi::fin" ]]; then
-  ibus engine Unikey
-# elif [[ $lang == "Unikey" ]]; then
-#   ibus engine xkb:us::eng
+  ibus engine Bamboo::Us
 else
   ibus engine xkb:us::eng
 fi

@@ -94,5 +94,7 @@ ssdk() {
   export SDKMAN_DIR="$HOME/.sdkman"
   [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
-
+# FZF source
 [ -f ~/.zsh/.fzf.zsh ] && source ~/.zsh/.fzf.zsh
+# Rust source
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

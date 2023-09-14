@@ -6,7 +6,7 @@ if [[ ${IBUS_RAW} == "xkb:us::eng" ]]; then
     IBUS_LANG="EN"
 elif [[ ${IBUS_RAW} == "xkb:fi::fin" ]]; then
     IBUS_LANG="FI"
-elif [[ ${IBUS_RAW} == "Unikey" ]]; then
+elif [[ ${IBUS_RAW} == "Bamboo::Us" || ${IBUS_RAW} == "Unikey" ]]; then
     IBUS_LANG="VI"
 fi
 IBUS_LANG="${IBUS_LANG}"
