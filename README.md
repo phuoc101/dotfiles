@@ -3,7 +3,7 @@
 ## Essentials
 
 ```bash
-    sudo apt install git curl clang clang-format udiskie
+sudo apt install git curl clang clang-format udiskie
 ```
 
 - Shell:
@@ -16,8 +16,8 @@
   - [Flatpak](https://flatpak.org/setup/Ubuntu)
 
   ```bash
-      sudo apt install flatpak
-      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  sudo apt install flatpak
+  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
   ```
 
   - [NVM](https://github.com/nvm-sh/nvm#install--update-script)
@@ -28,7 +28,7 @@
   - [Rust](https://doc.rust-lang.org/cargo/getting-started/installation.html)
 
   ```bash
-      curl https://sh.rustup.rs -sSf | sh
+  curl https://sh.rustup.rs -sSf | sh
   ```
 
 - Editor
@@ -37,10 +37,10 @@
   - Formatters for languages: texlab, mdformat, xmlformmatter
 
   ```bash
-      pip install mdformat xmlformatter
-      sudo apt install clang-format texlive-full
-      cargo install texlab
-      go install github.com/jesseduffield/lazygit@latest
+  pip install mdformat xmlformatter
+  sudo apt install clang-format texlive-full
+  cargo install texlab
+  go install github.com/jesseduffield/lazygit@latest
   ```
 
 ## RICE
@@ -91,28 +91,30 @@
   - [dragon](https://github.com/mwh/dragon)
 
   ```bash
-      sudo apt-get install libgtk-3-dev
-      cd ~/sys_tools
-      git clone git@github.com:mwh/dragon.git
-      cd dragon
-      make install
-      cd ~
+  sudo apt-get install libgtk-3-dev
+  cd ~/sys_tools
+  git clone git@github.com:mwh/dragon.git
+  cd dragon
+  make install
+  cd ~
   ```
 
   - [fzf](https://github.com/junegunn/fzf#using-git)
   - [nnn](https://github.com/jarun/nnn#quickstart) and [plugins](https://github.com/jarun/nnn/blob/master/plugins/README.md) (make with O_NERD=1)
 
   ```bash
-      sudo apt-get install libreadline-dev
-      cd ~/sys_tools
-      git clone git@github.com:jarun/nnn.git
-      cd nnn
-      make O_NERD=1
-      cp nnn ~/.local/bin
+  sudo apt-get install libreadline-dev
+  cd ~/sys_tools
+  git clone git@github.com:jarun/nnn.git
+  cd nnn
+  make O_NERD=1
+  cp nnn ~/.local/bin
   ```
-    - *Note for not cd into file while searching*: go to src/nnn.c, search for line saying `/* If the only match is a dir, auto-enter and cd into it */` and comment the lower part
+
+  - *Note for not cd into file while searching*: go to src/nnn.c, search for line saying `/* If the only match is a dir, auto-enter and cd into it */` and comment the lower part
 
   - [ani-cli](https://github.com/pystardust/ani-cli)
+
   - [Syncthing](https://apt.syncthing.net/)
 
   ```
@@ -138,7 +140,7 @@
   - Command:
 
   ```bash
-    sudo apt install udiskie copyq btop
+  sudo apt install udiskie copyq btop
   ```
 
 ## Apps
@@ -148,11 +150,11 @@
   - [Brave](https://brave.com/linux/)
 
   ```bash
-      sudo apt install curl
-      sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-      echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-      sudo apt update
-      sudo apt install brave-browser
+  sudo apt install curl
+  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+  sudo apt update
+  sudo apt install brave-browser
   ```
 
   - [Telegram](https://desktop.telegram.org/)
@@ -161,35 +163,35 @@
   - [OpenShot](https://www.openshot.org/ppa/)
 
   ```bash
-    sudo add-apt-repository ppa:openshot.developers/ppa
-    sudo apt update
-    sudo apt install openshot-qt python3-openshot
+  sudo add-apt-repository ppa:openshot.developers/ppa
+  sudo apt update
+  sudo apt install openshot-qt python3-openshot
   ```
 
   - [ProtonVPN](https://protonvpn.com/support/linux-vpn-tool/#debian)
 
   ```bash
-      sudo apt-get install {/path/to/}protonvpn-stable-release_1.0.3_all.deb
-      sudo apt-get update
-      sudo apt-get install protonvpn-cli
+  sudo apt-get install {/path/to/}protonvpn-stable-release_1.0.3_all.deb
+  sudo apt-get update
+  sudo apt-get install protonvpn-cli
   ```
 
   - [Inkscape](https://wiki.inkscape.org/wiki/Installing_Inkscape#Ubuntu_or_Debian)
 
   ```bash
-    sudo add-apt-repository universe
-    sudo add-apt-repository ppa:inkscape.dev/stable
-    sudo apt-get update
-    sudo apt install inkscape
+  sudo add-apt-repository universe
+  sudo add-apt-repository ppa:inkscape.dev/stable
+  sudo apt-get update
+  sudo apt install inkscape
   ```
 
   - [ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo)
 
   ```bash
-    sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-    sudo apt-get update
-    sudo apt-get install ibus ibus-bamboo --install-recommends
-    ibus restart
+  sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+  sudo apt-get update
+  sudo apt-get install ibus ibus-bamboo --install-recommends
+  ibus restart
   ```
 
 - From flatpak:
@@ -217,8 +219,27 @@
   - Command:
 
   ```bash
-    sudo apt install flameshot obs-studio handbrake zathura sxiv kdeconnect mpv
+  sudo apt install flameshot obs-studio handbrake zathura sxiv kdeconnect mpv
   ```
+
+# Research
+
+- [ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
+
+```bash
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt install ros-noetic-desktop-full
+```
+
+- [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/)
+```bash
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+```
+
 
 # Fixes
 
