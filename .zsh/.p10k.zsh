@@ -32,7 +32,7 @@
   functions -M my_git_formatter 2>/dev/null
   function prompt_my_ros_env() {
       if [[ -v ROS_DISTRO ]]; then
-          p10k segment -f 193 -t " $ROS_DISTRO"
+          p10k segment -f 193 -t "󱜙 $ROS_DISTRO"
       fi
   }
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
@@ -205,7 +205,7 @@
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
   # Custom icon.
-  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=' '
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=' '
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.

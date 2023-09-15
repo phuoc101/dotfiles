@@ -70,7 +70,7 @@ _comp_options+=(globdots)   # Include hidden files.
 source ~/.zsh/vi-mode.zsh
 source ~/.zsh/conda.zsh
 source ~/.zsh/fzf-funcs.zsh
-# source ~/.zsh/ros-funcs.zsh
+source ~/.zsh/ros-funcs.zsh
 source ~/.zsh/nvim-funcs.zsh
 source ~/.zsh/nnn.zsh
 source ~/.zsh/zshenvs.zsh

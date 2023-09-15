@@ -3,13 +3,17 @@
 # ---
 # Options handling
 dark_mode=true
-while getopts "dl" OPTION; do
+poly_init=false
+while getopts ":dl:p" OPTION; do
 	case "$OPTION" in
 	d)
 		dark_mode=true
 		;;
 	l)
 		dark_mode=false
+		;;
+	p)
+		poly_init=true
 		;;
 	\?)
 		echo "Invalid option -OPTARG" >&2
@@ -61,18 +65,22 @@ init_poly_1() {
 
 # ---
 XRANDR_OUT=$(xrandr)
-if [[ $XRANDR_OUT == *"HDMI-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-0 connected primary 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 connected primary 1920x1080"* ]]; then
+if [[ $XRANDR_OUT == *"HDMI-1-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 connected primary 1920x1080"* ]]; then
 	autorandr --load home_vn
-	xrandr --output HDMI-0 --primary
+	xrandr --output HDMI-1-0 --primary
 	feh --bg-scale $MY_WALLPAPER_SMALL --bg-scale $MY_WALLPAPER_SMALL_RIGHT
 	notify-send "Initialized display" "home_vn"
-	kill_poly
-	init_poly_2
+	if [ "$poly_init" == true ]; then
+		kill_poly
+		init_poly_2
+	fi
 elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 disconnected"* ]]; then
 	autorandr --load mobile
-	xrandr --output eDP-1-0 --primary
+	xrandr --output eDP --primary
 	feh --bg-scale $MY_WALLPAPER_SMALL
 	notify-send "Initialized display" "mobile"
-	kill_poly
-	init_poly_1
+	if [ "$poly_init" == true ]; then
+		kill_poly
+		init_poly_1
+	fi
 fi
