@@ -196,12 +196,13 @@ sudo apt install git curl clang clang-format udiskie tmux
   - fd: Rust version of find
   - bat: Rust version of cat
   - exa: (fancier) Rust version of ls
+  - ripgrep: (fancier) Rust version of grep
   - CopyQ: clipboard manager
   - Command:
 
   ```bash
   sudo apt install udiskie copyq btop bat fd-find
-  cargo install exa
+  cargo install exa ripgrep
   ```
 
 ## Apps
@@ -273,6 +274,15 @@ sudo apt install git curl clang clang-format udiskie tmux
   ibus restart
   ```
 
+  - [Final2x](https://github.com/Tohrusky/Final2x/releases)
+
+  ```bash
+  # Download the AppImage/Deb file from one of the releases
+  # Better to install this inside a virtual environment
+  conda create -n superres python=3.8 pip
+  pip install Final2x-core
+  ```
+
 - From flatpak:
 
 - `flatpak install flathub md.obsidian.Obsidian`
@@ -298,7 +308,9 @@ sudo apt install git curl clang clang-format udiskie tmux
   - Command:
 
   ```bash
-  sudo apt install flameshot obs-studio handbrake zathura sxiv kdeconnect mpv
+  sudo add-apt-repository ppa:obsproject/obs-studio
+  sudo apt update
+  sudo apt install flameshot ffmpeg obs-studio handbrake zathura sxiv kdeconnect mpv
   ```
 
 # Research

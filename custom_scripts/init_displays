@@ -39,7 +39,7 @@ MY_WALLPAPER_SMALL_RIGHT=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
 # Polybar setup
 
 kill_poly() {
-	sleep 1
+	# sleep 1
 	# Terminate already running bar instances
 	# If all your bars have ipc enabled, you can use
 	polybar-msg cmd quit

@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 mkdir -p ~/sys_tools
 echo "===ADDING PPAs\n"
+# OBS-studio
+sudo add-apt-repository ppa:obsproject/obs-studio
 # Ibus Bamboo
 sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
 # Inkscape
@@ -72,13 +74,13 @@ sudo apt install git curl clang clang-format udiskie tmux zsh clang-format \
     libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev \
     libjpeg-dev libgtk-3-dev libreadline-dev xdotool udiskie copyq btop bat \
     fd-find brave-browser signal-desktop openshot-qt python3-openshot syncthing \
-    i3 flameshot obs-studio handbrake zathura sxiv kdeconnect mpv
+    i3 flameshot ffmpeg obs-studio handbrake zathura sxiv kdeconnect mpv
 sudo apt-get install ibus ibus-bamboo --install-recommends
 ibus restart
 
 flatpak install flathub md.obsidian.Obsidian
 # Install Rust applications
-cargo install texlab exa
+cargo install texlab exa ripgrep
 # Install from pip
 pip3 install --user mdformat xmlformatter black flake8 pynvim i3ipc rofimoji
 # Install lazygit
@@ -144,4 +146,5 @@ echo "DONE! Install manually:
 - Whatsdesk (https://gitlab.com/zerkc/whatsdesk)
 - Veracrypt (https://www.veracrypt.fr/en/Downloads.html)
 - ProtonVPN (https://protonvpn.com/support/linux-vpn-tool/#debian)
+- Final2x (https://github.com/Tohrusky/Final2x/releases)
 "
