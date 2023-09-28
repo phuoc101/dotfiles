@@ -80,7 +80,7 @@ ibus restart
 
 flatpak install flathub md.obsidian.Obsidian
 # Install Rust applications
-cargo install texlab exa ripgrep
+cargo install texlab exa ripgrep stylua
 # Install from pip
 pip3 install --user mdformat xmlformatter black flake8 pynvim i3ipc rofimoji
 # Install lazygit

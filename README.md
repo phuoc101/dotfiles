@@ -34,12 +34,12 @@ sudo apt install git curl clang clang-format udiskie tmux
 - Editor
 
   - texlive-full: LaTeX stuffs
-  - Formatters for languages: texlab, mdformat, xmlformmatter, black, flake8
+  - Formatters for languages: texlab, mdformat, xmlformmatter, black, flake8, stylua
 
   ```bash
   pip install mdformat xmlformatter black flake8
   sudo apt install clang-format texlive-full
-  cargo install texlab
+  cargo install texlab stylua
   go install github.com/jesseduffield/lazygit@latest
   ```
 
@@ -118,7 +118,7 @@ sudo apt install git curl clang clang-format udiskie tmux
   - brightnessctl: control screen brightness
     - **NOTE**: To make brightnessctl work without sudo, add user to the video group with: `sudo usermod -aG video ${USER}`
   - Command: `sudo apt install i3 polybar rofi arandr autorandr qt5-style-kvantum brightnessctl lxappearance feh qt5ct`
-  - *NOTE*: For **Ubuntu 20.04** use this PPA: `sudo add-apt-repository ppa:cppiber/ppa`
+  - _NOTE_: For **Ubuntu 20.04** use this PPA: `sudo add-apt-repository ppa:cppiber/ppa`
 
 - Theming:
 
@@ -163,8 +163,8 @@ sudo apt install git curl clang clang-format udiskie tmux
   cd ~/.config/nnn/plugins
   ```
 
-  - *Note for not cd into file while searching*: go to src/nnn.c, search for line saying `/* If the only match is a dir, auto-enter and cd into it */` and comment the lower part
-  - *Note for remapping C-F and C-D for page down/up*: go to src/nnn.h, add:
+  - _Note for not cd into file while searching_: go to src/nnn.c, search for line saying `/* If the only match is a dir, auto-enter and cd into it */` and comment the lower part
+  - _Note for remapping C-F and C-D for page down/up_: go to src/nnn.h, add:
 
   ```cpp
   { CONTROL('F'),   SEL_PGDN },
@@ -336,7 +336,32 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ```
 
-# Fixes
+# Settings and Fixes
 
 - `N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository doesn't support architecture 'i386'`
   - Add \[arch=amd64\] to `.list` file in `/etc/apt/sources.list.d`
+- Add Natural scrolling:
+  - Edit `/usr/share/X11/xorg.conf.d/40-libinput.conf`
+  - Add there `Option "NaturalScrolling" "True"` like this:
+  - For your mouse:
+  ```
+  # Match on all types of devices but joysticks
+  Section "InputClass"
+          Identifier "libinput pointer catchall"
+          MatchIsPointer "on"
+          MatchDevicePath "/dev/input/event*"
+          Driver "libinput"
+          Option "NaturalScrolling" "True"
+  EndSection
+  ```
+  - For your touchpad:
+  ```
+  Section "InputClass"
+          Identifier "libinput touchpad catchall"
+          MatchIsTouchpad "on"
+          MatchDevicePath "/dev/input/event*"
+          Driver "libinput"
+          Option "NaturalScrolling" "True"
+  EndSection
+  ```
+  - Then log off and on to apply.
