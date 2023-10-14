@@ -242,17 +242,17 @@ focus_follows_mouse no
 
 ### Startup executions ###
 # auto mount hard disks
-exec --no-startup-id udiskie
+exec --no-startup-id udiskie &
 
 # # kde connect
 # exec --no-startup-id /usr/lib/kdeconnectd
 
 # Configure multi-monitor, and launch polybars
-exec_always --no-startup-id ~/.local/bin/init_stuffs -a
+exec_always --no-startup-id ~/.local/bin/init_stuffs -a &
 # start language daemon
-exec --no-startup-id ibus-daemon --xim -d -r
+exec --no-startup-id ibus-daemon --xim -d -r &
 # Autotiling
-exec_always autotiling -w 1 --limit 2
+exec_always autotiling -w 1 --limit 2 &
 # map esc to tilde (for 65 keyboard)
 # exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
 

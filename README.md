@@ -336,6 +336,8 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ```
 
+- [Zotero](https://www.zotero.org/download/)
+
 # Settings and Fixes
 
 - `N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository doesn't support architecture 'i386'`

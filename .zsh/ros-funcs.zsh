@@ -1,7 +1,7 @@
 # ---- ROS1 NOETIC -----
 snoetic() {
   source /opt/ros/noetic/setup.zsh
-  source ~/venvs/ros_venv/bin/activate
+  source ~/venvs/torch_ros_venv/bin/activate
 }
 
 source /usr/share/gazebo/setup.sh
