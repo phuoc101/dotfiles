@@ -117,7 +117,13 @@ sudo apt install git curl clang clang-format udiskie tmux
   - qt5ct: qt theming options
   - brightnessctl: control screen brightness
     - **NOTE**: To make brightnessctl work without sudo, add user to the video group with: `sudo usermod -aG video ${USER}`
-  - Command: `sudo apt install i3 polybar rofi arandr autorandr qt5-style-kvantum brightnessctl lxappearance feh qt5ct`
+  - Command:
+
+  ```bash
+  sudo apt install i3 polybar rofi arandr qt5-style-kvantum brightnessctl lxappearance feh qt5ct;
+  pip install autorandr
+  ```
+
   - _NOTE_: For **Ubuntu 20.04** use this PPA: `sudo add-apt-repository ppa:cppiber/ppa`
 
 - Theming:
@@ -127,6 +133,7 @@ sudo apt install git curl clang clang-format udiskie tmux
     - [Papyrus](https://github.com/limbusdev/papyrus-icon-theme)
   - GTK theme: [Fluent](https://www.pling.com/p/1477941/)
   - Kvantum theme: [Fluent](https://www.pling.com/p/1499836/)
+  - Terminal Font: [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip)
 
 ## CLI Tools
 
