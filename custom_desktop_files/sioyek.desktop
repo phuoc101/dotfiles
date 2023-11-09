@@ -7,6 +7,6 @@ Exec=sioyek %f
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=~/.icons/extras/sioyek-icon-linux.png
+Icon=~/dotfiles/icons/com.github.ahrm.sioyek.png
 Categories=Development;Viewer;
 MimeType=application/pdf;

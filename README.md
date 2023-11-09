@@ -238,6 +238,7 @@ sudo apt install git curl clang clang-format udiskie tmux
   sudo apt update && sudo apt install signal-desktop
   ```
 
+  - [Zoom](https://zoom.us/download)
   - [Whatsdesk](https://gitlab.com/zerkc/whatsdesk)
   - [Veracrypt](https://www.veracrypt.fr/en/Downloads.html)
   - [OpenShot](https://www.openshot.org/ppa/)
