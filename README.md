@@ -208,8 +208,8 @@ sudo apt install git curl clang clang-format udiskie tmux
   - Command:
 
   ```bash
-  sudo apt install udiskie copyq btop bat fd-find
-  cargo install exa ripgrep
+  sudo apt install udiskie copyq btop fd-find
+  cargo install exa ripgrep bat
   ```
 
 ## Apps
