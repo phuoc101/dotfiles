@@ -375,3 +375,4 @@ rm -rf ~/miniconda3/miniconda.sh
   EndSection
   ```
   - Then log off and on to apply.
+- To adjust content size for HiDPI screens, change `Xft.dpi = 150` in `~/.Xresources`

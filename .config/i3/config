@@ -37,7 +37,7 @@ for_window [class=".*"] border pixel 3
 # Set inner/outer gaps
 gaps inner   8
 gaps outer   8
-gaps top     50
+gaps top     30
 gaps bottom  4
 # smart_borders on
 
