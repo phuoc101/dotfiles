@@ -208,8 +208,8 @@ sudo apt install git curl clang clang-format udiskie tmux
   - Command:
 
   ```bash
-  sudo apt install udiskie copyq btop bat fd-find
-  cargo install exa ripgrep
+  sudo apt install udiskie copyq btop fd-find
+  cargo install exa ripgrep bat
   ```
 
 ## Apps
@@ -376,3 +376,4 @@ rm -rf ~/miniconda3/miniconda.sh
   EndSection
   ```
   - Then log off and on to apply.
+- To adjust content size for HiDPI screens, change `Xft.dpi = 150` in `~/.Xresources`
