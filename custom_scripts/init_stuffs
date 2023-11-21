@@ -39,11 +39,20 @@ fi
 # Update lockscreen
 if [ $opt_lock == true ]
 then
-  MY_LOCKSCREEN=~/dotfiles/wallpapers_dark/dark_gundam_04.jpg
+  MY_WALLS_DIR=~/dotfiles/wallpapers_dark/
+  MY_LOCKSCREEN=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
   notify-send "INIT LOCKSCREEN"
   notify-send "Updating betterlockscreen" "$MY_LOCKSCREEN"
   betterlockscreen -u $MY_LOCKSCREEN
   notify-send "betterlockscreen updated" "$MY_LOCKSCREEN"
+fi
+
+# Init displays
+if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
+then
+  notify-send "INIT SCREEN"
+  init_displays
+  init_displays
 fi
 
 # Start background apps
@@ -65,10 +74,3 @@ then
 fi
 
 
-# Init displays
-if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
-then
-  notify-send "INIT SCREEN"
-  init_displays
-  init_displays
-fi
