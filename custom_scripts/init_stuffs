@@ -35,12 +35,6 @@ if [ "$opt_all" == true ] || [ "$opt_polybar" == true ]
 then
 source ~/.config/polybar/scripts/launch.sh
 fi
-
-if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
-then
-  notify-send "INIT SCREEN"
-  init_displays
-fi
 #
 # Update lockscreen
 if [ $opt_lock == true ]
@@ -68,4 +62,13 @@ then
   notify-send "CopyQ initiated"
   /usr/bin/syncthing serve --no-browser --logfile=default &
   notify-send "Syncthing initiated"
+fi
+
+
+# Init displays
+if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
+then
+  notify-send "INIT SCREEN"
+  init_displays
+  init_displays
 fi

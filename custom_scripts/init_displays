@@ -65,20 +65,29 @@ init_poly_1() {
 
 # ---
 XRANDR_OUT=$(xrandr)
-if [[ $XRANDR_OUT == *"HDMI-1-0 connected 1920x1080"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 connected primary 1920x1080"* ]]; then
-    autorandr --load home_vn
+if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
+    autorandr --load work_aalto
+    notify-send "Initialized display" "work_aalto"
     xrandr --output HDMI-1-0 --primary
     feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
-    notify-send "Initialized display" "home_vn"
     if [ "$poly_init" == true ]; then
         kill_poly
         init_poly_2
     fi
-elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]] || [[ $XRANDR_OUT == *"HDMI-1-0 disconnected"* ]]; then
+elif [[ $XRANDR_OUT == *"DP-1-4 connected"* ]]; then
+    autorandr --load work_aalto_usbc
+    notify-send "Initialized display" "work_aalto_usbc"
+    xrandr --output DP-1-4 --primary
+    feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
+    if [ "$poly_init" == true ]; then
+        kill_poly
+        init_poly_2
+    fi
+else
     autorandr --load mobile
     xrandr --output eDP --primary
-    feh --bg-scale --randomize $MY_WALLS_DIR
     notify-send "Initialized display" "mobile"
+    feh --bg-scale --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         kill_poly
         init_poly_1

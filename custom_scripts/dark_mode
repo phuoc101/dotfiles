@@ -4,7 +4,7 @@ export NVIM_BG=dark
 sed -i 's/light.conf/dark.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
 sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
-sed -i 's/colorscheme dayfox/colorscheme carbonfox/' $DOTFILES_DIR/.config/nvim/init.lua
+sed -i 's/colorscheme = "dayfox"/colorscheme = "carbonfox"/' $DOTFILES_DIR/.config/nvim/lua/user/init.lua
 reload_nvim_theme -c carbonfox
 
 # Change zsh highlight
