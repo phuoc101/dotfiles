@@ -83,6 +83,15 @@ elif [[ $XRANDR_OUT == *"DP-1-4 connected"* ]]; then
         kill_poly
         init_poly_2
     fi
+elif [[ $XRANDR_OUT == *"DisplayPort-2 connected"* ]]; then
+    autorandr --load home_fl
+    notify-send "Initialized display" "home_fl"
+    xrandr --output DisplayPort-2 --primary
+    feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
+    if [ "$poly_init" == true ]; then
+        kill_poly
+        init_poly_2
+    fi
 else
     autorandr --load mobile
     xrandr --output eDP --primary
