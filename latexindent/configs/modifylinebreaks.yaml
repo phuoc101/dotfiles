@@ -1,7 +1,0 @@
-modifyLineBreaks:
-    textWrapOptions:
-        columns: 0
-            # items: 60
-            # masterDocument: 80
-        # items: 1
-        # masterDocument: 1
