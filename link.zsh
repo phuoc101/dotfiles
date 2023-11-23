@@ -18,8 +18,6 @@ trash ~/.local/bin/init_stuffs
 trash ~/.tmux.conf
 trash ~/.wezterm.lua
 trash ~/.icons/extras/
-trash ~/indentconfig.yaml
-trash ~/.indentconfig.yaml
 
 # Link config files
 ln -s ~/dotfiles/.config/aliasrc ~/.config/aliasrc
@@ -38,4 +36,3 @@ ln -s ~/dotfiles/custom_scripts/* ~/.local/bin
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua
 ln -s ~/dotfiles/.icons/extras/ ~/.icons/
-ln -s ~/dotfiles/latexindent/indentconfig.yaml ~/indentconfig.yaml
