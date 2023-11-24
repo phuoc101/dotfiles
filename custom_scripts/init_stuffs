@@ -33,7 +33,7 @@ done
 
 if [ "$opt_all" == true ] || [ "$opt_polybar" == true ]
 then
-source ~/.config/polybar/scripts/launch.sh
+  init_displays -p
 fi
 #
 # Update lockscreen
@@ -51,7 +51,6 @@ fi
 if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
 then
   notify-send "INIT SCREEN"
-  init_displays
   init_displays
 fi
 
