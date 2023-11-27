@@ -156,4 +156,6 @@ echo "DONE! Install manually:
 - Veracrypt (https://www.veracrypt.fr/en/Downloads.html)
 - ProtonVPN (https://protonvpn.com/support/linux-vpn-tool/#debian)
 - Final2x (https://github.com/Tohrusky/Final2x/releases)
+- Foxglove Studio (https://foxglove.dev/download)
+)
 "
