@@ -43,7 +43,7 @@ then
   MY_LOCKSCREEN=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
   notify-send "INIT LOCKSCREEN"
   notify-send "Updating betterlockscreen" "$MY_LOCKSCREEN"
-  betterlockscreen -u $MY_LOCKSCREEN
+  betterlockscreen -u $MY_LOCKSCREEN --fx dim,blur
   notify-send "betterlockscreen updated" "$MY_LOCKSCREEN"
 fi
 
