@@ -4,7 +4,7 @@
 # Options handling
 dark_mode=true
 poly_init=false
-while getopts ":dl:p" OPTION; do
+while getopts "ldp" OPTION; do
     case "$OPTION" in
         d)
             dark_mode=true
