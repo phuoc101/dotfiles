@@ -87,7 +87,7 @@ source ~/.config/aliasrc
 #
 # #export TERM=xerm-color
 #
-source ~/.zsh/ssh.zsh
+# source ~/.zsh/ssh.zsh
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 ssdk() {
   export SDKMAN_DIR="$HOME/.sdkman"
