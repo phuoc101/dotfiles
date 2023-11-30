@@ -32,7 +32,7 @@ font pango:JetBrainsMono Nerd Font 8
 exec --no-startup-id nm-applet
 
 # Border
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 
 # Set inner/outer gaps
 gaps inner   8
