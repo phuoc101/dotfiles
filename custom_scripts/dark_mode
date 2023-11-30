@@ -1,32 +1,10 @@
 #!/usr/bin/zsh
 export DOTFILES_DIR=~/dotfiles
-export NVIM_BG=dark
 sed -i 's/light.conf/dark.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
 sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
 sed -i 's/colorscheme = "dayfox"/colorscheme = "carbonfox"/' $DOTFILES_DIR/.config/nvim/lua/user/init.lua
 reload_nvim_theme -c carbonfox
 
-# Change zsh highlight
-# trash ~/.zsh/zsh-highlight-config.zsh
-# echo 'ZSH_HIGHLIGHT_STYLES[root]="bg=red"' >> ~/.zsh/zsh-highlight-config.zsh
-# echo 'ZSH_HIGHLIGHT_STYLES[precommand]=fg=#48B9C7,bold' >> ~/.zsh/zsh-highlight-config.zsh
-# echo 'ZSH_HIGHLIGHT_STYLES[arg0]=fg=#ebcb8b,bold' >> ~/.zsh/zsh-highlight-config.zsh
-# echo 'ZSH_HIGHLIGHT_STYLES[comment]="none"' >> ~/.zsh/zsh-highlight-config.zsh
-# source ~/.zsh/zsh-highlight-config.zsh
-
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 init_displays -d
-
-# killall -9 superpaper
-# XRANDR_OUT=$(xrandr)
-# if [[ $XRANDR_OUT == *"HDMI-0 connected"* ]]; then
-#   notify-send "INIT MULTISCREEN DARK WALLPAPER"
-#   superpaper --profile multi_dark
-# elif [[ $XRANDR_OUT == *"HDMI-0 disconnected"* ]]; then
-#   notify-send "INIT DARK WALLPAPER"
-#   superpaper --profile single_dark
-# fi
-
-# Gnome wallpapers
-# gsettings set org.gnome.desktop.background picture-uri file:///home/phuoc101/Pictures/wallpapers/ds-dark.jpg

@@ -358,6 +358,8 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt install gh -y
 ```
 
+- [Foxglove Studio](https://foxglove.dev/download)
+
 # Settings and Fixes
 
 - `N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository doesn't support architecture 'i386'`

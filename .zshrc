@@ -74,7 +74,6 @@ source ~/.zsh/ros-funcs.zsh
 source ~/.zsh/nvim-funcs.zsh
 source ~/.zsh/nnn.zsh
 source ~/.zsh/zshenvs.zsh
-source ~/.zsh/sys-funcs.zsh
 source ~/.zsh/kitty.zsh
 # # P10k prompt
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
@@ -88,7 +87,7 @@ source ~/.config/aliasrc
 #
 # #export TERM=xerm-color
 #
-source ~/.zsh/ssh.zsh
+# source ~/.zsh/ssh.zsh
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 ssdk() {
   export SDKMAN_DIR="$HOME/.sdkman"

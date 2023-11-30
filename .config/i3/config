@@ -71,6 +71,7 @@ bindsym $mod+f exec nautilus
 
 # screenshot
 bindsym Print exec flameshot gui
+bindsym shift+Print exec flameshot screen -c
 
 # kill focused window
 bindsym $mod+q kill
@@ -247,14 +248,14 @@ exec --no-startup-id udiskie &
 # # kde connect
 # exec --no-startup-id /usr/lib/kdeconnectd
 
-# Configure multi-monitor, and launch polybars
-exec_always --no-startup-id ~/.local/bin/init_stuffs -a &
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r &
 # Autotiling
 exec_always autotiling -w 1 --limit 2 &
+# Configure multi-monitor, and launch polybars
+exec --no-startup-id ~/.local/bin/init_stuffs -a &
 # map esc to tilde (for 65 keyboard)
-# exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
+exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
 
 # start picom
 # exec --no-startup-id picom
@@ -322,6 +323,9 @@ for_window[class="openshot"] focus
 assign [class="obsidian"] 11
 for_window[class="obsidian"] focus
 
+assign [class="Zotero"] 12
+for_window[class="Zotero"] focus
+
 assign [class="obs"] 20
 for_window[class="obs"] focus
 
@@ -332,16 +336,24 @@ set $ext_monitor DisplayPort-2
 # bind workspaces to monitor
 workspace 1 output $ext_monitor
 workspace 2 output $ext_monitor
+for_window [workspace="2"] layout tabbed
 workspace 3 output $ext_monitor
 workspace 4 output $ext_monitor
+for_window [workspace="4"] layout tabbed
 workspace 5 output $ext_monitor
+for_window [workspace="5"] layout tabbed
 workspace 6 output $ext_monitor
+for_window [workspace="6"] layout tabbed
 workspace 7 output $ext_monitor
 workspace 8 output $ext_monitor
+for_window [workspace="8"] layout tabbed
 workspace 9 output $ext_monitor
+for_window [workspace="9"] layout tabbed
 workspace 10 output $ext_monitor
+for_window [workspace="10"] layout tabbed
 workspace 11 output $ext_monitor
 workspace 12 output $ext_monitor
+for_window [workspace="12"] layout tabbed
 workspace 13 output $ext_monitor
 workspace 14 output $ext_monitor
 workspace 15 output $lap_monitor
