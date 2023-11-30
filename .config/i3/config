@@ -247,14 +247,14 @@ exec --no-startup-id udiskie &
 # # kde connect
 # exec --no-startup-id /usr/lib/kdeconnectd
 
-# Configure multi-monitor, and launch polybars
-exec_always --no-startup-id ~/.local/bin/init_stuffs -a &
 # start language daemon
 exec --no-startup-id ibus-daemon --xim -d -r &
 # Autotiling
 exec_always autotiling -w 1 --limit 2 &
+# Configure multi-monitor, and launch polybars
+exec --no-startup-id ~/.local/bin/init_stuffs -a &
 # map esc to tilde (for 65 keyboard)
-# exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
+exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
 
 # start picom
 # exec --no-startup-id picom
@@ -321,6 +321,9 @@ for_window[class="openshot"] focus
 
 assign [class="obsidian"] 11
 for_window[class="obsidian"] focus
+
+assign [class="Zotero"] 12
+for_window[class="Zotero"] focus
 
 assign [class="obs"] 20
 for_window[class="obs"] focus
