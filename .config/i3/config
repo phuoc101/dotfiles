@@ -71,6 +71,7 @@ bindsym $mod+f exec nautilus
 
 # screenshot
 bindsym Print exec flameshot gui
+bindsym shift+Print exec flameshot screen -c
 
 # kill focused window
 bindsym $mod+q kill

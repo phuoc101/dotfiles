@@ -31,24 +31,6 @@ do
     esac
 done
 
-# Start background apps
-if [ "$opt_all" == true ] || [ "$opt_bg" == true ]
-then
-    notify-send "INIT BACKGROUND PROGRAMS"
-    echo "all: $opt_all"
-    sleep 1
-    # kdeconnect-indicator &
-    # notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
-    # Start ALSA service (for sound)
-    alsactl init;
-    notify-send "ALSA initiated"
-    # Launching background apps
-    copyq &
-    notify-send "CopyQ initiated"
-    /usr/bin/syncthing serve --no-browser --logfile=default &
-    notify-send "Syncthing initiated"
-fi
-
 # Update lockscreen
 if [ $opt_lock == true ]
 then
@@ -70,4 +52,22 @@ if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
 then
     notify-send "INIT SCREEN"
     init_displays
+fi
+
+# Start background apps
+if [ "$opt_all" == true ] || [ "$opt_bg" == true ]
+then
+    notify-send "INIT BACKGROUND PROGRAMS"
+    echo "all: $opt_all"
+    sleep 1
+    # kdeconnect-indicator &
+    # notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
+    # Start ALSA service (for sound)
+    alsactl init;
+    notify-send "ALSA initiated"
+    # Launching background apps
+    copyq &
+    notify-send "CopyQ initiated"
+    /usr/bin/syncthing serve --no-browser --logfile=default &
+    notify-send "Syncthing initiated"
 fi
