@@ -67,10 +67,15 @@ then
     notify-send "INIT BACKGROUND PROGRAMS"
     echo "all: $opt_all"
     sleep 1
-    # kdeconnect-indicator &
-    # notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
+    if ! [ -x "$(command -v kdeconnect-indicator)" ]
+    then
+        notify-send "KDE-Connect not found"
+    else
+        kdeconnect-indicator &
+        notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
+    fi
     # Start ALSA service (for sound)
-    alsactl init;
+    alsactl init &
     notify-send "ALSA initiated"
     # Launching background apps
     copyq &
