@@ -5,7 +5,8 @@ opt_screen=false
 opt_lock=false
 opt_bg=false
 opt_polybar=false
-while getopts "slabp" OPTION;
+lock_file=""
+while getopts "sl:abp" OPTION;
 do
     case "$OPTION" in
         a)
@@ -14,6 +15,7 @@ do
             ;;
         l)
             opt_lock=true
+            lock_file="$OPTARG"
             ;;
         s)
             opt_screen=true
@@ -34,8 +36,13 @@ done
 # Update lockscreen
 if [ $opt_lock == true ]
 then
-    MY_WALLS_DIR=~/dotfiles/wallpapers_dark/
-    MY_LOCKSCREEN=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
+    if [ "$lock_file" = "" ]
+    then
+        MY_WALLS_DIR=~/dotfiles/wallpapers_dark/
+        MY_LOCKSCREEN=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
+    else
+        MY_LOCKSCREEN=$(realpath $lock_file)
+    fi
     notify-send "INIT LOCKSCREEN"
     notify-send "Updating betterlockscreen" "$MY_LOCKSCREEN"
     betterlockscreen -u $MY_LOCKSCREEN --fx dimblur
