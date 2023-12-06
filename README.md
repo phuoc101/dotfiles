@@ -390,3 +390,4 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
   ```
   - Then log off and on to apply.
 - To adjust content size for HiDPI screens, change `Xft.dpi = 150` in `~/.Xresources`
+- To fix firefox slow booting up, `sudo apt remove xdg-desktop-portal`
