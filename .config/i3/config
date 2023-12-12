@@ -294,10 +294,13 @@ for_window[class="zoom"] focus
 
 assign [class="Io.github.celluloid_player.Celluloid"] 6
 for_window[class="Io.github.celluloid_player.Celluloid"] focus
+for_window[class="Io.github.celluloid_player.Celluloid"] fullscreen enable
 assign [class="mpv"] 6
 for_window[class="mpv"] focus
+for_window[class="mpv"] fullscreen enable
 assign [class="vlc"] 6
 for_window[class="vlc"] focus
+for_window[class="vlc"] fullscreen enable
 
 assign [class="MATLAB"] 7
 for_window[class="MATLAB"] focus
