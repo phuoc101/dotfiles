@@ -24,8 +24,8 @@ set foldlevelstart=9
 set foldnestmax=9
 set foldmethod=indent   "fold base on indent level
 nnoremap <leader><space> za
-nnoremap j gj
-nnoremap k gk
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap B ^
 nnoremap E $
 nnoremap $ <nop>
