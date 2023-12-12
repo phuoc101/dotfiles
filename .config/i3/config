@@ -202,7 +202,7 @@ bindsym $mod+Shift+Q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+shift+space exec ~/.zsh/toggle_language.zsh
 
 # resize window (you can also use the mouse for that)
-set $window-resize-amount 20px
+set $window-resize-amount 50px
 mode "resize" {
 # These bindings trigger as soon as you enter the resize mode
 
@@ -273,10 +273,8 @@ assign [class="Gnome-terminal"] 1
 
 assign [class="firefox"] 2
 for_window[class="firefox"] focus
-for_window[class="firefox"] fullscreen enable
 assign [class="Brave-browser"] 2
 for_window[class="Brave-browser"] focus
-for_window[class="Brave-browser"] fullscreen enable
 
 assign [class="Signal"] 3
 for_window[class="Signal"] focus
@@ -287,7 +285,6 @@ for_window[class="whatsdesk"] focus
 
 assign [class="discord"] 4
 for_window[class="discord"] focus
-for_window[class="discord"] fullscreen enable
 
 assign [class="zoom"] 5
 for_window[class="zoom"] focus
@@ -315,7 +312,6 @@ assign [class="ONLYOFFICE"] 8
 for_window[class="ONLYOFFICE"] focus
 assign [class="Inkscape"] 8
 for_window[class="Inkscape"] focus
-for_window[class="Inkscape"] fullscreen enable
 
 assign [class="teams"] 9
 for_window[class="teams"] focus
@@ -329,18 +325,16 @@ for_window[class="openshot"] focus
 
 assign [class="obsidian"] 11
 for_window[class="obsidian"] focus
-for_window[class="obsidian"] fullscreen enable
 
 assign [class="Zotero"] 12
 for_window[class="Zotero"] focus
 
 assign [class="obs"] 20
 for_window[class="obs"] focus
-for_window[class="obs"] fullscreen enable
 
 ### Monitor config ###
 set $lap_monitor EDP
-set $ext_monitor DisplayPort-2
+set $ext_monitor DP-1-4
 
 # bind workspaces to monitor
 workspace 1 output $ext_monitor
