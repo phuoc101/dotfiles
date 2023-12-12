@@ -110,7 +110,7 @@ sudo apt install git curl clang clang-format udiskie tmux
   - I3-wm: window manager
   - Polybar: customizable top bar
   - rofi: app launcher
-  - arandr and autorandr: display configs
+  - arandr and umonitor: display configs
   - kvantum: kvantum manager
   - feh: wallpaper setting
   - lxappearance: gtk theming
@@ -121,7 +121,10 @@ sudo apt install git curl clang clang-format udiskie tmux
 
   ```bash
   sudo apt install i3 polybar rofi arandr qt5-style-kvantum brightnessctl lxappearance feh qt5ct;
-  pip install autorandr
+
+  cd sys_tools
+  git clone git@github.com:rliou92/python-umonitor.git
+  sudo python setup.py install
   ```
 
   - _NOTE_: For **Ubuntu 20.04** use this PPA: `sudo add-apt-repository ppa:cppiber/ppa`
