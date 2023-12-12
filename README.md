@@ -208,11 +208,12 @@ sudo apt install git curl clang clang-format udiskie tmux
   - exa: (fancier) Rust version of ls
   - ripgrep: (fancier) Rust version of grep
   - CopyQ: clipboard manager
+  - Dust: Disk usage (in rust)
   - Command:
 
   ```bash
   sudo apt install udiskie copyq btop fd-find
-  cargo install exa ripgrep bat
+  cargo install exa ripgrep bat du-dust
   ```
 
 ## Apps
@@ -362,6 +363,13 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 ```
 
 - [Foxglove Studio](https://foxglove.dev/download)
+
+- PCL Viewer:
+
+```bash
+sudo apt install pcl-tools
+pcl_viewer <ur_file>.pcd
+```
 
 # Settings and Fixes
 
