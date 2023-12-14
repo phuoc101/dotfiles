@@ -506,7 +506,7 @@
         # Custom icon.
         # typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION='⭐'
         # Custom prefix.
-        typeset -g POWERLEVEL9K_VCS_PREFIX='%fon '
+        typeset -g POWERLEVEL9K_VCS_PREFIX=
 
         # Show status of repositories of these types. You can add svn and/or hg if you are
         # using them. If you do, your prompt may become slow even when your current directory
@@ -567,7 +567,7 @@
         # Custom icon.
         # typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
         # Custom prefix.
-        typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%ftook '
+        typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX=
 
         #######################[ background_jobs: presence of background jobs ]#######################
         # Don't show the number of background jobs.
@@ -876,18 +876,18 @@
         # Context format when running with privileges: bold user@hostname.
         typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n@%m'
         # Context format when in SSH without privileges: user@hostname.
-        typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n@%m'
+        typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n%B@%m'
         # Default context format (no privileges, no SSH): user@hostname.
-        typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
+        typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n%B@%m'
 
         # Don't show context unless running with privileges or in SSH.
         # Tip: Remove the next line to always show context.
-        typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
+        # typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
 
         # Custom icon.
         # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
         # Custom prefix.
-        typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fwith '
+        typeset -g POWERLEVEL9K_CONTEXT_PREFIX=
 
         ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
         # Python virtual environment color.
@@ -1264,7 +1264,7 @@
         POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
         # Custom prefix.
-        typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%fat '
+        typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX=
 
         ################[ terraform: terraform workspace (https://www.terraform.io) ]#################
         # Don't show terraform workspace if it's literally "default".
@@ -1557,7 +1557,7 @@
         # Custom icon.
         # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
         # Custom prefix.
-        typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
+        typeset -g POWERLEVEL9K_TIME_PREFIX=
 
         # Example of a user-defined prompt segment. Function prompt_example will be called on every
         # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
