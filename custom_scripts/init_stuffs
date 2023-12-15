@@ -51,7 +51,7 @@ fi
 
 if [ "$opt_all" == true ] || [ "$opt_polybar" == true ]
 then
-    init_displays -p
+    ~/.config/polybar/scripts/launch.sh
 fi
 #
 # Init displays
