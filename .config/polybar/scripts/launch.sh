@@ -16,6 +16,10 @@ elif xrandr | grep -q 'DP-1-4 connected'; then
     polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
     polybar sub 2>&1 | tee -a /tmp/polybar2.log & disown
     notify-send "Polybar" "Launched main and sub bars"
+elif xrandr | grep -q 'DisplayPort-2 connected'; then
+    polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
+    polybar sub 2>&1 | tee -a /tmp/polybar2.log & disown
+    notify-send "Polybar" "Launched main and sub bars"
 else
     polybar main_2k 2>&1 | tee -a /tmp/polybar1.log & disown
     notify-send "Polybar" "Launched main bar"
