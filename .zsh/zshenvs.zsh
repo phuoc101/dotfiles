@@ -24,7 +24,7 @@ export OBSIDIAN_DIR=/media/phuoc101/imaunicorn/backup/obsidian
 export ALACRITTY_DIR=/home/phuoc101/.config/alacritty
 function source_cuda {
     CV=$1
-    if [[ ("$CV" == "11.8" || "$CV" == "12.1") ]]; then
+    if [[ -d /usr/local/cuda-${CUDA_VER} ]]; then
         export CUDA_VER=$CV
         export PATH=/usr/local/cuda-${CUDA_VER}/bin:$PATH
         export CPATH=/usr/local/cuda-${CUDA_VER}/targets/x86_64-linux/include:$CPATH
