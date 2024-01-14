@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Zulip
+Comment=Organized team chat
+Keywords=teamwork;chat;course;
+TryExec=zulip
+Exec=zulip
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=zulip
+Categories=Network;InstantMessaging;Qt;
