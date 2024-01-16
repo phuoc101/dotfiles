@@ -317,6 +317,8 @@ assign [class="teams"] 9
 for_window[class="teams"] focus
 assign [class="Slack"] 9
 for_window[class="Slack"] focus
+assign [class="Zulip"] 9
+for_window[class="Zulip"] focus
 
 assign [class="Blender"] 10
 for_window[class="Blender"] focus
