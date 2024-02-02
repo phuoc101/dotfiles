@@ -14,15 +14,12 @@ export KITTY_LIGHT_THEME=papercolor-light
 # Sourcing CUDA
 function source_cuda {
     CV=$1
-    if [[ -d /usr/local/cuda-${CUDA_VER} ]]; then
+    if [[ -d "/usr/local/cuda-${CV}" ]]; then
         export CUDA_VER=$CV
         export PATH=/usr/local/cuda-${CUDA_VER}/bin:$PATH
         export CPATH=/usr/local/cuda-${CUDA_VER}/targets/x86_64-linux/include:$CPATH
         export LD_LIBRARY_PATH=/usr/local/cuda-${CUDA_VER}/targets/x86_64-linux/lib:/usr/local/cuda-${CUDA_VER}/lib64:$LD_LIBRARY_PATH
     else
-        echo "CUDA version '$CV' not available."
+        echo "CUDA version '$CV' not available. /usr/local/cuda-${CV} not found"
     fi
 }
-
-# For Work
-[ -f "~/.zsh/irobotics_env.zsh" ] && source ~/.zsh/irobotics_env.zsh

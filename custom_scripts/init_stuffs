@@ -32,6 +32,13 @@ do
             ;;
     esac
 done
+#
+# Init displays
+if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
+then
+    notify-send "INIT SCREEN"
+    init_displays
+fi
 
 # Update lockscreen
 if [ $opt_lock == true ]
@@ -52,13 +59,6 @@ fi
 if [ "$opt_all" == true ] || [ "$opt_polybar" == true ]
 then
     ~/.config/polybar/scripts/launch.sh
-fi
-#
-# Init displays
-if [ "$opt_screen" == true ] || [ "$opt_all"  == true ]
-then
-    notify-send "INIT SCREEN"
-    init_displays
 fi
 
 # Start background apps
