@@ -69,7 +69,7 @@ if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
     umonitor --load work_aalto
     notify-send "Initialized display" "work_aalto"
     xrandr --output HDMI-1-0 --primary
-    feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
+    feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi

@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=Shotcut
-Comment=Open-source cross-platform video editing software
-Keywords=video;editor
+Comment=A free, open source, cross-platform video editor
+Keywords=video;editor;
 TryExec=shotcut
 Exec=shotcut
 StartupNotify=true
 Terminal=false
 Type=Application
 Icon=shotcut
-Categories=AudioVideo;Editor;
+Categories=Application;Video;

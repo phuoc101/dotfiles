@@ -1,7 +1,6 @@
 # ---- ROS1 NOETIC -----
 snoetic() {
     source /opt/ros/noetic/setup.zsh
-    source ~/venvs/torch_ros_venv/bin/activate
 }
 # ---- BEGIN STRETCH 2 -----
 ssh_stretch2_hotspot() {
@@ -23,5 +22,6 @@ ros_ip_stretch2_lan() {
 }
 # ---- END STRETCH 2 ----
 
+export NOETIC_PRJ="/home/phuoc101/irobotics/projects/ros/noetic_prj"
 source /usr/share/gazebo/setup.sh
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH$HOME/.gazebo/models

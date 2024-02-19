@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ${HOME}/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -22,38 +22,38 @@ setopt autocd
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=${HOME}/.cache/zsh/history
 
 # Enabling zoxide
 # eval "$(zoxide init zsh)"
 # additional shell scripts
 source_z() {
-  source ~/.zsh/zsh-z/zsh-z.plugin.zsh
-  autoload -U compinit
-  zstyle ':completion:*' menu select
-  zmodload zsh/complist
-  compinit
-  _comp_options+=(globdots)
+    source ${HOME}/.zsh/zsh-z/zsh-z.plugin.zsh
+    autoload -U compinit
+    zstyle ':completion:*' menu select
+    zmodload zsh/complist
+    compinit
+    _comp_options+=(globdots)
 }
 
 load_nvm() {
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 load_nvm_completion() {
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
 # Lazy loading stuffs to speed up start time
-source ~/.zsh/zsh-lazyload/zsh-lazyload.zsh
+source ${HOME}/.zsh/zsh-lazyload/zsh-lazyload.zsh
 lazyload zshz -- "source_z"
 lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
 lazyload nvm npm node nvim nnn -- 'export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
 
 # Some nice zsh utils
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.zsh/zsh-highlight-config.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ${HOME}/.zsh/zsh-highlight-config.zsh
+source ${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -67,33 +67,36 @@ _comp_options+=(globdots)   # Include hidden files.
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # More additional shell scripts
-source ~/.zsh/vi-mode.zsh
-source ~/.zsh/conda.zsh
-source ~/.zsh/fzf-funcs.zsh
-source ~/.zsh/ros-funcs.zsh
-source ~/.zsh/nvim-funcs.zsh
-source ~/.zsh/nnn.zsh
-source ~/.zsh/zshenvs.zsh
-source ~/.zsh/kitty.zsh
+source ${HOME}/.zsh/vi-mode.zsh
+source ${HOME}/.zsh/conda.zsh
+source ${HOME}/.zsh/fzf-funcs.zsh
+source ${HOME}/.zsh/ros-funcs.zsh
+source ${HOME}/.zsh/nvim-funcs.zsh
+source ${HOME}/.zsh/nnn.zsh
+source ${HOME}/.zsh/zshenvs.zsh
+source ${HOME}/.zsh/kitty.zsh
 # # P10k prompt
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.zsh/.p10k.zsh
-source ~/.config/aliasrc
+source ${HOME}/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ${HOME}/.zsh/.p10k.zsh
+source ${HOME}/.config/aliasrc
 # # Enabling starship prompt
 # eval "$(starship init zsh)"
-# ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# ## To customize prompt, run `p10k configure` or edit ${HOME}/.p10k.zsh.
+# [[ ! -f ${HOME}/.p10k.zsh ]] || source ${HOME}/.p10k.zsh
 # # pip autocompletion
 #
 # #export TERM=xerm-color
 #
-# source ~/.zsh/ssh.zsh
+# source ${HOME}/.zsh/ssh.zsh
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 ssdk() {
-  export SDKMAN_DIR="$HOME/.sdkman"
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
 # FZF source
-[ -f ~/.zsh/.fzf.zsh ] && source ~/.zsh/.fzf.zsh
+[ -f ${HOME}/.zsh/.fzf.zsh ] && source ${HOME}/.zsh/.fzf.zsh
 # Rust source
-[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+[ -f "${HOME}/.cargo/env" ] && source "${HOME}/.cargo/env"
+#
+# For Work
+[[ -e "${HOME}/.zsh/irobotics_env.zsh" ]] && source ${HOME}/.zsh/irobotics_env.zsh
