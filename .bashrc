@@ -95,3 +95,12 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 # vi mode
 set -o vi
+
+# Source scripts
+source ~/.bash/aliasrc
+source ~/.bash/envs.bash
+source ~/.bash/conda.bash
+source ~/.bash/nnn.bash
+
+. "$HOME/.cargo/env"
+eval "$(starship init bash)"
