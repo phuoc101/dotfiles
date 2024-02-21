@@ -101,4 +101,4 @@ source ~/.bash/conda.bash
 source ~/.bash/nnn.bash
 
 . "$HOME/.cargo/env"
-# eval "$(starship init bash)"
+eval "$(starship init bash)"
