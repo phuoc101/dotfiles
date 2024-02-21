@@ -9,6 +9,7 @@ trash ~/.config/kitty
 trash ~/.config/nvim
 trash ~/.config/sioyek
 trash ~/.config/zathura
+trash ~/.config/starship.toml
 trash ~/.bash
 trash ~/.bashrc
 trash ~/.zshrc
@@ -33,6 +34,7 @@ ln -s ~/dotfiles/.config/kitty ~/.config/kitty
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/zathura ~/.config/zathura
 ln -s ~/dotfiles/.config/sioyek ~/.config/sioyek
+ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
 ln -s ~/dotfiles/.bash ~/.bash
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
