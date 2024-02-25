@@ -30,6 +30,13 @@
 
     # The list of segments shown on the left. Fill it with the most important segments.
     functions -M my_git_formatter 2>/dev/null
+
+    # Docker machine
+    function prompt_docker_machine() {
+        _p9k_prompt_segment "$0" "magenta" "$_p9k_color1" 'SERVER_ICON' 0 '' "${DOCKER_MACHINE_NAME//\%/%%}"
+    }
+
+    # ROS prompt
     function prompt_my_ros_env() {
         if [[ -v ROS_DISTRO ]]; then
             p10k segment -f 193 -t "󱜙 $ROS_DISTRO"
@@ -49,6 +56,7 @@
         nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
         nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
         my_ros_env
+        docker_machine
         command_execution_time  # duration of the last command
         status
         # # =========================[ Line #2 ]=========================
