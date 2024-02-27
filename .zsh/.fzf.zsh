@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == *${HOME}/sys_tools/fzf/bin* ]]; then
-    PATH="${PATH:+${PATH}:}${home}/sys_tools/fzf/bin"
+    PATH="${PATH:+${PATH}:}${HOME}/sys_tools/fzf/bin"
 fi
 
 # Auto-completion
