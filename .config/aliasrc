@@ -1,24 +1,23 @@
-alias vim="nvim"
-alias vimc="nvim --clean"
-alias viml="nvim +'colorscheme github_light'"
+[[ -x "$(command -v nvim)" ]] && alias vim="nvim"
+[[ -x "$(command -v nvim)" ]] && alias vimc="nvim --clean"
+[[ -x "$(command -v nvim)" ]] && alias viml="nvim +'colorscheme github_light'"
 alias open="xdg-open"
-alias ls="exa --icons -s extension -l"
+[[ -x "$(command -v exa)" ]] && alias ls="exa --icons -s extension -l"
 alias lsa="ls -al"
-alias tree="ls -T"
+[[ -x "$(command -v exa)" ]] && alias tree="ls -T"
 # open text file in nvim
-alias nnn="nnn -ed"
-alias cat="bat -p"
-alias du="dust"
-alias lg="lazygit"
+[[ -x "$(command -v nnn)" ]] && alias nnn="nnn -ed"
+[[ -x "$(command -v bat)" ]] && alias cat="bat -p"
+[[ -x "$(command -v dust)" ]] && alias du="dust"
+[[ -x "$(command -v lazygit)" ]] && alias lg="lazygit"
 alias cp="cp -iv"
 alias mv="mv -iv"
-alias fd="fdfind"
+[[ -x "$(command -v fdfind)" ]] && alias fd="fdfind"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
-alias z="zshz"
-alias gundamfetch="neofetch --ascii ~/dotfiles/custom_ascii/gundam_barbatos"
-alias ks="kitten ssh"
+[[ -x "$(command -v zshz)" ]] && alias z="zshz"
+[[ -x "$(command -v neofetch)" ]] && alias gundamfetch="neofetch --ascii ~/dotfiles/custom_ascii/gundam_barbatos"
+[[ -x "$(command -v kitten)" ]] && alias ks="kitten ssh"
 
 which_term() {
     basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/ .*$//')
 }
-
