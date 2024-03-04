@@ -402,3 +402,4 @@ pcl_viewer <ur_file>.pcd
   - Then log off and on to apply.
 - To adjust content size for HiDPI screens, change `Xft.dpi = 150` in `~/.Xresources`
 - To fix firefox slow booting up, `sudo apt remove xdg-desktop-portal`
+- to fix not able to use ibus keyboard in Telegram, add `export QT_IM_MODULE=ibus` to `~/.profile`
