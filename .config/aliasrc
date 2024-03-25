@@ -14,7 +14,7 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 [[ -x "$(command -v fdfind)" ]] && alias fd="fdfind"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
-[[ -x "$(command -v zshz)" ]] && alias z="zshz"
+[[ "$(command -v zshz)" ]] && alias z="zshz"
 [[ -x "$(command -v neofetch)" ]] && alias gundamfetch="neofetch --ascii ~/dotfiles/custom_ascii/gundam_barbatos"
 [[ -x "$(command -v kitten)" ]] && alias ks="kitten ssh"
 
