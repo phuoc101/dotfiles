@@ -374,7 +374,7 @@ pcl_viewer <ur_file>.pcd
 # Settings and Fixes
 
 - `N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository doesn't support architecture 'i386'`
-  - Add \[arch=amd64\] to `.list` file in `/etc/apt/sources.list.d`
+  - Add `[arch=amd64]` to `.list` file in `/etc/apt/sources.list.d`
 - Add Natural scrolling:
   - Edit `/usr/share/X11/xorg.conf.d/40-libinput.conf`
   - Add there `Option "NaturalScrolling" "True"` like this:
@@ -403,3 +403,4 @@ pcl_viewer <ur_file>.pcd
 - To adjust content size for HiDPI screens, change `Xft.dpi = 150` in `~/.Xresources`
 - To fix firefox slow booting up, `sudo apt remove xdg-desktop-portal`
 - to fix not able to use ibus keyboard in Telegram, add `export QT_IM_MODULE=ibus` to `~/.profile`
+- Recover expired key: `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv <KEY>`
