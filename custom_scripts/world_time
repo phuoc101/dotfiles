@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+for tz in Europe/Helsinki Asia/Ho_Chi_Minh America/Vancouver Asia/Singapore; do
+    echo -e "$tz:   $(TZ=$tz date -R)"
+done
