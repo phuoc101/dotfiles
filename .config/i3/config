@@ -64,7 +64,7 @@ bindsym $mod+t exec kitty; workspace 1
 
 # start a browser
 bindsym $mod+b exec brave-browser; workspace 2
-bindsym $mod+shift+b exec firefox; workspace 2
+bindsym $mod+shift+b exec vivaldi; workspace 2
 
 # start a browser
 bindsym $mod+f exec nautilus
@@ -273,6 +273,8 @@ assign [class="Gnome-terminal"] 1
 
 assign [class="firefox"] 2
 for_window[class="firefox"] focus
+assign [class="vivaldi"] 2
+for_window[class="vivaldi"] focus
 assign [class="Brave-browser"] 2
 for_window[class="Brave-browser"] focus
 
