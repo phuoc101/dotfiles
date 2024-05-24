@@ -1,6 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
-	url = git@github.com:phuoc101/nvim-config.git
+	url = git@github.com:phuoc101/kickstart.nvim.git
 [submodule ".zsh/conda-zsh-completion"]
 	path = .zsh/conda-zsh-completion
 	url = https://github.com/conda-incubator/conda-zsh-completion.git
@@ -16,3 +16,6 @@
 [submodule ".zsh/powerlevel10k"]
 	path = .zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule ".zsh/zsh-lazyload"]
+	path = .zsh/zsh-lazyload
+	url = https://github.com/qoomon/zsh-lazyload
