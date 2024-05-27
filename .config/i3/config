@@ -339,7 +339,7 @@ assign [class="obs"] 20
 for_window[class="obs"] focus
 
 ### Monitor config ###
-set $lap_monitor EDP
+set $lap_monitor eDP
 set $ext_monitor HDMI-1-0
 
 # bind workspaces to monitor
