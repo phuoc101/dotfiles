@@ -133,7 +133,7 @@ sudo apt install git curl clang clang-format udiskie tmux
 
   - Icon theme:
     - [Flatery](https://www.pling.com/p/1332404/)
-    - [Papyrus](https://github.com/limbusdev/papyrus-icon-theme)
+    - [Papyrus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
   - GTK theme: [Fluent](https://www.pling.com/p/1477941/)
   - Kvantum theme: [Fluent](https://www.pling.com/p/1499836/)
   - Terminal Font: [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip)

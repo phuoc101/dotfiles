@@ -42,5 +42,5 @@ ln -s ~/dotfiles/.zsh ~/.zsh
 ln -s ~/dotfiles/custom_scripts/* ~/.local/bin
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua
-ln -s ~/dotfiles/.icons/extras/ ~/.icons/
+ln -s ~/dotfiles/icons ~/.icons/extras
 ln -s ~/dotfiles/.vimrc ~/.vimrc
