@@ -401,6 +401,7 @@ pcl_viewer <ur_file>.pcd
   ```
   - Then log off and on to apply.
 - To adjust content size for HiDPI screens, change `Xft.dpi = 150` in `~/.Xresources`
-- To fix firefox slow booting up, `sudo apt remove xdg-desktop-portal`
+- To fix firefox/GNOME apps slow booting up, `sudo apt remove xdg-desktop-portal`
 - to fix not able to use ibus keyboard in Telegram, add `export QT_IM_MODULE=ibus` to `~/.profile`
 - Recover expired key: `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv <KEY>`
+- If using high versions, consider using option ` --target x86_64-unknown-linux-musl` for `cargo install` to make things work inside docker (cus glibc version)

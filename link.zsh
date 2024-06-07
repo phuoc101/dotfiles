@@ -1,46 +1,46 @@
 #!/bin/zsh
-trash ~/.config/aliasrc
-trash ~/.config/alacritty
-trash ~/.config/dunst
-trash ~/.config/i3
-trash ~/.config/polybar
-trash ~/.config/rofi
-trash ~/.config/kitty
-trash ~/.config/nvim
-trash ~/.config/sioyek
-trash ~/.config/zathura
-trash ~/.config/starship.toml
-trash ~/.bash
-trash ~/.bashrc
-trash ~/.zshrc
-trash ~/.zsh
-trash ~/.vimrc
-trash ~/.local/bin/dark_mode
-trash ~/.local/bin/light_mode
-trash ~/.local/bin/mapesctilde
-trash ~/.local/bin/init_stuffs
-trash ~/.tmux.conf
-trash ~/.wezterm.lua
-trash ~/.icons/extras/
+trash ${HOME}/.config/aliasrc
+trash ${HOME}/.config/alacritty
+trash ${HOME}/.config/dunst
+trash ${HOME}/.config/i3
+trash ${HOME}/.config/polybar
+trash ${HOME}/.config/rofi
+trash ${HOME}/.config/kitty
+trash ${HOME}/.config/nvim
+trash ${HOME}/.config/sioyek
+trash ${HOME}/.config/zathura
+trash ${HOME}/.config/starship.toml
+trash ${HOME}/.bash
+trash ${HOME}/.bashrc
+trash ${HOME}/.zshrc
+trash ${HOME}/.zshrc.d
+trash ${HOME}/.vimrc
+trash ${HOME}/.local/bin/dark_mode
+trash ${HOME}/.local/bin/light_mode
+trash ${HOME}/.local/bin/mapesctilde
+trash ${HOME}/.local/bin/init_stuffs
+trash ${HOME}/.tmux.conf
+trash ${HOME}/.wezterm.lua
+trash ${HOME}/.icons/extras/
 
 # Link config files
-ln -s ~/dotfiles/.config/aliasrc ~/.config/aliasrc
-ln -s ~/dotfiles/.config/alacritty ~/.config/alacritty
-ln -s ~/dotfiles/.config/dunst ~/.config/dunst
-ln -s ~/dotfiles/.config/i3 ~/.config/i3
-ln -s ~/dotfiles/.config/polybar ~/.config/polybar
-ln -s ~/dotfiles/.config/rofi ~/.config/rofi
-ln -s ~/dotfiles/.config/kitty ~/.config/kitty
-ln -s ~/dotfiles/.config/nvim ~/.config/nvim
-ln -s ~/dotfiles/.config/zathura ~/.config/zathura
-ln -s ~/dotfiles/.config/sioyek ~/.config/sioyek
-ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
-ln -s ~/dotfiles/.bash ~/.bash
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.zsh ~/.zsh
-ln -s ~/dotfiles/custom_scripts/* ~/.local/bin
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua
-ln -s ~/dotfiles/icons ~/.icons/extras
-ln -s ~/dotfiles/.vimrc ~/.vimrc
+ln -s ${HOME}/dotfiles/.config/aliasrc ${HOME}/.config/aliasrc
+ln -s ${HOME}/dotfiles/.config/alacritty ${HOME}/.config/alacritty
+ln -s ${HOME}/dotfiles/.config/dunst ${HOME}/.config/dunst
+ln -s ${HOME}/dotfiles/.config/i3 ${HOME}/.config/i3
+ln -s ${HOME}/dotfiles/.config/polybar ${HOME}/.config/polybar
+ln -s ${HOME}/dotfiles/.config/rofi ${HOME}/.config/rofi
+ln -s ${HOME}/dotfiles/.config/kitty ${HOME}/.config/kitty
+ln -s ${HOME}/dotfiles/.config/nvim ${HOME}/.config/nvim
+ln -s ${HOME}/dotfiles/.config/zathura ${HOME}/.config/zathura
+ln -s ${HOME}/dotfiles/.config/sioyek ${HOME}/.config/sioyek
+ln -s ${HOME}/dotfiles/.config/starship.toml ${HOME}/.config/starship.toml
+ln -s ${HOME}/dotfiles/.bash ${HOME}/.bash
+ln -s ${HOME}/dotfiles/.bashrc ${HOME}/.bashrc
+ln -s ${HOME}/dotfiles/.zshrc ${HOME}/.zshrc
+ln -s ${HOME}/dotfiles/.zshrc.d ${HOME}/.zshrc.d
+ln -s ${HOME}/dotfiles/custom_scripts/* ${HOME}/.local/bin
+ln -s ${HOME}/dotfiles/tmux.conf ${HOME}/.tmux.conf
+ln -s ${HOME}/dotfiles/.wezterm.lua ${HOME}/.wezterm.lua
+ln -s ${HOME}/dotfiles/icons ${HOME}/.icons/extras
+ln -s ${HOME}/dotfiles/.vimrc ${HOME}/.vimrc

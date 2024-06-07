@@ -1,21 +1,21 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:phuoc101/kickstart.nvim.git
-[submodule ".zsh/conda-zsh-completion"]
-	path = .zsh/conda-zsh-completion
+[submodule ".zshrc.d/conda-zsh-completion"]
+	path = .zshrc.d/conda-zsh-completion
 	url = https://github.com/conda-incubator/conda-zsh-completion.git
-[submodule ".zsh/zsh-syntax-highlighting"]
-	path = .zsh/zsh-syntax-highlighting
+[submodule ".zshrc.d/zsh-syntax-highlighting"]
+	path = .zshrc.d/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule ".zsh/zsh-z"]
-	path = .zsh/zsh-z
+[submodule ".zshrc.d/zsh-z"]
+	path = .zshrc.d/zsh-z
 	url = https://github.com/agkozak/zsh-z.git
-[submodule ".zsh/zsh-autosuggestions"]
-	path = .zsh/zsh-autosuggestions
+[submodule ".zshrc.d/zsh-autosuggestions"]
+	path = .zshrc.d/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule ".zsh/powerlevel10k"]
-	path = .zsh/powerlevel10k
+[submodule ".zshrc.d/powerlevel10k"]
+	path = .zshrc.d/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule ".zsh/zsh-lazyload"]
-	path = .zsh/zsh-lazyload
+[submodule ".zshrc.d/zsh-lazyload"]
+	path = .zshrc.d/zsh-lazyload
 	url = https://github.com/qoomon/zsh-lazyload
