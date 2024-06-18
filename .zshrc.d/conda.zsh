@@ -2,7 +2,7 @@
 alias deactivate_conda="conda deactivate"
 
 activate_conda() {
-  source ~/.zsh/conda-zsh-completion/conda-zsh-completion.plugin.zsh
+  source ~/.zshrc.d/conda-zsh-completion/conda-zsh-completion.plugin.zsh
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
   __conda_setup="$('/home/phuoc101/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
