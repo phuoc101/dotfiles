@@ -28,7 +28,7 @@ HISTFILE=${HOME}/.cache/zsh/history
 # eval "$(zoxide init zsh)"
 # additional shell scripts
 source_z() {
-    source ${HOME}/.zsh/zsh-z/zsh-z.plugin.zsh
+    source ${HOME}/.zshrc.d/zsh-z/zsh-z.plugin.zsh
     autoload -U compinit
     zstyle ':completion:*' menu select
     zmodload zsh/complist
@@ -45,15 +45,15 @@ load_nvm_completion() {
 }
 
 # Lazy loading stuffs to speed up start time
-source ${HOME}/.zsh/zsh-lazyload/zsh-lazyload.zsh
+source ${HOME}/.zshrc.d/zsh-lazyload/zsh-lazyload.zsh
 lazyload zshz -- "source_z"
 lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
 lazyload nvm npm node nvim nnn -- 'export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
 
 # Some nice zsh utils
-source ${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ${HOME}/.zsh/zsh-highlight-config.zsh
-source ${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOME}/.zshrc.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ${HOME}/.zshrc.d/zsh-highlight-config.zsh
+source ${HOME}/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -67,17 +67,17 @@ _comp_options+=(globdots)   # Include hidden files.
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # More additional shell scripts
-source ${HOME}/.zsh/vi-mode.zsh
-source ${HOME}/.zsh/conda.zsh
-source ${HOME}/.zsh/fzf-funcs.zsh
-# source ${HOME}/.zsh/ros-funcs.zsh
-source ${HOME}/.zsh/nvim-funcs.zsh
-source ${HOME}/.zsh/nnn.zsh
-source ${HOME}/.zsh/zshenvs.zsh
-source ${HOME}/.zsh/kitty.zsh
+source ${HOME}/.zshrc.d/vi-mode.zsh
+source ${HOME}/.zshrc.d/conda.zsh
+source ${HOME}/.zshrc.d/fzf-funcs.zsh
+# source ${HOME}/.zshrc.d/ros-funcs.zsh
+source ${HOME}/.zshrc.d/nvim-funcs.zsh
+source ${HOME}/.zshrc.d/nnn.zsh
+source ${HOME}/.zshrc.d/zshenvs.zsh
+source ${HOME}/.zshrc.d/kitty.zsh
 # # P10k prompt
-source ${HOME}/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-source ${HOME}/.zsh/.p10k.zsh
+source ${HOME}/.zshrc.d/powerlevel10k/powerlevel10k.zsh-theme
+source ${HOME}/.zshrc.d/.p10k.zsh
 source ${HOME}/.config/aliasrc
 # # Enabling starship prompt
 # eval "$(starship init zsh)"
@@ -87,16 +87,16 @@ source ${HOME}/.config/aliasrc
 #
 # #export TERM=xerm-color
 #
-# source ${HOME}/.zsh/ssh.zsh
+# source ${HOME}/.zshrc.d/ssh.zsh
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 ssdk() {
     export SDKMAN_DIR="$HOME/.sdkman"
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
 # FZF source
-[ -f ${HOME}/.zsh/.fzf.zsh ] && source ${HOME}/.zsh/.fzf.zsh
+[ -f ${HOME}/.zshrc.d/.fzf.zsh ] && source ${HOME}/.zshrc.d/.fzf.zsh
 # Rust source
 [ -f "${HOME}/.cargo/env" ] && source "${HOME}/.cargo/env"
 #
 # For Work
-[[ -e "${HOME}/.zsh/irobotics_env.zsh" ]] && source ${HOME}/.zsh/irobotics_env.zsh
+[[ -e "${HOME}/.zshrc.d/irobotics_env.zsh" ]] && source ${HOME}/.zshrc.d/irobotics_env.zsh

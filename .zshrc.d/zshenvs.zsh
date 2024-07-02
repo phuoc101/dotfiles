@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 export PATH=/usr/lib/ccache:$PATH
-export PATH=~/go/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export EDITOR='nvim'
 export VISUAL='nvim'
 export GTK_IM_MODULE=ibus
