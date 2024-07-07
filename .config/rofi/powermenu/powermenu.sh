@@ -31,7 +31,8 @@ rofi_cmd() {
 	rofi -dmenu -i \
 		-p "$host" \
 		-mesg "Uptime: $uptime" \
-		-theme ${dir}/${theme}.rasi
+		-theme ${dir}/${theme}.rasi \
+		-m -4
 }
 
 # Confirmation CMD
@@ -78,6 +79,8 @@ run_cmd() {
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			elif [[ "$DESKTOP_SESSION" == 'qtile' ]]; then
+				qtile cmd-obj -o root -f shutdown
 			fi
 		fi
 	else

@@ -64,22 +64,17 @@ fi
 # Start background apps
 if [ "$opt_all" == true ] || [ "$opt_bg" == true ]
 then
+    mapesctilde &
+    udiskie &
+    ibus-daemon --xim -d -r &
+    nm-applet &
     notify-send "INIT BACKGROUND PROGRAMS"
-    echo "all: $opt_all"
-    sleep 1
-    if ! [ -x "$(command -v kdeconnect-indicator)" ]
-    then
-        notify-send "KDE-Connect not found"
-    else
-        kdeconnect-indicator &
-        notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
-    fi
     # Start ALSA service (for sound)
     alsactl init &
     notify-send "ALSA initiated"
     # Launching background apps
     copyq &
     notify-send "CopyQ initiated"
-    /usr/bin/syncthing serve --no-browser --logfile=default &
-    notify-send "Syncthing initiated"
+    kdeconnect-indicator &
+    notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
 fi

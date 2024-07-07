@@ -199,7 +199,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+Q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # toggle language
-bindsym $mod+shift+space exec ~/.zsh/toggle_language.zsh
+bindsym $mod+shift+space exec ~/.zshrc.d/toggle_language.zsh
 
 # resize window (you can also use the mouse for that)
 set $window-resize-amount 50px
@@ -243,19 +243,19 @@ focus_follows_mouse no
 
 ### Startup executions ###
 # auto mount hard disks
-exec --no-startup-id udiskie &
+# exec --no-startup-id udiskie &
 
 # # kde connect
 # exec --no-startup-id /usr/lib/kdeconnectd
 
 # start language daemon
-exec --no-startup-id ibus-daemon --xim -d -r &
+# exec --no-startup-id ibus-daemon --xim -d -r &
 # Autotiling
 exec_always autotiling -w 1 --limit 2 &
 # Configure multi-monitor, and launch polybars
 exec --no-startup-id ~/.local/bin/init_stuffs -a &
 # map esc to tilde (for 65 keyboard)
-exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
+# exec --no-startup-id xmodmap -e 'keysym Escape = Escape asciitilde Escape'
 
 # start picom
 # exec --no-startup-id picom
@@ -340,7 +340,7 @@ for_window[class="obs"] focus
 
 ### Monitor config ###
 set $lap_monitor eDP
-set $ext_monitor HDMI-1-0
+set $ext_monitor DisplayPort-2
 
 # bind workspaces to monitor
 workspace 1 output $ext_monitor

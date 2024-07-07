@@ -9,6 +9,7 @@ trash ${HOME}/.config/kitty
 trash ${HOME}/.config/nvim
 trash ${HOME}/.config/sioyek
 trash ${HOME}/.config/zathura
+trash ${HOME}/.config/qtile
 trash ${HOME}/.config/starship.toml
 trash ${HOME}/.bash
 trash ${HOME}/.bashrc
@@ -33,6 +34,7 @@ ln -s ${HOME}/dotfiles/.config/rofi ${HOME}/.config/rofi
 ln -s ${HOME}/dotfiles/.config/kitty ${HOME}/.config/kitty
 ln -s ${HOME}/dotfiles/.config/nvim ${HOME}/.config/nvim
 ln -s ${HOME}/dotfiles/.config/zathura ${HOME}/.config/zathura
+ln -s ${HOME}/dotfiles/.config/qtile ${HOME}/.config/qtile
 ln -s ${HOME}/dotfiles/.config/sioyek ${HOME}/.config/sioyek
 ln -s ${HOME}/dotfiles/.config/starship.toml ${HOME}/.config/starship.toml
 ln -s ${HOME}/dotfiles/.bash ${HOME}/.bash
