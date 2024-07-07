@@ -69,6 +69,7 @@ fancy_bar = bar.Bar(
             other_current_screen_border=COLORS["blue"],
             other_screen_border=COLORS["gray"],
             urgent_border=COLORS["red"],
+            urgent_text=COLORS["dark"],
             rounded=True,
             disable_drag=True,
             font="JetBrainsMono Nerd Font, Bold",
