@@ -11,7 +11,6 @@ MOD = "mod4"
 TERMINAL = "kitty"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
-ROFI_DIR = os.path.join(os.environ["HOME"], ".config/rofi")
 WIN_RESZ_PX = 50
 WIN_MOVE_PX = 50
 FILE_EXPLORER = "nautilus"
@@ -410,6 +409,12 @@ keys = [
         "P",
         lazy.spawn(f"{HOME}/.config/rofi/powermenu/powermenu.sh"),
         desc="Spawn powermenu",
+    ),
+    Key(
+        [MOD],
+        "period",
+        lazy.spawn("rofimoji"),
+        desc="Spawn rofimoji",
     ),
     Key(
         [MOD, "shift"],
