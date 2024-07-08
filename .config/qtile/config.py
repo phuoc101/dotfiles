@@ -11,6 +11,7 @@ MOD = "mod4"
 TERMINAL = "kitty"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
+FONTSIZE = 14
 WIN_RESZ_PX = 50
 WIN_MOVE_PX = 50
 FILE_EXPLORER = "nautilus"
@@ -18,6 +19,7 @@ COLORS = {
     "white": "#f2f4f8",
     "dark": "#161616",
     "dark1": "#2a2a2a",
+    "dark2": "#4a4a4a",
     "gray": "#707880",
     "yellow": "#e5c07b",
     "green": "#46c880",
@@ -45,26 +47,28 @@ layout_widget = widget.CurrentLayout(
     foreground=COLORS["white"],
     fmt="   {} ",
     font="JetBrainsMono Nerd Font, Bold",
-    fontsize=16,
+    fontsize=FONTSIZE,
     decorations=[RectDecoration(**RECTDEC_PROPS)],
 )
 groupbox_widget = widget.GroupBox(
-    fontsize=16,
-    highlight_method="block",
+    fontsize=FONTSIZE,
+    highlight_method="line",
     active=COLORS["blue"],
-    block_highlight_text_color=COLORS["dark"],
+    borderwidth=2,
+    block_highlight_text_color=COLORS["blue"],
     highlight_color=COLORS["dark1"],
     inactive=COLORS["gray"],
     background=COLORS["dark"],
     this_current_screen_border=COLORS["blue"],
-    this_screen_border=COLORS["gray"],
+    this_screen_border=COLORS["dark2"],
     other_current_screen_border=COLORS["blue"],
-    other_screen_border=COLORS["gray"],
+    other_screen_border=COLORS["dark2"],
     urgent_border=COLORS["red"],
     urgent_text=COLORS["dark"],
     rounded=True,
     disable_drag=True,
     font="JetBrainsMono Nerd Font, Bold",
+    hide_unused=False,
 )
 tasklist_widget = widget.TaskList(
     background=COLORS["dark"],
@@ -87,7 +91,7 @@ time_widget = widget.Clock(
     format="  %d/%m/%y  %I:%M %p ",
     foreground=COLORS["cyan"],
     font="JetBrainsMono Nerd Font, Bold",
-    fontsize=16,
+    fontsize=FONTSIZE,
     decorations=[RectDecoration(**RECTDEC_PROPS)],
 )
 stretch_spacer_widget = widget.Spacer(length=bar.STRETCH, background=COLORS["dark"])
@@ -99,8 +103,7 @@ nvidia_widget = widget.GenPollText(
     .decode()
     .strip("\n"),
     font="JetBrainsMono Nerd Font, Bold",
-    fontsize=16,
-    # background=COLORS["green"],
+    fontsize=FONTSIZE,
     foreground=COLORS["green"],
     decorations=[RectDecoration(**RECTDEC_PROPS)],
 )
@@ -112,7 +115,7 @@ ibus_widget = widget.GenPollText(
     .decode()
     .strip("\n"),
     font="JetBrainsMono Nerd Font, Bold",
-    fontsize=16,
+    fontsize=FONTSIZE,
     foreground=COLORS["yellow"],
     mouse_callbacks={"Button1": lazy.spawn(f"{HOME}/.zshrc.d/toggle_language.zsh &")},
     decorations=[RectDecoration(**RECTDEC_PROPS)],
@@ -125,12 +128,12 @@ volume_widget = widget.GenPollText(
     .decode()
     .strip("\n"),
     font="JetBrainsMono Nerd Font, Bold",
-    fontsize=16,
+    fontsize=FONTSIZE,
     foreground=COLORS["purple"],
     mouse_callbacks={
         "Button1": lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-        "Button4": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ +1%"),
-        "Button5": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ -1%"),
+        "Button4": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ +2%"),
+        "Button5": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ -2%"),
     },
     decorations=[RectDecoration(**RECTDEC_PROPS)],
 )
@@ -142,7 +145,7 @@ brightness_widget = widget.GenPollText(
     .decode()
     .strip("\n"),
     font="JetBrainsMono Nerd Font, Bold",
-    fontsize=16,
+    fontsize=FONTSIZE,
     foreground=COLORS["magenta"],
     mouse_callbacks={
         "Button4": lazy.spawn("brightnessctl set +5%"),
@@ -156,13 +159,13 @@ battery_widget = widget.GenPollText(
     .decode()
     .strip("\n"),
     font="JetBrainsMono Nerd Font, Bold",
-    fontsize=16,
+    fontsize=FONTSIZE,
     foreground=COLORS["blue1"],
     decorations=[RectDecoration(**RECTDEC_PROPS)],
 )
 systray_widget = widget.Systray(
     background=COLORS["dark"],
-    fontsize=2,
+    fontsize=FONTSIZE,
     padding=10,
 )
 
@@ -191,7 +194,7 @@ def_widgets = [
 
 main_bar = bar.Bar(
     def_widgets + [systray_widget, spacer_widget],
-    size=45,
+    size=35,
     margin=[10, 10, 0, 10],
     background=COLORS["dark"],
 )
@@ -199,7 +202,7 @@ main_bar = bar.Bar(
 
 sec_bar = bar.Bar(
     def_widgets,
-    size=45,
+    size=35,
     margin=[10, 10, 0, 10],
     background=COLORS["dark"],
 )
@@ -254,9 +257,9 @@ def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # XXX:========================================================================#
+    # ========================================================================#
     # Windows navigation/manipulation
-    # XXX:========================================================================#
+    # ========================================================================#
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
@@ -295,9 +298,9 @@ keys = [
         lazy.function(window_to_previous_screen, switch_screen=True),
     ),
     Key([MOD], "period", lazy.next_screen(), desc="Next monitor"),
-    # XXX:========================================================================#
+    # ========================================================================#
     # Floating window manipulation
-    # XXX:========================================================================#
+    # ========================================================================#
     Key(
         [MOD, "shift", "control"],
         "l",
@@ -358,17 +361,17 @@ keys = [
         lazy.window.toggle_floating(),
         desc="Toggle floating",
     ),
-    # XXX:========================================================================#
+    # ========================================================================#
     # Qtile control
-    # XXX:========================================================================#
+    # ========================================================================#
     Key([MOD, "shift"], "R", lazy.reload_config(), desc="Reload the config"),
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([MOD], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([MOD], "Escape", lazy.spawn("betterlockscreen -l dimblur"), desc="Lock screen"),
-    # XXX:========================================================================#
+    # ========================================================================#
     # Programs
-    # XXX:========================================================================#
+    # ========================================================================#
     Key(
         [MOD],
         "t",
