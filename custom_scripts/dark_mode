@@ -2,9 +2,8 @@
 export DOTFILES_DIR=~/dotfiles
 sed -i 's/light.conf/dark.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
-sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.yml
-sed -i 's/colorscheme = "dayfox"/colorscheme = "carbonfox"/' $DOTFILES_DIR/.config/nvim/lua/user/init.lua
+sed -i 's/light/dark/' $DOTFILES_DIR/.config/alacritty/alacritty.toml
+sed -i "s/vim.cmd.colorscheme 'dayfox'/vim.cmd.colorscheme 'carbonfox'/" $DOTFILES_DIR/.config/nvim/lua/kickstart/plugins/colorscheme.lua
 reload_nvim_theme -c carbonfox
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 init_displays -d

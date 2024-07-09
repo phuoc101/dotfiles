@@ -41,6 +41,8 @@ RECTDEC_PROPS = {
     "padding_y": 5,
 }
 
+LAYOUT_LABEL = {"monadtall": " MonadTall", "max": "    Max   "}
+
 GROUP_PROPS_DICT = {
     # fmt: off
     "1": {
@@ -49,7 +51,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="kitty"),
             Match(wm_class="Gnome-terminal")
         ],
-        "layout": "monadtall",
+        "layout": LAYOUT_LABEL["monadtall"],
         "screen_affinity": 0,
     },
     "2": {
@@ -58,7 +60,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="Brave-browser"),
             Match(wm_class="vivaldi-stable")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
     "3": {
@@ -67,7 +69,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="Signal"),
             Match(wm_class="TelegramDesktop")
         ],
-        "layout": "monadtall",
+        "layout": LAYOUT_LABEL["monadtall"],
         "screen_affinity": 0,
     },
     "4": {
@@ -75,7 +77,7 @@ GROUP_PROPS_DICT = {
         "matches": [
             Match(wm_class="discord")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
     "5": {
@@ -83,7 +85,7 @@ GROUP_PROPS_DICT = {
         "matches": [
             Match(wm_class="zoom")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
     "6": {
@@ -92,7 +94,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="mpv"),
             Match(wm_class="vlc")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
     "7": {
@@ -100,7 +102,7 @@ GROUP_PROPS_DICT = {
         "matches": [
             Match(wm_class="Code")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
     "8": {
@@ -108,7 +110,7 @@ GROUP_PROPS_DICT = {
         "matches": [
             Match(wm_class="Inkscape")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
     "9": {
@@ -116,7 +118,7 @@ GROUP_PROPS_DICT = {
         "matches": [
             Match(wm_class="obsidian"), Match(wm_class="Zotero")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
     "0": {
@@ -124,10 +126,11 @@ GROUP_PROPS_DICT = {
         "matches": [
             Match(wm_class="obs")
         ],
-        "layout": "max",
+        "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 1,
     },
 }
+
 
 def get_spacer_widget(length: int | bar.Obj = 12):
     return widget.Spacer(
@@ -327,7 +330,7 @@ main_bar = bar.Bar(
     background=COLORS["dark"],
 )
 
-sec_bar = bar.Bar(
+sec_bar_2k = bar.Bar(
     get_default_widgets(fontsize=FONTSIZE_2k),
     size=45,
     margin=[10, 10, 0, 10],
@@ -420,17 +423,29 @@ keys = [
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key([MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([MOD], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([MOD, "shift"], "j", lazy.function(window_to_next_screen)),
-    Key([MOD, "shift"], "k", lazy.function(window_to_previous_screen)),
+    Key(
+        [MOD, "shift"],
+        "j",
+        lazy.function(window_to_next_screen),
+        desc="Move window to next screen",
+    ),
+    Key(
+        [MOD, "shift"],
+        "k",
+        lazy.function(window_to_previous_screen),
+        desc="Move window to previous screen",
+    ),
     Key(
         [MOD, "control"],
         "j",
         lazy.function(window_to_next_screen, switch_screen=True),
+        desc="move window to next screen and switch screen",
     ),
     Key(
         [MOD, "control"],
         "k",
         lazy.function(window_to_previous_screen, switch_screen=True),
+        desc="move window to previous screen and switchh screen",
     ),
     Key([MOD], "period", lazy.next_screen(), desc="Next monitor"),
     # ========================================================================#
@@ -601,8 +616,8 @@ layout_theme = {
 }
 
 layouts = [
-    layout.MonadTall(**layout_theme, name=" MonadTall"),
-    layout.Max(**layout_theme, name="    Max   "),
+    layout.MonadTall(**layout_theme, name=LAYOUT_LABEL["monadtall"]),
+    layout.Max(**layout_theme, name=LAYOUT_LABEL["max"]),
 ]
 
 widget_defaults = dict(
@@ -613,6 +628,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 # Configure screens
+# NOTE: Best used for laptop + 1 extra monitor (not tested with other configs)
 xrandr_out = [
     line
     for line in subprocess.check_output("xrandr").decode().splitlines()
@@ -625,8 +641,9 @@ if len(xrandr_out) == 1:
 else:
     screens = [
         Screen(top=main_bar),
-        Screen(top=sec_bar),
     ]
+    for i in range(len(xrandr_out) - 1):
+        screens.append(Screen(top=sec_bar_2k))
 
 
 # Drag floating layouts.
@@ -657,6 +674,7 @@ floating_layout = layout.Floating(
         *layout.Floating.default_float_rules,
         Match(wm_class="org.gnome.Nautilus"),  # nautilus
         Match(role="pop-up"),  # pop ups (bitwarden)
+        Match(title="Bitwarden - Vivaldi"),  # bitwarden pop-up for vivaldi,
     ],
 )
 auto_fullscreen = True
@@ -668,9 +686,11 @@ reconfigure_screens = True
 def autostart_once():
     subprocess.run([f"{HOME}/.local/bin/init_stuffs", "-b"])
 
+
 @hook.subscribe.startup
 def run_every_startup():
     subprocess.run([f"{HOME}/.local/bin/init_stuffs", "-s"])
+
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
