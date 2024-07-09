@@ -41,6 +41,93 @@ RECTDEC_PROPS = {
     "padding_y": 5,
 }
 
+GROUP_PROPS_DICT = {
+    # fmt: off
+    "1": {
+        "label": " 1",
+        "matches": [
+            Match(wm_class="kitty"),
+            Match(wm_class="Gnome-terminal")
+        ],
+        "layout": "monadtall",
+        "screen_affinity": 0,
+    },
+    "2": {
+        "label": " 2",
+        "matches": [
+            Match(wm_class="Brave-browser"),
+            Match(wm_class="vivaldi-stable")
+        ],
+        "layout": "max",
+        "screen_affinity": 0,
+    },
+    "3": {
+        "label": " 3", 
+        "matches": [
+            Match(wm_class="Signal"),
+            Match(wm_class="TelegramDesktop")
+        ],
+        "layout": "monadtall",
+        "screen_affinity": 0,
+    },
+    "4": {
+        "label": "󰙯 4",
+        "matches": [
+            Match(wm_class="discord")
+        ],
+        "layout": "max",
+        "screen_affinity": 0,
+    },
+    "5": {
+        "label": " 5",
+        "matches": [
+            Match(wm_class="zoom")
+        ],
+        "layout": "max",
+        "screen_affinity": 0,
+    },
+    "6": {
+        "label": " 6", 
+        "matches": [
+            Match(wm_class="mpv"),
+            Match(wm_class="vlc")
+        ],
+        "layout": "max",
+        "screen_affinity": 0,
+    },
+    "7": {
+        "label": " 7",
+        "matches": [
+            Match(wm_class="Code")
+        ],
+        "layout": "max",
+        "screen_affinity": 0,
+    },
+    "8": {
+        "label": "󰏆 8",
+        "matches": [
+            Match(wm_class="Inkscape")
+        ],
+        "layout": "max",
+        "screen_affinity": 0,
+    },
+    "9": {
+        "label": " 9",
+        "matches": [
+            Match(wm_class="obsidian"), Match(wm_class="Zotero")
+        ],
+        "layout": "max",
+        "screen_affinity": 0,
+    },
+    "0": {
+        "label": "󰡇 0",
+        "matches": [
+            Match(wm_class="obs")
+        ],
+        "layout": "max",
+        "screen_affinity": 1,
+    },
+}
 
 def get_spacer_widget(length: int | bar.Obj = 12):
     return widget.Spacer(
@@ -52,7 +139,7 @@ def get_spacer_widget(length: int | bar.Obj = 12):
 def get_layout_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
     return widget.CurrentLayout(
         foreground=COLORS["white"],
-        fmt="   {} ",
+        fmt=" {} ",
         font=font,
         fontsize=fontsize,
         decorations=[RectDecoration(**RECTDEC_PROPS)],
@@ -110,7 +197,6 @@ def get_time_widget(font: str = FONT_BOLD, fontsize=FONTSIZE):
         fontsize=fontsize,
         format="  %d/%m/%y  %I:%M %p ",
         foreground=COLORS["cyan"],
-        decorations=[RectDecoration(**RECTDEC_PROPS)],
     )
 
 
@@ -483,95 +569,8 @@ keys = [
     ),
 ]
 
-group_props_dict = {
-    # fmt: off
-    "1": {
-        "label": " 1",
-        "matches": [
-            Match(wm_class="kitty"),
-            Match(wm_class="Gnome-terminal")
-        ],
-        "layout": "monadtall",
-        "screen_affinity": 0,
-    },
-    "2": {
-        "label": " 2",
-        "matches": [
-            Match(wm_class="Brave-browser"),
-            Match(wm_class="vivaldi-stable")
-        ],
-        "layout": "max",
-        "screen_affinity": 0,
-    },
-    "3": {
-        "label": " 3", 
-        "matches": [
-            Match(wm_class="Signal"),
-            Match(wm_class="TelegramDesktop")
-        ],
-        "layout": "monadtall",
-        "screen_affinity": 0,
-    },
-    "4": {
-        "label": "󰙯 4",
-        "matches": [
-            Match(wm_class="discord")
-        ],
-        "layout": "max",
-        "screen_affinity": 0,
-    },
-    "5": {
-        "label": " 5",
-        "matches": [
-            Match(wm_class="zoom")
-        ],
-        "layout": "max",
-        "screen_affinity": 0,
-    },
-    "6": {
-        "label": " 6", 
-        "matches": [
-            Match(wm_class="mpv"),
-            Match(wm_class="vlc")
-        ],
-        "layout": "max",
-        "screen_affinity": 0,
-    },
-    "7": {
-        "label": " 7",
-        "matches": [
-            Match(wm_class="Code")
-        ],
-        "layout": "max",
-        "screen_affinity": 0,
-    },
-    "8": {
-        "label": "󰏆 8",
-        "matches": [
-            Match(wm_class="Inkscape")
-        ],
-        "layout": "max",
-        "screen_affinity": 0,
-    },
-    "9": {
-        "label": " 9",
-        "matches": [
-            Match(wm_class="obsidian"), Match(wm_class="Zotero")
-        ],
-        "layout": "max",
-        "screen_affinity": 0,
-    },
-    "0": {
-        "label": "󰡇 0",
-        "matches": [
-            Match(wm_class="obs")
-        ],
-        "layout": "max",
-        "screen_affinity": 1,
-    },
-}
 groups = []
-for group_name, group_props in group_props_dict.items():
+for group_name, group_props in GROUP_PROPS_DICT.items():
     groups.append(
         Group(
             name=group_name,
@@ -602,8 +601,8 @@ layout_theme = {
 }
 
 layouts = [
-    layout.MonadTall(**layout_theme, name="monad"),
-    layout.Max(**layout_theme, name=" max "),
+    layout.MonadTall(**layout_theme, name=" MonadTall"),
+    layout.Max(**layout_theme, name="    Max   "),
 ]
 
 widget_defaults = dict(
@@ -667,8 +666,11 @@ reconfigure_screens = True
 
 @hook.subscribe.startup_once
 def autostart_once():
-    subprocess.run([f"{HOME}/.local/bin/init_stuffs", "-b", "-s"])
+    subprocess.run([f"{HOME}/.local/bin/init_stuffs", "-b"])
 
+@hook.subscribe.startup
+def run_every_startup():
+    subprocess.run([f"{HOME}/.local/bin/init_stuffs", "-s"])
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
