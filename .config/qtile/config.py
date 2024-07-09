@@ -1,6 +1,8 @@
+from typing import List
 from libqtile import bar, layout
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, hook
 from libqtile.lazy import lazy
+from libqtile.log_utils import get_default_log
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 import os
@@ -12,9 +14,11 @@ TERMINAL = "kitty"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
+FONTSIZE_2k = 20
 WIN_RESZ_PX = 50
 WIN_MOVE_PX = 50
 FILE_EXPLORER = "nautilus"
+FONT_BOLD = "JetBrainsMono Nerd Font, Bold"
 COLORS = {
     "white": "#f2f4f8",
     "dark": "#161616",
@@ -32,177 +36,222 @@ COLORS = {
 }
 RECTDEC_PROPS = {
     "colour": COLORS["dark1"],
-    "radius": 10,
+    "radius": 5,
     "filled": True,
     "padding_y": 5,
 }
 
 
-spacer_widget = widget.Spacer(
-    length=8,
-    background=COLORS["dark"],
-)
+def get_spacer_widget(length: int | bar.Obj = 12):
+    return widget.Spacer(
+        length=length,
+        background=COLORS["dark"],
+    )
 
-layout_widget = widget.CurrentLayout(
-    foreground=COLORS["white"],
-    fmt="   {} ",
-    font="JetBrainsMono Nerd Font, Bold",
-    fontsize=FONTSIZE,
-    decorations=[RectDecoration(**RECTDEC_PROPS)],
-)
-groupbox_widget = widget.GroupBox(
-    fontsize=FONTSIZE,
-    highlight_method="line",
-    active=COLORS["blue"],
-    borderwidth=2,
-    block_highlight_text_color=COLORS["blue"],
-    highlight_color=COLORS["dark1"],
-    inactive=COLORS["gray"],
-    background=COLORS["dark"],
-    this_current_screen_border=COLORS["blue"],
-    this_screen_border=COLORS["dark2"],
-    other_current_screen_border=COLORS["blue"],
-    other_screen_border=COLORS["dark2"],
-    urgent_border=COLORS["red"],
-    urgent_text=COLORS["dark"],
-    rounded=True,
-    disable_drag=True,
-    font="JetBrainsMono Nerd Font, Bold",
-    hide_unused=False,
-)
-tasklist_widget = widget.TaskList(
-    background=COLORS["dark"],
-    border=COLORS["dark1"],
-    foreground=COLORS["white"],
-    highlight_method="block",
-    urgent_border=COLORS["red"],
-    icon_size=16,
-    font="JetBrainsMono Nerd Font, Bold",
-    margin=0,
-    max_title_width=200,
-    mouse_callbacks={"Button2": lazy.window.kill()},
-    padding_x=10,
-    padding_y=5,
-    txt_floating="[F] ",
-    txt_maximized="[M] ",
-    txt_minimized="[m] ",
-)
-time_widget = widget.Clock(
-    format="  %d/%m/%y  %I:%M %p ",
-    foreground=COLORS["cyan"],
-    font="JetBrainsMono Nerd Font, Bold",
-    fontsize=FONTSIZE,
-    decorations=[RectDecoration(**RECTDEC_PROPS)],
-)
-stretch_spacer_widget = widget.Spacer(length=bar.STRETCH, background=COLORS["dark"])
-nvidia_widget = widget.GenPollText(
-    update_interval=0.02,
-    func=lambda: subprocess.check_output(
-        [f"{HOME}/.config/qtile/scripts/system-nvidia-smi.sh"]
-    )
-    .decode()
-    .strip("\n"),
-    font="JetBrainsMono Nerd Font, Bold",
-    fontsize=FONTSIZE,
-    foreground=COLORS["green"],
-    decorations=[RectDecoration(**RECTDEC_PROPS)],
-)
-ibus_widget = widget.GenPollText(
-    update_interval=0.02,
-    func=lambda: subprocess.check_output(
-        [f"{HOME}/.config/qtile/scripts/ibus-engine.sh"]
-    )
-    .decode()
-    .strip("\n"),
-    font="JetBrainsMono Nerd Font, Bold",
-    fontsize=FONTSIZE,
-    foreground=COLORS["yellow"],
-    mouse_callbacks={"Button1": lazy.spawn(f"{HOME}/.zshrc.d/toggle_language.zsh &")},
-    decorations=[RectDecoration(**RECTDEC_PROPS)],
-)
-volume_widget = widget.GenPollText(
-    update_interval=0.02,
-    func=lambda: subprocess.check_output(
-        [f"{HOME}/.config/qtile/scripts/get_volume.sh"]
-    )
-    .decode()
-    .strip("\n"),
-    font="JetBrainsMono Nerd Font, Bold",
-    fontsize=FONTSIZE,
-    foreground=COLORS["purple"],
-    mouse_callbacks={
-        "Button1": lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-        "Button4": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ +2%"),
-        "Button5": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ -2%"),
-    },
-    decorations=[RectDecoration(**RECTDEC_PROPS)],
-)
-brightness_widget = widget.GenPollText(
-    update_interval=0.02,
-    func=lambda: subprocess.check_output(
-        [f"{HOME}/.config/qtile/scripts/brightnessctl.sh"]
-    )
-    .decode()
-    .strip("\n"),
-    font="JetBrainsMono Nerd Font, Bold",
-    fontsize=FONTSIZE,
-    foreground=COLORS["magenta"],
-    mouse_callbacks={
-        "Button4": lazy.spawn("brightnessctl set +5%"),
-        "Button5": lazy.spawn("brightnessctl set 5%-"),
-    },
-    decorations=[RectDecoration(**RECTDEC_PROPS)],
-)
-battery_widget = widget.GenPollText(
-    update_interval=60,
-    func=lambda: subprocess.check_output([f"{HOME}/.config/qtile/scripts/battery.sh"])
-    .decode()
-    .strip("\n"),
-    font="JetBrainsMono Nerd Font, Bold",
-    fontsize=FONTSIZE,
-    foreground=COLORS["blue1"],
-    decorations=[RectDecoration(**RECTDEC_PROPS)],
-)
-systray_widget = widget.Systray(
-    background=COLORS["dark"],
-    fontsize=FONTSIZE,
-    padding=10,
-)
 
-def_widgets = [
-    spacer_widget,
-    layout_widget,
-    spacer_widget,
-    groupbox_widget,
-    spacer_widget,
-    tasklist_widget,
-    stretch_spacer_widget,
-    spacer_widget,
-    time_widget,
-    stretch_spacer_widget,
-    brightness_widget,
-    spacer_widget,
-    nvidia_widget,
-    spacer_widget,
-    ibus_widget,
-    spacer_widget,
-    volume_widget,
-    spacer_widget,
-    battery_widget,
-    spacer_widget,
-]
+def get_layout_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
+    return widget.CurrentLayout(
+        foreground=COLORS["white"],
+        fmt="   {} ",
+        font=font,
+        fontsize=fontsize,
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
+    )
+
+
+def get_groupbox_widget(
+    fontsize: int = FONTSIZE, font: str = FONT_BOLD, hide_unused: bool = False
+):
+    return widget.GroupBox(
+        fontsize=fontsize,
+        font=font,
+        hide_unused=hide_unused,
+        highlight_method="line",
+        active=COLORS["blue"],
+        borderwidth=2,
+        block_highlight_text_color=COLORS["blue"],
+        highlight_color=COLORS["dark1"],
+        inactive=COLORS["gray"],
+        background=COLORS["dark"],
+        this_current_screen_border=COLORS["blue"],
+        this_screen_border=COLORS["dark2"],
+        other_current_screen_border=COLORS["blue"],
+        other_screen_border=COLORS["dark2"],
+        urgent_border=COLORS["red"],
+        urgent_text=COLORS["dark"],
+        rounded=True,
+        disable_drag=True,
+    )
+
+
+def get_tasklist_widget(fontsize: int = FONTSIZE, font: str = FONT_BOLD):
+    return widget.TaskList(
+        icon_size=fontsize,
+        font=font,
+        background=COLORS["dark"],
+        border=COLORS["dark1"],
+        foreground=COLORS["white"],
+        highlight_method="block",
+        urgent_border=COLORS["red"],
+        margin=0,
+        max_title_width=200,
+        mouse_callbacks={"Button2": lazy.window.kill()},
+        padding_x=10,
+        padding_y=5,
+        txt_floating="[F] ",
+        txt_maximized="[M] ",
+        txt_minimized="[m] ",
+    )
+
+
+def get_time_widget(font: str = FONT_BOLD, fontsize=FONTSIZE):
+    return widget.Clock(
+        font=font,
+        fontsize=fontsize,
+        format="  %d/%m/%y  %I:%M %p ",
+        foreground=COLORS["cyan"],
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
+    )
+
+
+def get_nvidia_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
+    return widget.GenPollText(
+        font=font,
+        fontsize=fontsize,
+        update_interval=0.02,
+        func=lambda: subprocess.check_output(
+            [f"{HOME}/.config/qtile/scripts/system-nvidia-smi.sh"]
+        )
+        .decode()
+        .strip("\n"),
+        foreground=COLORS["green"],
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
+    )
+
+
+def get_ibus_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
+    return widget.GenPollText(
+        font=font,
+        fontsize=fontsize,
+        update_interval=0.02,
+        func=lambda: subprocess.check_output(
+            [f"{HOME}/.config/qtile/scripts/ibus-engine.sh"]
+        )
+        .decode()
+        .strip("\n"),
+        foreground=COLORS["yellow"],
+        mouse_callbacks={
+            "Button1": lazy.spawn(f"{HOME}/.zshrc.d/toggle_language.zsh &")
+        },
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
+    )
+
+
+def get_volume_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
+    return widget.GenPollText(
+        font=font,
+        fontsize=fontsize,
+        update_interval=0.02,
+        func=lambda: subprocess.check_output(
+            [f"{HOME}/.config/qtile/scripts/get_volume.sh"]
+        )
+        .decode()
+        .strip("\n"),
+        foreground=COLORS["purple"],
+        mouse_callbacks={
+            "Button1": lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+            "Button4": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ +2%"),
+            "Button5": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ -2%"),
+        },
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
+    )
+
+
+def get_brightness_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
+    return widget.GenPollText(
+        font=font,
+        fontsize=fontsize,
+        update_interval=0.02,
+        func=lambda: subprocess.check_output(
+            [f"{HOME}/.config/qtile/scripts/brightnessctl.sh"]
+        )
+        .decode()
+        .strip("\n"),
+        foreground=COLORS["magenta"],
+        mouse_callbacks={
+            "Button4": lazy.spawn("brightnessctl set +5%"),
+            "Button5": lazy.spawn("brightnessctl set 5%-"),
+        },
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
+    )
+
+
+def get_battery_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
+    return widget.GenPollText(
+        font=font,
+        fontsize=fontsize,
+        update_interval=60,
+        func=lambda: subprocess.check_output(
+            [f"{HOME}/.config/qtile/scripts/battery.sh"]
+        )
+        .decode()
+        .strip("\n"),
+        foreground=COLORS["blue1"],
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
+    )
+
+
+def get_systray_widget(fontsize: int = FONTSIZE):
+    return widget.Systray(
+        fontsize=fontsize,
+        background=COLORS["dark"],
+        padding=10,
+    )
+
+
+def get_default_widgets(fontsize=FONTSIZE) -> List:
+    return [
+        get_spacer_widget(),
+        get_layout_widget(fontsize=fontsize),
+        get_spacer_widget(),
+        get_groupbox_widget(fontsize=fontsize),
+        get_spacer_widget(),
+        get_tasklist_widget(fontsize=fontsize),
+        get_spacer_widget(length=bar.STRETCH),
+        get_spacer_widget(),
+        get_time_widget(fontsize=fontsize),
+        get_spacer_widget(length=bar.STRETCH),
+        get_brightness_widget(fontsize=fontsize),
+        get_spacer_widget(),
+        get_nvidia_widget(fontsize=fontsize),
+        get_spacer_widget(),
+        get_ibus_widget(fontsize=fontsize),
+        get_spacer_widget(),
+        get_volume_widget(fontsize=fontsize),
+        get_spacer_widget(),
+        get_battery_widget(fontsize=fontsize),
+        get_spacer_widget(),
+    ]
+
 
 main_bar = bar.Bar(
-    def_widgets + [systray_widget, spacer_widget],
+    get_default_widgets() + [get_systray_widget(), get_spacer_widget()],
     size=35,
     margin=[10, 10, 0, 10],
     background=COLORS["dark"],
 )
 
-
 sec_bar = bar.Bar(
-    def_widgets,
-    size=35,
+    get_default_widgets(fontsize=FONTSIZE_2k),
+    size=45,
+    margin=[10, 10, 0, 10],
+    background=COLORS["dark"],
+)
+
+main_bar_2k = bar.Bar(
+    get_default_widgets(fontsize=FONTSIZE_2k)
+    + [get_systray_widget(), get_spacer_widget()],
+    size=45,
     margin=[10, 10, 0, 10],
     background=COLORS["dark"],
 )
@@ -564,10 +613,22 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(top=main_bar),
-    Screen(top=sec_bar),
+# Configure screens
+xrandr_out = [
+    line
+    for line in subprocess.check_output("xrandr").decode().splitlines()
+    if "connected" in line.split()
 ]
+if len(xrandr_out) == 1:
+    screens = [
+        Screen(top=main_bar_2k),
+    ]
+else:
+    screens = [
+        Screen(top=main_bar),
+        Screen(top=sec_bar),
+    ]
+
 
 # Drag floating layouts.
 mouse = [
