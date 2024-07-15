@@ -198,8 +198,9 @@ def get_time_widget(font: str = FONT_BOLD, fontsize=FONTSIZE):
     return widget.Clock(
         font=font,
         fontsize=fontsize,
-        format="  %d/%m/%y  %I:%M %p ",
+        format="  %d/%m/%y  %H:%M ",
         foreground=COLORS["cyan"],
+        timezone=subprocess.check_output(["cat", "/etc/timezone"]).decode().strip("\n"),
     )
 
 
