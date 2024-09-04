@@ -208,7 +208,7 @@ def get_nvidia_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
     return widget.GenPollText(
         font=font,
         fontsize=fontsize,
-        update_interval=0.02,
+        update_interval=2,
         func=lambda: subprocess.check_output(
             [f"{HOME}/.config/qtile/scripts/system-nvidia-smi.sh"]
         )
@@ -629,7 +629,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 # Configure screens
-# NOTE: Best used for laptop + 1 extra monitor (not tested with other configs)
+# NOTE: For laptop + 1 extra monitor (not tested with other configs)
 xrandr_out = [
     line
     for line in subprocess.check_output("xrandr").decode().splitlines()

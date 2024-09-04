@@ -98,7 +98,7 @@ elif [[ $XRANDR_OUT == *"DisplayPort-2 connected"* ]]; then
     fi
 else
     umonitor --load mobile
-    xrandr --output eDP --primary
+    xrandr --output eDP-1 --primary
     notify-send "Initialized display" "mobile"
     feh --bg-scale --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then

@@ -34,11 +34,11 @@ sudo apt install git curl clang clang-format udiskie tmux
 - Editor
 
   - texlive-full: LaTeX stuffs
-  - Formatters for languages: texlab, mdformat, xmlformmatter, black, flake8, stylua
+  - Formatters for languages: texlab, mdformat, xmllint, black, flake8, stylua
 
   ```bash
-  pip install mdformat xmlformatter black flake8
-  sudo apt install clang-format texlive-full
+  pip install mdformat black flake8
+  sudo apt install clang-format texlive-full libxml2-utils
   cargo install texlab stylua
   go install github.com/jesseduffield/lazygit@latest
   ```
