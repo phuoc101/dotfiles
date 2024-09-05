@@ -577,6 +577,7 @@ keys = [
         desc="Spawn powermenu",
     ),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Screenshot"),
+    Key([MOD], "P", lazy.spawn("flameshot gui"), desc="Screenshot"),
     Key(
         ["shift"],
         "Print",

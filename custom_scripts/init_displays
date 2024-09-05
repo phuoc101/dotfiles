@@ -73,6 +73,18 @@ if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi
+elif [[ $XRANDR_OUT == *"DP-1-0 connected"* ]]; then
+    # umonitor --load mobile
+    umonitor --load home_fl
+    notify-send "Initialized display" "home_fl"
+    xrandr --output DP-1-0 --primary
+    feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    # feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
+    if [ "$poly_init" == true ]; then
+        ~/.config/polybar/scripts/launch.sh
+        # kill_poly
+        # init_poly_2
+    fi
 elif [[ $XRANDR_OUT == *"DP-1-4 connected"* ]]; then
     # umonitor --load mobile
     umonitor --load work_aalto_usbc
