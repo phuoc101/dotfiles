@@ -73,23 +73,15 @@ GROUP_PROPS_DICT = {
         "screen_affinity": 0,
     },
     "4": {
-        "label": "󰙯 4",
-        "matches": [
-            Match(wm_class="discord")
-        ],
-        "layout": LAYOUT_LABEL["max"],
-        "screen_affinity": 0,
-    },
-    "5": {
-        "label": " 5",
+        "label": " 4",
         "matches": [
             Match(wm_class="zoom")
         ],
         "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
-    "6": {
-        "label": " 6", 
+    "5": {
+        "label": " 5", 
         "matches": [
             Match(wm_class="mpv"),
             Match(wm_class="vlc")
@@ -97,32 +89,40 @@ GROUP_PROPS_DICT = {
         "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
-    "7": {
-        "label": " 7",
+    "6": {
+        "label": " 6",
         "matches": [
             Match(wm_class="Code")
         ],
         "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
-    "8": {
-        "label": "󰏆 8",
+    "7": {
+        "label": "󰏆 7",
         "matches": [
             Match(wm_class="Inkscape")
         ],
         "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
-    "9": {
-        "label": " 9",
+    "8": {
+        "label": " 8",
         "matches": [
             Match(wm_class="obsidian"), Match(wm_class="Zotero")
         ],
         "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
     },
+    "9": {
+        "label": "󰙯 9",
+        "matches": [
+            Match(wm_class="discord")
+        ],
+        "layout": LAYOUT_LABEL["max"],
+        "screen_affinity": 1,
+    },
     "0": {
-        "label": "󰡇 0",
+        "label": "󰡇 10",
         "matches": [
             Match(wm_class="obs")
         ],
