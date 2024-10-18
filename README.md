@@ -76,6 +76,24 @@ sudo apt install git curl clang clang-format udiskie tmux
   systemctl enable betterlockscreen@$USER
   ```
 
+  - [qtile](https://docs.qtile.org/en/stable/manual/install/index.html)
+
+  ```bash
+  pip install qtile
+  pip install qtile_extras
+  ```
+
+  - Create `qtile.desktop` in `/usr/share/xsessions`
+
+  ```text
+  [Desktop Entry]
+  Name=Qtile
+  Comment=Qtile Session
+  Exec=qtile start
+  Type=Application
+  Keywords=wm;tiling
+  ```
+
   - [kitty](https://sw.kovidgoyal.net/kitty/binary/)
 
     - Make Kitty default terminal
@@ -107,8 +125,6 @@ sudo apt install git curl clang clang-format udiskie tmux
 
 - From apt:
 
-  - I3-wm: window manager
-  - Polybar: customizable top bar
   - rofi: app launcher
   - arandr and umonitor: display configs
   - kvantum: kvantum manager
@@ -120,7 +136,7 @@ sudo apt install git curl clang clang-format udiskie tmux
   - Command:
 
   ```bash
-  sudo apt install i3 polybar rofi arandr qt5-style-kvantum brightnessctl lxappearance feh qt5ct;
+  sudo apt install rofi arandr qt5-style-kvantum brightnessctl lxappearance feh qt5ct;
 
   cd sys_tools
   git clone git@github.com:rliou92/python-umonitor.git
@@ -207,8 +223,9 @@ sudo apt install git curl clang clang-format udiskie tmux
     - `pip3 install i3ipc`
   - rofimoji: emoji picker
     - `sudo apt install xdotool`
-    - [Noto Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji)
+    - [Noto Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) (Check /usr/share/fonts/truetype/noto/) if it has already been installed first
     - `pip3 install --user rofimoji`
+    - `sudo apt install rofi-dev autoconf automake libtool-bin libtool`
   - [btop](https://github.com/aristocratos/btop#installation): system monitoring
 
 - From apt:
