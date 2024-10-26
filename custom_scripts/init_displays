@@ -66,8 +66,8 @@ fi
 # ---
 XRANDR_OUT=$(xrandr)
 if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
-    umonitor --load work_aalto
-    notify-send "Initialized display" "work_aalto"
+    umonitor --load dual_hdmi
+    notify-send "Initialized display" "dual_hdmi"
     xrandr --output HDMI-1-0 --primary
     feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
     if [ "$poly_init" == true ]; then
@@ -75,47 +75,29 @@ if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
     fi
 elif [[ $XRANDR_OUT == *"DP-1-0 connected"* ]]; then
     # umonitor --load mobile
-    umonitor --load home_fl
-    notify-send "Initialized display" "home_fl"
+    umonitor --load dual_2k
+    notify-send "Initialized display" "dual_2k"
     xrandr --output DP-1-0 --primary
     feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    # feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
-        # kill_poly
-        # init_poly_2
     fi
-elif [[ $XRANDR_OUT == *"DP-1-4 connected"* ]]; then
-    # umonitor --load mobile
-    umonitor --load work_aalto_usbc
-    notify-send "Initialized display" "work_aalto_usbc"
-    xrandr --output DP-1-4 --primary
+elif [[ $XRANDR_OUT == *"DisplayPort-1 connected"* ]]; then
+    umonitor --load dual_2k
+    notify-send "Initialized display" "dual_2k"
+    xrandr --output DisplayPort-1 --primary
     feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    # feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
-    if [ "$poly_init" == true ]; then
-        ~/.config/polybar/scripts/launch.sh
-        # kill_poly
-        # init_poly_2
-    fi
 elif [[ $XRANDR_OUT == *"DisplayPort-2 connected"* ]]; then
-    umonitor --load home_fl
-    notify-send "Initialized display" "home_fl"
+    umonitor --load dual_2k
+    notify-send "Initialized display" "dual_2k"
     xrandr --output DisplayPort-2 --primary
     feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    # feh --bg-scale --randomize $MY_WALLS_DIR --bg-scale --randomize $MY_WALLS_DIR
-    if [ "$poly_init" == true ]; then
-        ~/.config/polybar/scripts/launch.sh
-        # kill_poly
-        # init_poly_2
-    fi
 else
     umonitor --load mobile
-    xrandr --output eDP-1 --primary
+    xrandr --output eDP --primary
     notify-send "Initialized display" "mobile"
     feh --bg-scale --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
-        # kill_poly
-        # init_poly_1
     fi
 fi

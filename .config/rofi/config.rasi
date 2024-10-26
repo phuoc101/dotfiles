@@ -15,7 +15,7 @@ configuration {
 	scroll-method: 0;
 	normalize-match: true;
 	show-icons: true;
-	icon-theme: "Fluent";
+	icon-theme: "Papirus";
 	steal-focus: false;
 
 	/*---------- Keybinding setting ----------*/

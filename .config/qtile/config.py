@@ -14,7 +14,7 @@ TERMINAL = "kitty"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
-FONTSIZE_2k = 20
+FONTSIZE_2k = 16
 WIN_RESZ_PX = 50
 WIN_MOVE_PX = 50
 FILE_EXPLORER = "nautilus"
@@ -186,11 +186,10 @@ def get_tasklist_widget(fontsize: int = FONTSIZE, font: str = FONT_BOLD):
         margin=0,
         max_title_width=200,
         mouse_callbacks={"Button2": lazy.window.kill()},
-        padding_x=10,
-        padding_y=5,
+        padding=8,
         txt_floating="[F] ",
         txt_maximized="[M] ",
-        txt_minimized="[m] ",
+        txt_minimized="[_] ",
     )
 
 
