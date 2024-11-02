@@ -22,7 +22,6 @@ trash ${HOME}/.local/bin/mapesctilde
 trash ${HOME}/.local/bin/init_stuffs
 trash ${HOME}/.tmux.conf
 trash ${HOME}/.wezterm.lua
-trash ${HOME}/.icons/extras/
 
 # Link config files
 ln -s ${HOME}/dotfiles/.config/aliasrc ${HOME}/.config/aliasrc
@@ -44,5 +43,4 @@ ln -s ${HOME}/dotfiles/.zshrc.d ${HOME}/.zshrc.d
 ln -s ${HOME}/dotfiles/custom_scripts/* ${HOME}/.local/bin
 ln -s ${HOME}/dotfiles/tmux.conf ${HOME}/.tmux.conf
 ln -s ${HOME}/dotfiles/.wezterm.lua ${HOME}/.wezterm.lua
-ln -s ${HOME}/dotfiles/icons ${HOME}/.icons/extras
 ln -s ${HOME}/dotfiles/.vimrc ${HOME}/.vimrc

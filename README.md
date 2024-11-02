@@ -209,6 +209,16 @@ sudo apt install git curl clang clang-format udiskie tmux
 
   - [ani-cli](https://github.com/pystardust/ani-cli)
 
+  - [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+
+  ```bash
+  python3 -m pip install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
+
+  # Example to download mp3 audio
+  yt-dlp --extract-audio --audio-format mp3 https://youtube.com/watch?v=cD32FwBETT8&si=TR3M9gMr5pCeFvHB
+
+  ```
+
   - [Syncthing](https://apt.syncthing.net/)
 
   ```

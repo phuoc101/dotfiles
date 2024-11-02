@@ -68,6 +68,7 @@ then
     udiskie &
     ibus-daemon --xim -d -r &
     nm-applet &
+    blueman-applet &
     notify-send "INIT BACKGROUND PROGRAMS"
     # Start ALSA service (for sound)
     alsactl init &
