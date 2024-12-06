@@ -2,15 +2,18 @@
 
 # ---
 # Options handling
-dark_mode=true
+mode="nord"
 poly_init=false
 while getopts "ldp" OPTION; do
     case "$OPTION" in
         d)
-            dark_mode=true
+            mode="dark"
             ;;
         l)
-            dark_mode=false
+            mode="light"
+            ;;
+        n)
+            mode="nord"
             ;;
         p)
             poly_init=true
@@ -24,7 +27,10 @@ done
 
 # ---
 # Wallpapers setup
-if [ "$dark_mode" == true ]; then
+if [ "$mode" == "nord" ]; then
+    notify-send "Set nord mode walls"
+    MY_WALLS_DIR=~/dotfiles/wallpapers_nord/*
+elif [ $mode == "dark" ]; then
     notify-send "Set dark mode walls"
     MY_WALLS_DIR=~/dotfiles/wallpapers_dark/*
 else
@@ -69,7 +75,8 @@ if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
     umonitor --load dual_hdmi
     notify-send "Initialized display" "dual_hdmi"
     xrandr --output HDMI-1-0 --primary
-    feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi
@@ -78,7 +85,8 @@ elif [[ $XRANDR_OUT == *"DP-1-0 connected"* ]]; then
     umonitor --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DP-1-0 --primary
-    feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi
@@ -86,12 +94,14 @@ elif [[ $XRANDR_OUT == *"DisplayPort-1 connected"* ]]; then
     umonitor --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DisplayPort-1 --primary
-    feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
 elif [[ $XRANDR_OUT == *"DisplayPort-2 connected"* ]]; then
     umonitor --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DisplayPort-2 --primary
-    feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
+    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
 else
     umonitor --load mobile
     xrandr --output eDP --primary

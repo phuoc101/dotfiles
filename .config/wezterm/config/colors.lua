@@ -1,0 +1,18 @@
+return {
+	bg0 = "#2e3440",
+	bg1 = "#3b4252",
+	bg2 = "#434c5e",
+	bg3 = "#4c566a",
+	fg1 = "#d8dee9",
+	fg2 = "#e5e9f0",
+	fg3 = "#eceff4",
+	mint = "#8fbcbb",
+	cyan = "#88c0d0",
+	blue1 = "#81a1c1",
+	blue2 = "#5e81ac",
+	red = "#bf616a",
+	orange = "#d08770",
+	yellow = "#ebcb8b",
+	green = "#a3be8c",
+	magenta = "#b48ead",
+}

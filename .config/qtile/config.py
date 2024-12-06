@@ -10,7 +10,7 @@ import subprocess
 
 HOME = os.path.expanduser("~")
 MOD = "mod4"
-TERMINAL = "kitty"
+TERMINAL = "wezterm"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
@@ -19,23 +19,39 @@ WIN_RESZ_PX = 50
 WIN_MOVE_PX = 50
 FILE_EXPLORER = "nautilus"
 FONT_BOLD = "JetBrainsMono Nerd Font, Bold"
-COLORS = {
-    "white": "#f2f4f8",
-    "dark": "#161616",
-    "dark1": "#2a2a2a",
-    "dark2": "#4a4a4a",
+CARBON_COLORS = {
+    "fg": "#f2f4f8",
+    "bg": "#161616",
+    "bg1": "#2a2a2a",
+    "bg2": "#4a4a4a",
     "gray": "#707880",
     "yellow": "#e5c07b",
     "green": "#46c880",
     "red": "#fe6f70",
     "blue": "#78a9ff",
     "blue1": "#8cb6ff",
-    "purple": "#c678dd",
+    "orange": "#c678dd",
     "cyan": "#56B6c2",
     "magenta": "#ee5396",
 }
+NORD_COLORS = {
+    "fg": "#eceff4",
+    "bg": "#2e3440",
+    "bg1": "#3b4252",
+    "bg2": "#434c5e",
+    "gray": "#8fbcbb",
+    "blue": "#5e81ac",
+    "blue1": "#81a1c1",
+    "red": "#bf616a",
+    "orange": "#d08770",
+    "yellow": "#ebcb8b",
+    "green": "#a3be8c",
+    "cyan": "#d8dee9",
+    "magenta": "#b48ead",
+}
+COLORS = NORD_COLORS
 RECTDEC_PROPS = {
-    "colour": COLORS["dark1"],
+    "colour": COLORS["bg1"],
     "radius": 5,
     "filled": True,
     "padding_y": 5,
@@ -49,6 +65,7 @@ GROUP_PROPS_DICT = {
         "label": " 1",
         "matches": [
             Match(wm_class="kitty"),
+            Match(wm_class="org.wezfurlong.wezterm"),
             Match(wm_class="Gnome-terminal")
         ],
         "layout": LAYOUT_LABEL["monadtall"],
@@ -135,13 +152,13 @@ GROUP_PROPS_DICT = {
 def get_spacer_widget(length: int | bar.Obj = 12):
     return widget.Spacer(
         length=length,
-        background=COLORS["dark"],
+        background=COLORS["bg"],
     )
 
 
 def get_layout_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
     return widget.CurrentLayout(
-        foreground=COLORS["white"],
+        foreground=COLORS["fg"],
         fmt=" {} ",
         font=font,
         fontsize=fontsize,
@@ -160,15 +177,15 @@ def get_groupbox_widget(
         active=COLORS["blue"],
         borderwidth=2,
         block_highlight_text_color=COLORS["blue"],
-        highlight_color=COLORS["dark1"],
+        highlight_color=COLORS["bg1"],
         inactive=COLORS["gray"],
-        background=COLORS["dark"],
+        background=COLORS["bg"],
         this_current_screen_border=COLORS["blue"],
-        this_screen_border=COLORS["dark2"],
+        this_screen_border=COLORS["bg2"],
         other_current_screen_border=COLORS["blue"],
-        other_screen_border=COLORS["dark2"],
+        other_screen_border=COLORS["bg2"],
         urgent_border=COLORS["red"],
-        urgent_text=COLORS["dark"],
+        urgent_text=COLORS["bg"],
         rounded=True,
         disable_drag=True,
     )
@@ -178,9 +195,9 @@ def get_tasklist_widget(fontsize: int = FONTSIZE, font: str = FONT_BOLD):
     return widget.TaskList(
         icon_size=fontsize,
         font=font,
-        background=COLORS["dark"],
-        border=COLORS["dark1"],
-        foreground=COLORS["white"],
+        background=COLORS["bg"],
+        border=COLORS["bg1"],
+        foreground=COLORS["fg"],
         highlight_method="block",
         urgent_border=COLORS["red"],
         margin=0,
@@ -190,6 +207,8 @@ def get_tasklist_widget(fontsize: int = FONTSIZE, font: str = FONT_BOLD):
         txt_floating="[F] ",
         txt_maximized="[M] ",
         txt_minimized="[_] ",
+        theme_mode="preferred",
+        theme_path="/usr/share/icons/Papirus",
     )
 
 
@@ -246,7 +265,7 @@ def get_volume_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
         )
         .decode()
         .strip("\n"),
-        foreground=COLORS["purple"],
+        foreground=COLORS["orange"],
         mouse_callbacks={
             "Button1": lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
             "Button4": lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ +2%"),
@@ -293,7 +312,7 @@ def get_battery_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
 def get_systray_widget(fontsize: int = FONTSIZE):
     return widget.Systray(
         fontsize=fontsize,
-        background=COLORS["dark"],
+        background=COLORS["bg"],
         padding=10,
     )
 
@@ -327,14 +346,14 @@ main_bar = bar.Bar(
     get_default_widgets() + [get_systray_widget(), get_spacer_widget()],
     size=35,
     margin=[10, 10, 0, 10],
-    background=COLORS["dark"],
+    background=COLORS["bg"],
 )
 
 sec_bar_2k = bar.Bar(
     get_default_widgets(fontsize=FONTSIZE_2k),
     size=45,
     margin=[10, 10, 0, 10],
-    background=COLORS["dark"],
+    background=COLORS["bg"],
 )
 
 main_bar_2k = bar.Bar(
@@ -342,7 +361,7 @@ main_bar_2k = bar.Bar(
     + [get_systray_widget(), get_spacer_widget()],
     size=45,
     margin=[10, 10, 0, 10],
-    background=COLORS["dark"],
+    background=COLORS["bg"],
 )
 
 
@@ -611,8 +630,8 @@ for i in groups:
 
 layout_theme = {
     "margin": 10,
-    "border_focus": COLORS["white"],
-    "border_normal": COLORS["dark"],
+    "border_focus": COLORS["fg"],
+    "border_normal": COLORS["bg"],
     "border_width": 3,
 }
 

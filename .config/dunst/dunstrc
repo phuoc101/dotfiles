@@ -39,14 +39,15 @@ progress_bar_max_width = 300
 padding = 8
 horizontal_padding = 11
 frame_width = 3
-frame_color = "#D4D4D4"
+# frame_color = "#D4D4D4"
+frame_color = "#d8dee9"
 separator_color = frame
 
 font = JetBrainsMono Nerd Font 10
 
 line_height = 0
 markup = full
-format = "<span size='x-large' font_desc='Plex Code Pro 10' weight='bold' foreground='#9CDCFE'>%s</span>\n%b"
+format = "<span size='x-large' font_desc='Plex Code Pro 10' weight='bold' foreground='#88c0d0'>%s</span>\n%b"
 alignment = left
 
 idle_threshold = 120
@@ -77,21 +78,36 @@ mouse_left_click = do_action
 mouse_middle_click = close_all
 mouse_right_click = close_current
 
+# [urgency_low]
+# timeout = 3
+# background = "#1E1E1E"
+# foreground = "#D4D4D4"
+#
+# [urgency_normal]
+# timeout = 6
+# background = "#272727"
+# foreground = "#BBBBBB"
+#
+# [urgency_critical]
+# timeout = 0
+# background = "#51504F"
+# foreground = "#D4D4D4"
+# frame_color = "#c74e39"
 [urgency_low]
 timeout = 3
-background = "#1E1E1E"
-foreground = "#D4D4D4"
+background = "#3b4252"
+foreground = "#d8dee9"
 
 [urgency_normal]
 timeout = 6
-background = "#272727"
-foreground = "#BBBBBB"
+background = "#434c5e"
+foreground = "#d8dee9"
 
 [urgency_critical]
 timeout = 0
-background = "#51504F"
-foreground = "#D4D4D4"
-frame_color = "#c74e39"
+background = "#4c566a"
+foreground = "#d8dee9"
+frame_color = "#bf616a"
 
 [shortcuts]
 
@@ -110,7 +126,7 @@ close_all = ctrl+shift+space
 # On the US keyboard layout "grave" is normally above TAB and left
 # of "1". Make sure this key actually exists on your keyboard layout,
 # e.g. check output of 'xmodmap -pke'
-history = ctrl+F1
+history = ctrl+1
 
 # Context menu.
 context = ctrl+shift+period

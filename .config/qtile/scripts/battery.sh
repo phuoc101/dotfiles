@@ -10,6 +10,8 @@ BASE_PATH="/sys/class/power_supply/"
 bat_var=$(ls "${BASE_PATH}" | grep "BAT")
 battery_status=$(cat "${BASE_PATH}${bat_var}"/capacity)
 # battery_status=$(acpi | sed 's/^.*ing, //' | sed 's/\%.*//')
+ac_var=$(ls "${BASE_PATH}" | grep "AC")
+charge_status=$(cat "${BASE_PATH}${ac_var}"/online)
 
 if [[ "${battery_status}" -ge 90 ]] ; then
     # dunstify -r "9992" -i "icons8-full-battery-48" "Battery-Charged:${battery_status}%"
@@ -30,11 +32,12 @@ elif [[ "${battery_status}" -ge 20 ]] ; then
     bat_icon="󰁼"
 else
     bat_icon="󰁺"
-    dunstify -u critical -r "9992" -i "icons8-battery-alert-48" "Battery-Low:${battery_status}%"
+	if [[ ${charge_status} != "1" ]]; then
+		dunstify -u critical -r "9992" -i "icons8-battery-alert-48" "Battery-Low:${battery_status}%"
+	fi
 fi
 
-ac_var=$(ls "${BASE_PATH}" | grep "AC")
-charge_status=$(cat "${BASE_PATH}${ac_var}"/online)
+
 # charge_status=$(acpi | awk '{print $3}' | sed 's/\,//')
 
 # if [[ "${charge_status}" == "Charging" ]] ; then

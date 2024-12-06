@@ -11,6 +11,7 @@ trash ${HOME}/.config/sioyek
 trash ${HOME}/.config/zathura
 trash ${HOME}/.config/qtile
 trash ${HOME}/.config/starship.toml
+trash ${HOME}/.config/wezterm
 trash ${HOME}/.bash
 trash ${HOME}/.bashrc
 trash ${HOME}/.zshrc
@@ -36,11 +37,11 @@ ln -s ${HOME}/dotfiles/.config/zathura ${HOME}/.config/zathura
 ln -s ${HOME}/dotfiles/.config/qtile ${HOME}/.config/qtile
 ln -s ${HOME}/dotfiles/.config/sioyek ${HOME}/.config/sioyek
 ln -s ${HOME}/dotfiles/.config/starship.toml ${HOME}/.config/starship.toml
+ln -s ${HOME}/dotfiles/.config/wezterm ${HOME}/.config/wezterm
 ln -s ${HOME}/dotfiles/.bash ${HOME}/.bash
 ln -s ${HOME}/dotfiles/.bashrc ${HOME}/.bashrc
 ln -s ${HOME}/dotfiles/.zshrc ${HOME}/.zshrc
 ln -s ${HOME}/dotfiles/.zshrc.d ${HOME}/.zshrc.d
 ln -s ${HOME}/dotfiles/custom_scripts/* ${HOME}/.local/bin
 ln -s ${HOME}/dotfiles/tmux.conf ${HOME}/.tmux.conf
-ln -s ${HOME}/dotfiles/.wezterm.lua ${HOME}/.wezterm.lua
 ln -s ${HOME}/dotfiles/.vimrc ${HOME}/.vimrc
