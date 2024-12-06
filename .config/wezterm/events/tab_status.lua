@@ -35,6 +35,7 @@ local process_icons = {
 	["ruby"] = wezterm.nerdfonts.cod_ruby,
 	["tmux"] = wezterm.nerdfonts.cod_terminal_tmux,
 	["zellij"] = wezterm.nerdfonts.cod_terminal_tmux,
+	["lazygit"] = wezterm.nerdfonts.dev_git,
 }
 local SOLID_LEFT_HALF_CIRCLE = wezterm.nerdfonts.ple_left_half_circle_thick
 local SOLID_RIGHT_HALF_CIRCLE = wezterm.nerdfonts.ple_right_half_circle_thick
