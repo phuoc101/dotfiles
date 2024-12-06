@@ -88,10 +88,10 @@ local keys = {
 		action = wezterm.action.ReloadConfiguration,
 	},
 	{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
-	{ key = "L", mods = "LEADER|SHIFT", action = wezterm.action.ShowDebugOverlay },
+	{ key = "L", mods = "LEADER", action = wezterm.action.ShowDebugOverlay },
 }
 function mod.apply_to_config(config)
-	config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+	config.leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 }
 	config.keys = keys
 end
 

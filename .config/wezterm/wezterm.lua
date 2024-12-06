@@ -4,7 +4,6 @@ local wezterm = require("wezterm")
 
 local tab_bar = require("config.tab_bar")
 local font = require("config.font")
-local docker = require("config.docker")
 local keys = require("config.keys")
 
 local config = {}
@@ -31,22 +30,21 @@ config = {
 	-- 	name = "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
 	-- 	vendor = 4318,
 	-- },
-	-- webgpu_preferred_adapter = {
-	-- 	backend = "Vulkan",
-	-- 	device = 5761,
-	-- 	device_type = "IntegratedGpu",
-	-- 	driver = "radv",
-	-- 	driver_info = "Mesa 23.2.1-1ubuntu3.1~22.04.2",
-	-- 	name = "AMD Unknown (RADV REMBRANDT)",
-	-- 	vendor = 4098,
-	-- },
-	front_end = "OpenGL",
+	webgpu_preferred_adapter = {
+		backend = "Vulkan",
+		device = 5761,
+		device_type = "IntegratedGpu",
+		driver = "radv",
+		driver_info = "Mesa 23.2.1-1ubuntu3.1~22.04.2",
+		name = "AMD Unknown (RADV REMBRANDT)",
+		vendor = 4098,
+	},
+	front_end = "WebGpu",
 	-- domains
 }
 font.apply_to_config(config)
 keys.apply_to_config(config)
 tab_bar.apply_to_config(config)
-docker.apply_to_config(config)
 
 -- and finally, return the configuration to wezterm
 return config
