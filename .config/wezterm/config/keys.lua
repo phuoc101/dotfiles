@@ -95,4 +95,7 @@ function mod.apply_to_config(config)
 	config.keys = keys
 end
 
-return mod
+return {
+	leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 },
+	keys = keys,
+}
