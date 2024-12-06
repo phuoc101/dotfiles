@@ -2,7 +2,6 @@ local wezterm = require("wezterm")
 local mod = {}
 
 local keys = {
-	{ key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
 	{
 		key = "Enter",
 		mods = "CTRL",
@@ -83,9 +82,16 @@ local keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.TogglePaneZoomState,
 	},
-	{ key = "L", mods = "CTRL|SHIFT|ALT", action = wezterm.action.ShowDebugOverlay },
+	{
+		key = "r",
+		mods = "LEADER",
+		action = wezterm.action.ReloadConfiguration,
+	},
+	{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
+	{ key = "L", mods = "LEADER|SHIFT", action = wezterm.action.ShowDebugOverlay },
 }
 function mod.apply_to_config(config)
+	config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 	config.keys = keys
 end
 
