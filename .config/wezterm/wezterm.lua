@@ -1,6 +1,5 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
--- NOTE: Keybindings
 
 local tab_bar = require("config.tab_bar")
 local font = require("config.font")
@@ -40,7 +39,8 @@ config = {
 		vendor = 4098,
 	},
 	front_end = "WebGpu",
-	-- domains
+	term = "xterm-256color",
+	enable_kitty_graphics = true,
 }
 font.apply_to_config(config)
 keys.apply_to_config(config)

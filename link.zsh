@@ -12,6 +12,7 @@ trash ${HOME}/.config/zathura
 trash ${HOME}/.config/qtile
 trash ${HOME}/.config/starship.toml
 trash ${HOME}/.config/wezterm
+trash ${HOME}/.config/tmux
 trash ${HOME}/.bash
 trash ${HOME}/.bashrc
 trash ${HOME}/.zshrc
@@ -38,6 +39,7 @@ ln -s ${HOME}/dotfiles/.config/qtile ${HOME}/.config/qtile
 ln -s ${HOME}/dotfiles/.config/sioyek ${HOME}/.config/sioyek
 ln -s ${HOME}/dotfiles/.config/starship.toml ${HOME}/.config/starship.toml
 ln -s ${HOME}/dotfiles/.config/wezterm ${HOME}/.config/wezterm
+ln -s ${HOME}/dotfiles/.config/tmux ${HOME}/.config/tmux
 ln -s ${HOME}/dotfiles/.bash ${HOME}/.bash
 ln -s ${HOME}/dotfiles/.bashrc ${HOME}/.bashrc
 ln -s ${HOME}/dotfiles/.zshrc ${HOME}/.zshrc
