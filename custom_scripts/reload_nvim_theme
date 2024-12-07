@@ -45,6 +45,6 @@ def main(opt):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-c", "--colorscheme", default="carbonfox")
+    parser.add_argument("-c", "--colorscheme", default="nordfox")
     opt = parser.parse_args()
     main(opt)

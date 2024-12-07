@@ -3,7 +3,7 @@ export DOTFILES_DIR=~/dotfiles
 sed -i 's/dark.conf/light.conf/' ~/.config/kitty/kitty.conf
 kill -SIGUSR1 $(pgrep 'x-terminal|kitty')
 sed -i 's/dark/light/' $DOTFILES_DIR/.config/alacritty/alacritty.toml
-sed -i "s/vim.cmd.colorscheme 'carbonfox'/vim.cmd.colorscheme 'dayfox'/" $DOTFILES_DIR/.config/nvim/lua/kickstart/plugins/colorscheme.lua
+sed -i "s/vim.cmd.colorscheme 'nordfox'/vim.cmd.colorscheme 'dayfox'/" $DOTFILES_DIR/.config/nvim/lua/custom/plugins/colorscheme.lua
 reload_nvim_theme -c dayfox
 
 init_displays -l

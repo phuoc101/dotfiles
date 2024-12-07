@@ -4,7 +4,7 @@ trash ${HOME}/.config/alacritty
 trash ${HOME}/.config/dunst
 trash ${HOME}/.config/i3
 trash ${HOME}/.config/polybar
-trash ${HOME}/.config/rofi
+trash ${HOME}/.config/rofi 
 trash ${HOME}/.config/kitty
 trash ${HOME}/.config/nvim
 trash ${HOME}/.config/sioyek
@@ -13,6 +13,7 @@ trash ${HOME}/.config/qtile
 trash ${HOME}/.config/starship.toml
 trash ${HOME}/.config/wezterm
 trash ${HOME}/.config/tmux
+trash ${HOME}/.config/zellij
 trash ${HOME}/.bash
 trash ${HOME}/.bashrc
 trash ${HOME}/.zshrc
@@ -40,6 +41,7 @@ ln -s ${HOME}/dotfiles/.config/sioyek ${HOME}/.config/sioyek
 ln -s ${HOME}/dotfiles/.config/starship.toml ${HOME}/.config/starship.toml
 ln -s ${HOME}/dotfiles/.config/wezterm ${HOME}/.config/wezterm
 ln -s ${HOME}/dotfiles/.config/tmux ${HOME}/.config/tmux
+ln -s ${HOME}/dotfiles/.config/zellij ${HOME}/.config/zellij
 ln -s ${HOME}/dotfiles/.bash ${HOME}/.bash
 ln -s ${HOME}/dotfiles/.bashrc ${HOME}/.bashrc
 ln -s ${HOME}/dotfiles/.zshrc ${HOME}/.zshrc
