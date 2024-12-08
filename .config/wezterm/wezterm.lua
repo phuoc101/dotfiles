@@ -1,14 +1,15 @@
 -- Pull in the wezterm API
-local config = require 'config'
-local modules = config.map({
+local Config = require 'config'
+local modules = Config.map({
   'config.appearance',
   'config.keys',
   'config.rendering',
   'config.tab_bar',
-}, config.req)
+}, Config.req)
+Config = Config.merge(table.unpack(modules))
 
 require('events.tab_status').enable()
 require('events.toggle_colorscheme').enable()
 
 -- and finally, return the configuration to wezterm
-return config.merge(table.unpack(modules))
+return Config

@@ -14,6 +14,7 @@ trash ${HOME}/.config/starship.toml
 trash ${HOME}/.config/wezterm
 trash ${HOME}/.config/tmux
 trash ${HOME}/.config/zellij
+trash ${HOME}/.config/picom
 trash ${HOME}/.bash
 trash ${HOME}/.bashrc
 trash ${HOME}/.zshrc
@@ -42,6 +43,7 @@ ln -s ${HOME}/dotfiles/.config/starship.toml ${HOME}/.config/starship.toml
 ln -s ${HOME}/dotfiles/.config/wezterm ${HOME}/.config/wezterm
 ln -s ${HOME}/dotfiles/.config/tmux ${HOME}/.config/tmux
 ln -s ${HOME}/dotfiles/.config/zellij ${HOME}/.config/zellij
+ln -s ${HOME}/dotfiles/.config/picom ${HOME}/.config/picom
 ln -s ${HOME}/dotfiles/.bash ${HOME}/.bash
 ln -s ${HOME}/dotfiles/.bashrc ${HOME}/.bashrc
 ln -s ${HOME}/dotfiles/.zshrc ${HOME}/.zshrc

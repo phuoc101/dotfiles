@@ -1,4 +1,4 @@
-import = ["/home/phuoc101/.config/alacritty/dark.toml"]
+general.import = ["/home/phuoc101/.config/alacritty/dark.toml"]
 
 [font]
 size = 9.0
@@ -45,7 +45,7 @@ chars = "\u0017"
 key = "Back"
 mods = "Control"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window.class]
