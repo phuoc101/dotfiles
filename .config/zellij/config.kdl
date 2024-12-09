@@ -1,9 +1,23 @@
 simplified_ui true
 default_shell "zsh"
 pane_frames false
-theme "one-half-dark"
+themes {
+    nordic {
+        fg "#D8DEE9"
+        bg "#434c5e"
+        black "#2e3440"
+        red "#BF616A"
+        green "#A3BE8C"
+        yellow "#EBCB8B"
+        blue "#81A1C1"
+        magenta "#B48EAD"
+        cyan "#88C0D0"
+        white "#E5E9F0"
+        orange "#D08770"
+    }
+}
+theme "nordic"
 mouse_mode true
 copy_command "xclip -selection clipboard"
 copy_clipboard "primary"
 copy_on_select true
-default_mode "locked"

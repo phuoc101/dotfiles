@@ -10,7 +10,7 @@ import subprocess
 
 HOME = os.path.expanduser("~")
 MOD = "mod4"
-TERMINAL = "wezterm"
+TERMINAL = "kitty"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
