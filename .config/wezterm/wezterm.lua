@@ -8,7 +8,6 @@ local modules = Config.map({
 }, Config.req)
 Config = Config.merge(table.unpack(modules))
 
-require('events.tab_status').enable()
 require('events.toggle_colorscheme').enable()
 
 -- and finally, return the configuration to wezterm
