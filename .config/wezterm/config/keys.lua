@@ -1,5 +1,5 @@
 local wezterm = require 'wezterm'
-local mod = {}
+local M = {}
 
 local keys = {
   {
@@ -83,6 +83,11 @@ local keys = {
     action = wezterm.action.TogglePaneZoomState,
   },
   {
+    key = 'f',
+    mods = 'LEADER',
+    action = wezterm.action.Search { CaseSensitiveString = '' },
+  },
+  {
     key = 'r',
     mods = 'LEADER',
     action = wezterm.action.ReloadConfiguration,
@@ -91,12 +96,32 @@ local keys = {
   { key = 'L', mods = 'LEADER', action = wezterm.action.ShowDebugOverlay },
   { key = 'c', mods = 'LEADER', action = wezterm.action.EmitEvent 'toggle-colorscheme' },
 }
-function mod.apply_to_config(config)
+local key_tables = {
+  search_mode = {
+    { key = 'Enter', mods = 'NONE', action = wezterm.action.CopyMode 'PriorMatch' },
+    { key = 'Escape', mods = 'NONE', action = wezterm.action.CopyMode 'Close' },
+    { key = 'n', mods = 'CTRL', action = wezterm.action.CopyMode 'NextMatch' },
+    { key = 'p', mods = 'CTRL', action = wezterm.action.CopyMode 'PriorMatch' },
+    { key = 'r', mods = 'CTRL', action = wezterm.action.CopyMode 'CycleMatchType' },
+    { key = 'u', mods = 'CTRL', action = wezterm.action.CopyMode 'ClearPattern' },
+    {
+      key = 'PageUp',
+      mods = 'NONE',
+      action = wezterm.action.CopyMode 'PriorMatchPage',
+    },
+    {
+      key = 'PageDown',
+      mods = 'NONE',
+      action = wezterm.action.CopyMode 'NextMatchPage',
+    },
+    { key = 'UpArrow', mods = 'NONE', action = wezterm.action.CopyMode 'PriorMatch' },
+    { key = 'DownArrow', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatch' },
+  },
+}
+function M.apply(config)
   config.leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 }
   config.keys = keys
+  config.key_tables = key_tables
 end
 
-return {
-  leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 },
-  keys = keys,
-}
+return M

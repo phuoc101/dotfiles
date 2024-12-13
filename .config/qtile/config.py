@@ -10,7 +10,7 @@ import subprocess
 
 HOME = os.path.expanduser("~")
 MOD = "mod4"
-TERMINAL = "kitty"
+TERMINAL = "wezterm"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
@@ -585,7 +585,7 @@ keys = [
     Key(
         [MOD],
         "period",
-        lazy.spawn("rofimoji"),
+        lazy.spawn("rofimoji --action clipboard"),
         desc="Spawn rofimoji",
     ),
     Key(

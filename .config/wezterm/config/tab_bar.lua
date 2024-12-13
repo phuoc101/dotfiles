@@ -1,8 +1,9 @@
 -- Separators
 local colors = require 'config.colors'
+local M = {}
 
-return {
-  colors = {
+function M.apply(config)
+  config.colors = {
     tab_bar = {
       background = colors.bg0,
       active_tab = {
@@ -33,12 +34,14 @@ return {
         italic = true,
       },
     },
-  },
+  }
   -- Tab bar configs
-  tab_bar_at_bottom = true,
-  use_fancy_tab_bar = false,
-  show_new_tab_button_in_tab_bar = true,
-  hide_tab_bar_if_only_one_tab = false,
-  tab_max_width = 16,
-  show_tab_index_in_tab_bar = true,
-}
+  config.tab_bar_at_bottom = true
+  config.use_fancy_tab_bar = false
+  config.show_new_tab_button_in_tab_bar = true
+  config.hide_tab_bar_if_only_one_tab = false
+  config.tab_max_width = 16
+  config.show_tab_index_in_tab_bar = true
+end
+
+return M

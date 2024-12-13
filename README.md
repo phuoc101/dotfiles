@@ -250,7 +250,7 @@ sudo apt install git curl clang clang-format udiskie tmux
 
   ```bash
   sudo apt install udiskie copyq btop fd-find
-  cargo install exa ripgrep bat du-dust
+  cargo install --lock exa ripgrep bat du-dust yazi-cli yazi-fm zoxide
   ```
 
 ## Apps

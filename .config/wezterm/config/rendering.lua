@@ -1,22 +1,26 @@
-return {
-  max_fps = 120,
-  animation_fps = 120,
+local M = {}
+
+function M.apply(config)
+  config.max_fps = 120
+  config.animation_fps = 120
   -- So that it doesn't shrink window when font size is changed
-  adjust_window_size_when_changing_font_size = false,
+  config.adjust_window_size_when_changing_font_size = false
   -- Stop sending warnings about missing glyphs
-  warn_about_missing_glyphs = false,
+  config.warn_about_missing_glyphs = false
   -- run debug overlay (leader + L) and then wezterm.gui.enumerate_gpus()
-  -- webgpu_preferred_adapter = {
-  -- 	backend = "Vulkan",
-  -- 	device = 5761,
-  -- 	device_type = "IntegratedGpu",
-  -- 	driver = "radv",
-  -- 	driver_info = "Mesa 23.2.1-1ubuntu3.1~22.04.2",
-  -- 	name = "AMD Unknown (RADV REMBRANDT)",
-  -- 	vendor = 4098,
-  -- },
-  -- webgpu_power_preference = "HighPerformance",
-  front_end = 'OpenGL',
-  term = 'xterm-256color',
-  enable_kitty_graphics = true,
-}
+  config.webgpu_preferred_adapter = {
+    backend = 'Vulkan',
+    device = 5761,
+    device_type = 'IntegratedGpu',
+    driver = 'radv',
+    driver_info = 'Mesa 23.2.1-1ubuntu3.1~22.04.2',
+    name = 'AMD Unknown (RADV REMBRANDT)',
+    vendor = 4098,
+  }
+  config.webgpu_power_preference = 'HighPerformance'
+  config.front_end = 'WebGpu'
+  config.term = 'xterm-256color'
+  config.enable_kitty_graphics = true
+end
+
+return M
