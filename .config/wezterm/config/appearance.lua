@@ -11,7 +11,7 @@ return {
     bottom = 0,
   },
   color_scheme = 'nordfox',
-  force_reverse_video_cursor = true,
+  force_reverse_video_cursor = false,
   font = wezterm.font(font, { weight = 'Regular', italic = false }),
   font_size = font_size,
 }
