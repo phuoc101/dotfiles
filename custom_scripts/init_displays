@@ -72,8 +72,8 @@ fi
 # ---
 XRANDR_OUT=$(xrandr)
 if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
-    umonitor --load dual_hdmi
-    notify-send "Initialized display" "dual_hdmi"
+    umonitor --load dual_hdmi_2k
+    notify-send "Initialized display" "dual_hdmi_2k"
     xrandr --output HDMI-1-0 --primary
     # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
     feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR

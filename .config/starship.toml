@@ -1,181 +1,167 @@
 command_timeout = 100
 
-[username]
-style_user = 'white bold'
-style_root = 'black bold'
-format = '[$user]($style)'
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+$docker_context\
+$python\
+$conda\
+$custom\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+palette = 'nord'
+
+[palettes.nord]
+bg0 = '#2E3440'
+bg1 = '#3B4252'
+bg2 = '#434C5E'
+bg3 = '#4C566A'
+fg = '#D8DEE9'
+blue1 = '#5e81ac'
+blue2 = '#81a1c1'
+blue3 = '#88c0d0'
+turquoise = '#8fbcbb'
+red = '#BF616A'
+yellow = '#EBCB8B'
+pink = '#b48ead'
+orange = '#d08770'
+green = '#A2BE8A'
+
+[character]
+success_symbol = "[](bold fg:green)"
+error_symbol = "[](bold fg:red)"
+
+[os]
+format = '[$symbol]($style) '	
+style = "bold turquoise"
 disabled = false
-show_always = true
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[username]
+style_user = 'fg bold'
+style_root = 'red bold'
+format = '[$user]($style) '
+disabled = false
+show_always = false
 
 [hostname]
-ssh_only = false
+ssh_symbol = " "
+ssh_only = true
 format = '[$ssh_symbol](bold blue)@[$hostname](bold red) '
 disabled = false
 
-[aws]
-format = '\[[$symbol($profile)(\($region\))($duration)]($style)\]'
-
-[bun]
-format = '\[[$symbol($version)]($style)\]'
-
-[c]
-symbol = '🧰 '
-detect_extensions = ["c", "h", "cpp", "cc", "hpp"]
-format = '\[[$symbol($version(-$name))]($style)\]'
-
-[cmake]
-format = '\[[$symbol($version)]($style)\]'
+[directory]
+read_only = " 󰌾"
+read_only_style = "red bold"
+style = "blue2 bold"
+home_symbol = "  ~"
+format = '[$path]($style)[$read_only]($read_only_style) '
 
 [cmd_duration]
-format = '\[[⌛ $duration]($style)\]'
-
-[cobol]
-format = '\[[$symbol($version)]($style)\]'
+style = 'green bold'
+format = '[ $duration]($style) '
 
 [conda]
+symbol = " "
 ignore_base = false
-format = '\[[$symbol$environment]($style)\]'
-
-[crystal]
-format = '\[[$symbol($version)]($style)\]'
-
-[daml]
-format = '\[[$symbol($version)]($style)\]'
-
-[dart]
-format = '\[[$symbol($version)]($style)\]'
-
-[deno]
-format = '\[[$symbol($version)]($style)\]'
+format = '[$symbol$environment]($style) '
 
 [docker_context]
-format = '\[[$symbol$context]($style)\]'
-
-[dotnet]
-format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-[elixir]
-format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-
-[elm]
-format = '\[[$symbol($version)]($style)\]'
-
-[erlang]
-format = '\[[$symbol($version)]($style)\]'
-
-[gcloud]
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+style = "blue1 bold"
+symbol = " "
+format = '[$symbol$context]($style) '
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile', 'compose.yaml', 'compose.yml']
 
 [git_branch]
-format = '\[[$symbol$branch]($style)\]'
+symbol = " "
+style = "pink bold"
+format = '[$symbol$branch]($style) '
+
+[fossil_branch]
+symbol = " "
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+style = "orange bold"
+format = '([\[$all_status$ahead_behind\]]($style)) '
 
-[golang]
-format = '\[[$symbol($version)]($style)\]'
-
-[haskell]
-format = '\[[$symbol($version)]($style)\]'
-
-[helm]
-format = '\[[$symbol($version)]($style)\]'
-
-[hg_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[java]
-format = '\[[$symbol($version)]($style)\]'
-
-[julia]
-format = '\[[$symbol($version)]($style)\]'
-
-[kotlin]
-format = '\[[$symbol($version)]($style)\]'
-
-[kubernetes]
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
+[git_commit]
+style = "yellow bold"
+tag_symbol = '  '
+commit_hash_length = 4
 
 [lua]
-format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+format = '[$symbol($version)]($style) '
 
 [memory_usage]
-format = '\[$symbol[$ram( | $swap)]($style)\]'
-
-[nim]
-format = '\[[$symbol($version)]($style)\]'
-
-[nix_shell]
-format = '\[[$symbol$state( \($name\))]($style)\]'
-
-[nodejs]
-format = '\[[$symbol($version)]($style)\]'
-
-[ocaml]
-format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
-
-[openstack]
-format = '\[[$symbol$cloud(\($project\))]($style)\]'
+symbol = "󰍛 "
+format = '$symbol[$ram( | $swap)]($style) '
 
 [package]
-format = '\[[$symbol$version]($style)\]'
-
-[perl]
-format = '\[[$symbol($version)]($style)\]'
-
-[php]
-format = '\[[$symbol($version)]($style)\]'
-
-[pulumi]
-format = '\[[$symbol$stack]($style)\]'
-
-[purescript]
-format = '\[[$symbol($version)]($style)\]'
+symbol = "󰏗 "
+format = '[$symbol$version]($style) '
 
 [python]
-format = '\[[${symbol}${pyenv_prefix}(${version}) (\($virtualenv\))]($style)\]'
-
-[raku]
-format = '\[[$symbol($version-$vm_version)]($style)\]'
-
-[red]
-format = '\[[$symbol($version)]($style)\]'
-
-[ruby]
-format = '\[[$symbol($version)]($style)\]'
-
-[rust]
-format = '\[[$symbol($version)]($style)\]'
-
-[scala]
-format = '\[[$symbol($version)]($style)\]'
-
-[spack]
-format = '\[[$symbol$environment]($style)\]'
+symbol = " "
+format = '[${symbol}${pyenv_prefix}(${version}) (\($virtualenv\))]($style) '
 
 [sudo]
-format = '\[[as $symbol]\]'
+format = '[as $symbol] '
 
-[swift]
-format = '\[[$symbol($version)]($style)\]'
-
-[terraform]
-format = '\[[$symbol$workspace]($style)\]'
-
-[time]
-time_format = "%T"
-format = '[$time]($style) '
-
-[vagrant]
-format = '\[[$symbol($version)]($style)\]'
-
-[vlang]
-format = '\[[$symbol($version)]($style)\]'
-
-[zig]
-format = '\[[$symbol($version)]($style)\]'
 
 [custom.ros]
-command = "echo '🤖 ros '$ROS_DISTRO''"
+style = "turquoise bold"
+command = "echo '󱜙 '$ROS_DISTRO''"
 when = '[[ -v ROS_DISTRO ]]'
-format = '\[[$output]($style)\]'
+format = '[$output]($style) '

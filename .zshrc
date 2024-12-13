@@ -27,14 +27,14 @@ HISTFILE=${HOME}/.cache/zsh/history
 # Enabling zoxide
 # eval "$(zoxide init zsh)"
 # additional shell scripts
-source_z() {
-    source ${HOME}/.zshrc.d/zsh-z/zsh-z.plugin.zsh
-    autoload -U compinit
-    zstyle ':completion:*' menu select
-    zmodload zsh/complist
-    compinit
-    _comp_options+=(globdots)
-}
+# source_z() {
+#     source ${HOME}/.zshrc.d/zsh-z/zsh-z.plugin.zsh
+#     autoload -U compinit
+#     zstyle ':completion:*' menu select
+#     zmodload zsh/complist
+#     compinit
+#     _comp_options+=(globdots)
+# }
 
 load_nvm() {
     export NVM_DIR="$HOME/.nvm"
@@ -46,7 +46,8 @@ load_nvm_completion() {
 
 # Lazy loading stuffs to speed up start time
 source ${HOME}/.zshrc.d/zsh-lazyload/zsh-lazyload.zsh
-lazyload zshz -- "source_z"
+# lazyload zshz -- "source_z"
+eval "$(zoxide init zsh)"
 lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
 lazyload nvm npm node nvim nnn -- 'export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
 
@@ -73,11 +74,16 @@ source ${HOME}/.zshrc.d/fzf-funcs.zsh
 # source ${HOME}/.zshrc.d/ros-funcs.zsh
 source ${HOME}/.zshrc.d/nvim-funcs.zsh
 source ${HOME}/.zshrc.d/nnn.zsh
+source ${HOME}/.zshrc.d/yazi.zsh
 source ${HOME}/.zshrc.d/zshenvs.zsh
 source ${HOME}/.zshrc.d/kitty.zsh
+
 # # P10k prompt
-source ${HOME}/.zshrc.d/powerlevel10k/powerlevel10k.zsh-theme
-source ${HOME}/.zshrc.d/.p10k.zsh
+# source ${HOME}/.zshrc.d/powerlevel10k/powerlevel10k.zsh-theme
+# source ${HOME}/.zshrc.d/.p10k.zsh
+ 
+eval "$(starship init zsh)"
+
 source ${HOME}/.config/aliasrc
 # # Enabling starship prompt
 # eval "$(starship init zsh)"
