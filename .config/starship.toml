@@ -1,4 +1,4 @@
-command_timeout = 100
+command_timeout = 500
 
 format = """
 $os\
@@ -35,8 +35,8 @@ orange = '#d08770'
 green = '#A2BE8A'
 
 [character]
-success_symbol = "[](bold fg:green)"
-error_symbol = "[](bold fg:red)"
+success_symbol = "[✔](bold green)"
+error_symbol = "[✘](bold red)"
 
 [os]
 format = '[$symbol]($style) '	
@@ -154,7 +154,9 @@ format = '[$symbol$version]($style) '
 
 [python]
 symbol = " "
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style) '
+format = '[${symbol}$virtualenv]($style) '
+detect_files = []
+detect_extensions = []
 
 [sudo]
 format = '[as $symbol] '
