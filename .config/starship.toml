@@ -132,8 +132,18 @@ format = '[$symbol$branch]($style) '
 symbol = " "
 
 [git_status]
-style = "orange bold"
-format = '([\[$all_status$ahead_behind\]]($style)) '
+format = "[[$conflicted](yellow)[$untracked](218)[$modified$renamed](255)[$staged](green)[$deleted](red)($ahead_behind$stashed)]($style)"
+conflicted = " $count "
+untracked = " $count "
+modified = " $count "
+deleted = " $count "
+staged = " $count "
+renamed = " $count "
+stashed = " $count "
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+style = "turquoise"
 
 [git_commit]
 style = "yellow bold"
