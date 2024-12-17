@@ -242,15 +242,17 @@ sudo apt install git curl clang clang-format udiskie tmux
 
   - fd: Rust version of find
   - bat: Rust version of cat
-  - exa: (fancier) Rust version of ls
+  - eza: (fancier) Rust version of ls
   - ripgrep: (fancier) Rust version of grep
   - CopyQ: clipboard manager
   - Dust: Disk usage (in rust)
+  - yazi: TUI file manager (in rust)
+  - taplo: toml utils
   - Command:
 
   ```bash
   sudo apt install udiskie copyq btop fd-find
-  cargo install --lock exa ripgrep bat du-dust yazi-cli yazi-fm zoxide taplo-cli
+  cargo install --lock eza ripgrep bat du-dust yazi-cli yazi-fm zoxide taplo-cli
   ```
 
 ## Apps

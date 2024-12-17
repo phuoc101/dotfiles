@@ -2,9 +2,9 @@
 [[ "$(command -v nvim)" ]] && alias vimc="nvim --clean"
 [[ "$(command -v nvim)" ]] && alias viml="nvim +'colorscheme github_light'"
 alias open="xdg-open"
-[[ -x "$(command -v exa)" ]] && alias ls="exa --icons -s extension -l"
+[[ -x "$(command -v eza)" ]] && alias ls="eza --icons -s extension -l"
 alias lsa="ls -al"
-[[ -x "$(command -v exa)" ]] && alias tree="ls -T"
+[[ -x "$(command -v eza)" ]] && alias tree="ls -T"
 # open text file in nvim
 [[ -x "$(command -v nnn)" ]] && alias nnn="nnn -ed"
 [[ -x "$(command -v bat)" ]] && alias cat="bat -p"
