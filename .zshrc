@@ -49,7 +49,7 @@ source ${HOME}/.zshrc.d/zsh-lazyload/zsh-lazyload.zsh
 # lazyload zshz -- "source_z"
 eval "$(zoxide init zsh)"
 lazyload pip pip3 -- 'eval "$(pip completion --zsh)"'
-lazyload nvm npm node nvim nnn -- 'export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+lazyload nvm npm node nvim nnn yazi -- 'export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
 
 # Some nice zsh utils
 source ${HOME}/.zshrc.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
