@@ -35,8 +35,8 @@ orange = '#d08770'
 green = '#A2BE8A'
 
 [character]
-success_symbol = "[✔](bold green)"
-error_symbol = "[✘](bold red)"
+success_symbol = "[󰸞](bold green) "
+error_symbol = "[✘](bold red) "
 
 [os]
 format = '[$symbol]($style) '	
@@ -132,7 +132,7 @@ format = '[$symbol$branch]($style) '
 symbol = " "
 
 [git_status]
-format = "[[$conflicted](yellow)[$untracked](218)[$modified$renamed](255)[$staged](green)[$deleted](red)($ahead_behind$stashed)]($style)"
+format = "[[$conflicted](yellow)[$untracked](218)[$modified$renamed](255)[$staged](green)[$deleted](red)($ahead_behind$stashed)]($style) "
 conflicted = " $count "
 untracked = " $count "
 modified = " $count "
@@ -140,9 +140,9 @@ deleted = " $count "
 staged = " $count "
 renamed = " $count "
 stashed = " $count "
-ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-behind = '⇣${count}'
+ahead = '⇡ ${count}'
+diverged = '⇕ ⇡ ${ahead_count}⇣ ${behind_count}'
+behind = '⇣ ${count}'
 style = "turquoise"
 
 [git_commit]

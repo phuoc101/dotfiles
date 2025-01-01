@@ -17,7 +17,11 @@ alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "
 [[ "$(command -v zshz)" ]] && alias z="zshz"
 [[ -x "$(command -v neofetch)" ]] && alias gundamfetch="neofetch --ascii ~/dotfiles/custom_ascii/gundam_barbatos"
 [[ -x "$(command -v kitten)" ]] && alias ks="kitten ssh"
+[[ -x "$(command -v fastfetch)" ]] && alias ff="fastfetch --config $HOME/.config/fastfetch/ff.jsonc"
+
+alias reload_kitty="kill -SIGUSR1 $(pgrep 'x-terminal|kitty')"
 
 which_term() {
     basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/ .*$//')
 }
+

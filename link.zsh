@@ -16,6 +16,7 @@ trash ${HOME}/.config/tmux
 trash ${HOME}/.config/zellij
 trash ${HOME}/.config/picom
 trash ${HOME}/.config/yazi
+trash ${HOME}/.config/fastfetch
 trash ${HOME}/.bash
 trash ${HOME}/.bashrc
 trash ${HOME}/.zshrc
@@ -46,6 +47,7 @@ ln -s ${HOME}/dotfiles/.config/tmux ${HOME}/.config/tmux
 ln -s ${HOME}/dotfiles/.config/zellij ${HOME}/.config/zellij
 ln -s ${HOME}/dotfiles/.config/picom ${HOME}/.config/picom
 ln -s ${HOME}/dotfiles/.config/yazi ${HOME}/.config/yazi
+ln -s ${HOME}/dotfiles/.config/fastfetch ${HOME}/.config/fastfetch
 ln -s ${HOME}/dotfiles/.bash ${HOME}/.bash
 ln -s ${HOME}/dotfiles/.bashrc ${HOME}/.bashrc
 ln -s ${HOME}/dotfiles/.zshrc ${HOME}/.zshrc

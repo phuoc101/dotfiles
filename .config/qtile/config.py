@@ -10,7 +10,7 @@ import subprocess
 
 HOME = os.path.expanduser("~")
 MOD = "mod4"
-TERMINAL = "kitty"
+TERMINAL = "ghostty"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
@@ -57,7 +57,11 @@ RECTDEC_PROPS = {
     "padding_y": 5,
 }
 
-LAYOUT_LABEL = {"monadtall": " MonadTall", "max": "    Max   "}
+LAYOUT_LABEL = {
+    "monadtall": "  MonadTall",
+    "max": "     Max   ",
+    "columns": "   Columns ",
+}
 
 GROUP_PROPS_DICT = {
     # fmt: off
@@ -66,9 +70,10 @@ GROUP_PROPS_DICT = {
         "matches": [
             Match(wm_class="kitty"),
             Match(wm_class="org.wezfurlong.wezterm"),
-            Match(wm_class="Gnome-terminal")
+            Match(wm_class="Gnome-terminal"),
+            Match(wm_class="ghostty"),
         ],
-        "layout": LAYOUT_LABEL["monadtall"],
+        "layout": LAYOUT_LABEL["columns"],
         "screen_affinity": 0,
     },
     "2": {
@@ -468,6 +473,28 @@ keys = [
     ),
     Key([MOD], "period", lazy.next_screen(), desc="Next monitor"),
     # ========================================================================#
+    # Volume
+    # ========================================================================#
+    # Mod1 is alt
+    Key(
+        ["mod1", "Shift"],
+        "m",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+        desc="Mute volume",
+    ),
+    Key(
+        ["mod1", "Shift"],
+        "Up",
+        lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ +2%"),
+        desc="Volume up",
+    ),
+    Key(
+        ["mod1", "Shift"],
+        "Down",
+        lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ -2%"),
+        desc="Volume down",
+    ),
+    # ========================================================================#
     # Floating window manipulation
     # ========================================================================#
     Key(
@@ -537,6 +564,12 @@ keys = [
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([MOD], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key(
+        [MOD, "shift"],
+        "Tab",
+        lazy.layout.toggle_split(),
+        desc="Toggle between split and unsplit sides of stack",
+    ),
     Key([MOD], "Escape", lazy.spawn("betterlockscreen -l dimblur"), desc="Lock screen"),
     # ========================================================================#
     # Programs
@@ -631,12 +664,15 @@ for i in groups:
 layout_theme = {
     "margin": 10,
     "border_focus": COLORS["fg"],
+    "border_focus_stack": COLORS["green"],
     "border_normal": COLORS["bg"],
     "border_width": 3,
+    "border_on_single": True,
 }
 
 layouts = [
     layout.MonadTall(**layout_theme, name=LAYOUT_LABEL["monadtall"]),
+    layout.Columns(**layout_theme, name=LAYOUT_LABEL["columns"]),
     layout.Max(**layout_theme, name=LAYOUT_LABEL["max"]),
 ]
 
@@ -681,7 +717,7 @@ mouse = [
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = False
 bring_front_click = False
 floats_kept_above = True

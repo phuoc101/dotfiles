@@ -253,6 +253,7 @@ sudo apt install git curl clang clang-format udiskie tmux
   ```bash
   sudo apt install udiskie copyq btop fd-find
   cargo install --lock eza ripgrep bat du-dust yazi-cli yazi-fm zoxide taplo-cli
+  ya pack -a yazi-rs/plugins:smart-enter # For smart enter in yazi
   ```
 
 ## Apps
@@ -444,3 +445,4 @@ pcl_viewer <ur_file>.pcd
 - to fix not able to use ibus keyboard in Telegram, add `export QT_IM_MODULE=ibus` to `~/.profile`
 - Recover expired key: `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv <KEY>`
 - If using high versions, consider using option ` --target x86_64-unknown-linux-musl` for `cargo install` to make things work inside docker (cus glibc version). To do so, install the target with `rustup target add x86_64-unknown-linux-musl` and `sudo apt install musl-tools`
+- Force gdm3 to use X instead of wayland: `/etc/gdm3/custom.conf` uncomment forceWayland=false

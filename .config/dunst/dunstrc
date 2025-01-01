@@ -43,7 +43,7 @@ frame_width = 3
 frame_color = "#d8dee9"
 separator_color = frame
 
-font = JetBrainsMono Nerd Font 10
+font = ZedMono Nerd Font 10
 
 line_height = 0
 markup = full
