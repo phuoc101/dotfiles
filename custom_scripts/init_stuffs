@@ -65,7 +65,7 @@ fi
 if [ "$opt_all" == true ] || [ "$opt_bg" == true ]
 then
     mapesctilde &
-    picom &
+    [[ -x "$(command -v picom)" ]] && picom &
     udiskie &
     ibus-daemon --xim -d -r &
     nm-applet &

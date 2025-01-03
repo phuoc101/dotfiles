@@ -7,10 +7,12 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 import os
 import subprocess
+import psutil
 
+BLUR_BAR = True if "picom" in (p.name() for p in psutil.process_iter()) else False
 HOME = os.path.expanduser("~")
 MOD = "mod4"
-TERMINAL = "ghostty"
+TERMINAL = "kitty"
 DEF_BROWSER = "brave-browser"
 SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
@@ -37,6 +39,7 @@ CARBON_COLORS = {
 NORD_COLORS = {
     "fg": "#eceff4",
     "bg": "#2e3440",
+    "bg_opac": "#00000000" if BLUR_BAR else "#2e3440",
     "bg1": "#3b4252",
     "bg2": "#434c5e",
     "gray": "#8fbcbb",
@@ -157,7 +160,7 @@ GROUP_PROPS_DICT = {
 def get_spacer_widget(length: int | bar.Obj = 12):
     return widget.Spacer(
         length=length,
-        background=COLORS["bg"],
+        background=COLORS["bg_opac"],
     )
 
 
@@ -183,8 +186,8 @@ def get_groupbox_widget(
         borderwidth=2,
         block_highlight_text_color=COLORS["fg"],
         highlight_color=COLORS["bg1"],
-        inactive=COLORS["blue"],
-        background=COLORS["bg"],
+        inactive=COLORS["blue1"],
+        background=COLORS["bg_opac"],
         this_current_screen_border=COLORS["fg"],
         this_screen_border=COLORS["bg2"],
         other_current_screen_border=COLORS["fg"],
@@ -200,10 +203,10 @@ def get_tasklist_widget(fontsize: int = FONTSIZE, font: str = FONT_BOLD):
     return widget.TaskList(
         icon_size=fontsize,
         font=font,
-        background=COLORS["bg"],
-        border=COLORS["bg1"],
-        foreground=COLORS["fg"],
-        highlight_method="block",
+        background=COLORS["bg_opac"],
+        border=COLORS["fg"],
+        foreground=COLORS["blue1"],
+        highlight_method="text",
         urgent_border=COLORS["red"],
         margin=0,
         max_title_width=200,
@@ -224,6 +227,7 @@ def get_time_widget(font: str = FONT_BOLD, fontsize=FONTSIZE):
         format="  %d/%m/%y  %H:%M ",
         foreground=COLORS["cyan"],
         timezone=subprocess.check_output(["cat", "/etc/timezone"]).decode().strip("\n"),
+        decorations=[RectDecoration(**RECTDEC_PROPS)],
     )
 
 
@@ -317,7 +321,7 @@ def get_battery_widget(font: str = FONT_BOLD, fontsize: int = FONTSIZE):
 def get_systray_widget(fontsize: int = FONTSIZE):
     return widget.Systray(
         fontsize=fontsize,
-        background=COLORS["bg"],
+        background=COLORS["bg_opac"],
         padding=10,
     )
 
@@ -348,17 +352,18 @@ def get_default_widgets(fontsize=FONTSIZE) -> List:
 
 
 main_bar = bar.Bar(
-    get_default_widgets() + [get_systray_widget(), get_spacer_widget()],
+    get_default_widgets()
+    + [get_systray_widget(), get_spacer_widget(), get_spacer_widget()],
     size=35,
     margin=[10, 10, 0, 10],
-    background=COLORS["bg"],
+    background=COLORS["bg_opac"],
 )
 
 sec_bar_2k = bar.Bar(
     get_default_widgets(fontsize=FONTSIZE_2k),
     size=45,
     margin=[10, 10, 0, 10],
-    background=COLORS["bg"],
+    background=COLORS["bg_opac"],
 )
 
 main_bar_2k = bar.Bar(
@@ -366,7 +371,7 @@ main_bar_2k = bar.Bar(
     + [get_systray_widget(), get_spacer_widget()],
     size=45,
     margin=[10, 10, 0, 10],
-    background=COLORS["bg"],
+    background=COLORS["bg_opac"],
 )
 
 
