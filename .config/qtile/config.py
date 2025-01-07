@@ -1,3 +1,4 @@
+import shutil
 from typing import List
 from libqtile import bar, layout
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, hook
@@ -7,9 +8,8 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 import os
 import subprocess
-import psutil
 
-BLUR_BAR = True if "picom" in (p.name() for p in psutil.process_iter()) else False
+BLUR_BAR = True if shutil.which("picom") else False
 HOME = os.path.expanduser("~")
 MOD = "mod4"
 TERMINAL = "kitty"

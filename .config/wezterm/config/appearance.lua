@@ -1,8 +1,8 @@
 local wezterm = require 'wezterm'
-local font_size = 11
+local font_size = 12
 local M = {}
 
-local font = 'JetBrainsMono Nerd Font'
+local font = 'Iosevka Nerd Font'
 
 function M.apply(config)
   config.window_padding = {
