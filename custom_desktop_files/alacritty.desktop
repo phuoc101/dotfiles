@@ -1,11 +1,11 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=alacritty
+Name=Alacritty
 GenericName=Terminal emulator
 Comment=A cross-platform, OpenGL terminal emulator.
 TryExec=alacritty
 StartupNotify=true
 Exec=/home/phuoc101/.cargo/bin/alacritty
-Icon=alacritty
+Icon=Alacritty
 Categories=System;TerminalEmulator;
