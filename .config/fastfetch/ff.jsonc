@@ -3,7 +3,7 @@
     "logo": {
         "color": {"1": "blue", "2": "cyan"},
         "type" : "kitty",
-        "source": "$HOME/dotfiles/wallpapers_nord/nord_gundam_aerial.png",
+        // "source": "$HOME/dotfiles/wallpapers_nord/nord_gundam_aerial.png",
         "height": 18,
         // "source": "$HOME/dotfiles/.config/fastfetch/gundam_aerial",
     },

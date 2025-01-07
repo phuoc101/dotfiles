@@ -431,7 +431,7 @@ keys = [
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([MOD], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([MOD], "space", lazy.group.next_window(), desc="Move window focus to other window"),
     Key(
         [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
     ),

@@ -446,3 +446,4 @@ pcl_viewer <ur_file>.pcd
 - Recover expired key: `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv <KEY>`
 - If using high versions, consider using option ` --target x86_64-unknown-linux-musl` for `cargo install` to make things work inside docker (cus glibc version). To do so, install the target with `rustup target add x86_64-unknown-linux-musl` and `sudo apt install musl-tools`
 - Force gdm3 to use X instead of wayland: `/etc/gdm3/custom.conf` uncomment forceWayland=false
+- To fix not able to mount ntfs drive: `sudo ntfsfix /dev/"device name"`
