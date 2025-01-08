@@ -25,7 +25,7 @@ which_term() {
 }
 
 if [[ -x "$(command -v fastfetch)" ]]; then
-    if [[ "$HOST" == "Aerial" ]]; then
+    if [[ "$HOST" == "aerial" ]]; then
         alias ff="fastfetch --config $HOME/.config/fastfetch/ff.jsonc -l $HOME/dotfiles/wallpapers_nord/nord_gundam_aerial.png"
     elif [[ "$HOST" == "barbatos" ]]; then
         alias ff="fastfetch --config $HOME/.config/fastfetch/ff.jsonc -l $HOME/dotfiles/wallpapers_nord/nord_gundam_barbatos.png"
