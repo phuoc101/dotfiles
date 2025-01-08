@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+if [[ -x "$(command -v fastfetch)" ]]; then
+	if [[ $1 == "" ]]; then
+		fastfetch --config $HOME/.config/fastfetch/ff.jsonc -l $HOME/dotfiles/wallpapers_nord/nord_gundam_$HOST.png
+	else
+		fastfetch --config $HOME/.config/fastfetch/ff.jsonc -l $HOME/dotfiles/wallpapers_nord/nord_gundam_$1.png
+	fi
+fi

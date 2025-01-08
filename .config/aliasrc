@@ -23,11 +23,3 @@ alias reload_kitty="kill -SIGUSR1 $(pgrep 'x-terminal|kitty')"
 which_term() {
     basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/ .*$//')
 }
-
-if [[ -x "$(command -v fastfetch)" ]]; then
-    if [[ "$HOST" == "aerial" ]]; then
-        alias ff="fastfetch --config $HOME/.config/fastfetch/ff.jsonc -l $HOME/dotfiles/wallpapers_nord/nord_gundam_aerial.png"
-    elif [[ "$HOST" == "barbatos" ]]; then
-        alias ff="fastfetch --config $HOME/.config/fastfetch/ff.jsonc -l $HOME/dotfiles/wallpapers_nord/nord_gundam_barbatos.png"
-    fi
-fi
