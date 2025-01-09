@@ -736,6 +736,7 @@ floating_layout = layout.Floating(
         Match(wm_class="org.gnome.Nautilus"),  # nautilus
         Match(role="pop-up"),  # pop ups (bitwarden)
         Match(title="Bitwarden - Vivaldi"),  # bitwarden pop-up for vivaldi,
+        Match(title="ripdrag"),  # bitwarden pop-up for vivaldi,
     ],
 )
 auto_fullscreen = True

@@ -252,7 +252,7 @@ sudo apt install git curl clang clang-format udiskie tmux
 
   ```bash
   sudo apt install udiskie copyq btop fd-find
-  cargo install --lock eza ripgrep bat du-dust yazi-cli yazi-fm zoxide taplo-cli
+  cargo install --lock eza ripgrep bat du-dust yazi-cli yazi-fm zoxide taplo-cli ripdrag
   ya pack -a yazi-rs/plugins:smart-enter # For smart enter in yazi
   ```
 

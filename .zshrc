@@ -79,10 +79,10 @@ source ${HOME}/.zshrc.d/zshenvs.zsh
 source ${HOME}/.zshrc.d/kitty.zsh
 
 # # P10k prompt
-# source ${HOME}/.zshrc.d/powerlevel10k/powerlevel10k.zsh-theme
-# source ${HOME}/.zshrc.d/.p10k.zsh
+source ${HOME}/.zshrc.d/powerlevel10k/powerlevel10k.zsh-theme
+source ${HOME}/.zshrc.d/.p10k.zsh
  
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 source ${HOME}/.config/aliasrc
 # # Enabling starship prompt
