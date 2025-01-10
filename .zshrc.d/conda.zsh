@@ -17,7 +17,7 @@ activate_conda() {
   fi
   unset __conda_setup
   # To use shell prompt app instead
-  conda config --set changeps1 False
+  # conda config --set changeps1 False
   compinit conda
 }
 
