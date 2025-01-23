@@ -1,4 +1,5 @@
 -- Separators
+local wezterm = require 'wezterm'
 local colors = require 'config.colors'
 local M = {}
 
@@ -35,9 +36,20 @@ function M.apply(config)
       },
     },
   }
+  config.window_frame = {
+
+    font = wezterm.font { family = 'Roboto', weight = 'Bold' },
+
+    font_size = 12.0,
+
+    active_titlebar_bg = colors.bg0,
+
+    inactive_titlebar_bg = colors.bg0,
+  }
+  --
   -- Tab bar configs
   config.tab_bar_at_bottom = true
-  config.use_fancy_tab_bar = false
+  config.use_fancy_tab_bar = true
   config.show_new_tab_button_in_tab_bar = true
   config.hide_tab_bar_if_only_one_tab = true
   config.tab_max_width = 16
