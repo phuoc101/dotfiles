@@ -2,10 +2,6 @@ from ImageGoNord import NordPaletteFile, GoNord
 
 # E.g. Replace pixel by pixel
 go_nord = GoNord()
-go_nord.enable_avg_algorithm()
-go_nord.reset_palette()
-go_nord.add_file_to_palette(NordPaletteFile.POLAR_NIGHT)
-go_nord.add_file_to_palette(NordPaletteFile.SNOW_STORM)
 image = go_nord.open_image("./dark_gundam_ibo_02.jpg")
 go_nord.convert_image(image, save_path='../wallpapers_nord/nord_gundam_barbatos.test.png')
 
