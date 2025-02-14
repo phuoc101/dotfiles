@@ -309,6 +309,7 @@ sudo apt install git curl clang clang-format udiskie tmux
   ```
 
   - [Inkscape](https://wiki.inkscape.org/wiki/Installing_Inkscape#Ubuntu_or_Debian)
+  - Extension to get LaTeX font in inkscape: https://textext.github.io/textext/
 
   ```bash
   sudo add-apt-repository universe

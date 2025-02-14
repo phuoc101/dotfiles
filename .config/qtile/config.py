@@ -83,7 +83,8 @@ GROUP_PROPS_DICT = {
         "label": " 2",
         "matches": [
             Match(wm_class="Brave-browser"),
-            Match(wm_class="vivaldi-stable")
+            Match(wm_class="vivaldi-stable"),
+            Match(wm_class="firefox"),
         ],
         "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
@@ -431,7 +432,12 @@ keys = [
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([MOD], "space", lazy.group.next_window(), desc="Move window focus to other window"),
+    Key(
+        [MOD],
+        "space",
+        lazy.group.next_window(),
+        desc="Move window focus to other window",
+    ),
     Key(
         [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
     ),
