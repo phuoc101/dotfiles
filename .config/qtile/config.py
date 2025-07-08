@@ -93,7 +93,8 @@ GROUP_PROPS_DICT = {
         "label": " 3", 
         "matches": [
             Match(wm_class="Signal"),
-            Match(wm_class="TelegramDesktop")
+            Match(wm_class="TelegramDesktop"),
+            Match(wm_class="Slack")
         ],
         "layout": LAYOUT_LABEL["monadtall"],
         "screen_affinity": 0,
