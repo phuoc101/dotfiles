@@ -14,7 +14,7 @@ HOME = os.path.expanduser("~")
 MOD = "mod4"
 TERMINAL = "kitty"
 DEF_BROWSER = "brave-browser"
-SEC_BROWSER = "firefox"
+SEC_BROWSER = "vivaldi"
 FONTSIZE = 14
 FONTSIZE_2k = 16
 WIN_RESZ_PX = 50
@@ -93,7 +93,8 @@ GROUP_PROPS_DICT = {
         "label": " 3", 
         "matches": [
             Match(wm_class="Signal"),
-            Match(wm_class="TelegramDesktop")
+            Match(wm_class="TelegramDesktop"),
+            Match(wm_class="Slack")
         ],
         "layout": LAYOUT_LABEL["monadtall"],
         "screen_affinity": 0,
