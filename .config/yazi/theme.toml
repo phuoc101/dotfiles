@@ -12,7 +12,7 @@
 # "cyan": "#d8dee9",
 # "magenta": "#b48ead",
 
-[manager]
+[mgr]
 
 cwd = { fg = "#eceff4" }
 
