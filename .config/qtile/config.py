@@ -1,3 +1,5 @@
+from calendar import c
+from copy import deepcopy
 import shutil
 from typing import List
 from libqtile import bar, layout
@@ -97,7 +99,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="Slack")
         ],
         "layout": LAYOUT_LABEL["monadtall"],
-        "screen_affinity": 0,
+        "screen_affinity": 2,
     },
     "4": {
         "label": " 4",
@@ -105,7 +107,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="zoom")
         ],
         "layout": LAYOUT_LABEL["max"],
-        "screen_affinity": 0,
+        "screen_affinity": 1,
     },
     "5": {
         "label": " 5", 
@@ -154,7 +156,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="obs")
         ],
         "layout": LAYOUT_LABEL["max"],
-        "screen_affinity": 1,
+        "screen_affinity": 2,
     },
 }
 
@@ -361,12 +363,24 @@ main_bar = bar.Bar(
     background=COLORS["bg_opac"],
 )
 
-sec_bar_2k = bar.Bar(
-    get_default_widgets(fontsize=FONTSIZE_2k),
-    size=45,
-    margin=[10, 10, 0, 10],
-    background=COLORS["bg_opac"],
-)
+
+def get_sec_bar():
+    return bar.Bar(
+        get_default_widgets(fontsize=FONTSIZE_2k),
+        size=35,
+        margin=[10, 10, 0, 10],
+        background=COLORS["bg_opac"],
+    )
+
+
+def get_sec_bar_2k():
+    return bar.Bar(
+        get_default_widgets(fontsize=FONTSIZE_2k),
+        size=45,
+        margin=[10, 10, 0, 10],
+        background=COLORS["bg_opac"],
+    )
+
 
 main_bar_2k = bar.Bar(
     get_default_widgets(fontsize=FONTSIZE_2k)
@@ -711,7 +725,7 @@ else:
         Screen(top=main_bar),
     ]
     for i in range(len(xrandr_out) - 1):
-        screens.append(Screen(top=sec_bar_2k))
+        screens.append(Screen(top=get_sec_bar_2k()))
 
 
 # Drag floating layouts.
