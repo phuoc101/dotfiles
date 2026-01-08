@@ -1,28 +1,9 @@
-[[ "$(command -v nvim)" ]] && alias vim="nvim"
-[[ "$(command -v nvim)" ]] && alias vimc="nvim --clean"
-[[ "$(command -v nvim)" ]] && alias viml="nvim +'colorscheme github_light'"
 alias open="xdg-open"
-[[ -x "$(command -v eza)" ]] && alias ls="eza --icons -s extension -l"
-alias lsa="ls -al"
-[[ -x "$(command -v eza)" ]] && alias tree="ls -T"
-# open text file in nvim
-[[ -x "$(command -v nnn)" ]] && alias nnn="nnn -ed"
-[[ -x "$(command -v bat)" ]] && alias cat="bat -p"
-[[ -x "$(command -v dust)" ]] && alias du="dust"
-[[ -x "$(command -v lazygit)" ]] && alias lg="lazygit"
+alias rg="ripgrep"
+alias ls="eza --icons -l -s extension"
+alias lsa="ls -a"
+alias tree="ls -T"
+alias lg="lazygit"
 alias cp="cp -iv"
 alias mv="mv -iv"
-[[ -x "$(command -v fdfind)" ]] && alias fd="fdfind"
-alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
-[[ "$(command -v zshz)" ]] && alias z="zshz"
-[[ -x "$(command -v neofetch)" ]] && alias gundamfetch="neofetch --ascii ~/dotfiles/custom_ascii/gundam_barbatos"
-[[ -x "$(command -v kitten)" ]] && alias ks="kitten ssh"
-
-alias reload_kitty="kill -SIGUSR1 $(pgrep 'x-terminal|kitty')"
-
-which_term() {
-    basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/ .*$//')
-}
-256_colors() {
-    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
+alias vim="nvim"

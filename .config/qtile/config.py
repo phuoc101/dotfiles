@@ -1,3 +1,5 @@
+from calendar import c
+from copy import deepcopy
 import shutil
 from typing import List
 from libqtile import bar, layout
@@ -13,8 +15,8 @@ BLUR_BAR = True if shutil.which("picom") else False
 HOME = os.path.expanduser("~")
 MOD = "mod4"
 TERMINAL = "kitty"
-DEF_BROWSER = "brave-browser"
-SEC_BROWSER = "vivaldi"
+DEF_BROWSER = "firefox"
+SEC_BROWSER = "brave-browser"
 FONTSIZE = 14
 FONTSIZE_2k = 16
 WIN_RESZ_PX = 50
@@ -24,15 +26,16 @@ FONT_BOLD = "JetBrainsMono Nerd Font, Bold"
 CARBON_COLORS = {
     "fg": "#f2f4f8",
     "bg": "#161616",
+    "bg_opac": "#00000000" if BLUR_BAR else "#161616",
     "bg1": "#2a2a2a",
     "bg2": "#4a4a4a",
     "gray": "#707880",
-    "yellow": "#e5c07b",
-    "green": "#46c880",
-    "red": "#fe6f70",
     "blue": "#78a9ff",
     "blue1": "#8cb6ff",
+    "red": "#fe6f70",
     "orange": "#c678dd",
+    "yellow": "#e5c07b",
+    "green": "#46c880",
     "cyan": "#56B6c2",
     "magenta": "#ee5396",
 }
@@ -97,7 +100,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="Slack")
         ],
         "layout": LAYOUT_LABEL["monadtall"],
-        "screen_affinity": 0,
+        "screen_affinity": 2,
     },
     "4": {
         "label": " 4",
@@ -105,7 +108,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="zoom")
         ],
         "layout": LAYOUT_LABEL["max"],
-        "screen_affinity": 0,
+        "screen_affinity": 1,
     },
     "5": {
         "label": " 5", 
@@ -154,7 +157,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="obs")
         ],
         "layout": LAYOUT_LABEL["max"],
-        "screen_affinity": 1,
+        "screen_affinity": 2,
     },
 }
 
@@ -361,12 +364,24 @@ main_bar = bar.Bar(
     background=COLORS["bg_opac"],
 )
 
-sec_bar_2k = bar.Bar(
-    get_default_widgets(fontsize=FONTSIZE_2k),
-    size=45,
-    margin=[10, 10, 0, 10],
-    background=COLORS["bg_opac"],
-)
+
+def get_sec_bar():
+    return bar.Bar(
+        get_default_widgets(fontsize=FONTSIZE_2k),
+        size=35,
+        margin=[10, 10, 0, 10],
+        background=COLORS["bg_opac"],
+    )
+
+
+def get_sec_bar_2k():
+    return bar.Bar(
+        get_default_widgets(fontsize=FONTSIZE_2k),
+        size=45,
+        margin=[10, 10, 0, 10],
+        background=COLORS["bg_opac"],
+    )
+
 
 main_bar_2k = bar.Bar(
     get_default_widgets(fontsize=FONTSIZE_2k)
@@ -711,7 +726,7 @@ else:
         Screen(top=main_bar),
     ]
     for i in range(len(xrandr_out) - 1):
-        screens.append(Screen(top=sec_bar_2k))
+        screens.append(Screen(top=get_sec_bar_2k()))
 
 
 # Drag floating layouts.
