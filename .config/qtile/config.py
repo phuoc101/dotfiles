@@ -15,8 +15,8 @@ BLUR_BAR = True if shutil.which("picom") else False
 HOME = os.path.expanduser("~")
 MOD = "mod4"
 TERMINAL = "kitty"
-DEF_BROWSER = "brave-browser"
-SEC_BROWSER = "vivaldi"
+DEF_BROWSER = "firefox"
+SEC_BROWSER = "brave-browser"
 FONTSIZE = 14
 FONTSIZE_2k = 16
 WIN_RESZ_PX = 50
@@ -26,15 +26,16 @@ FONT_BOLD = "JetBrainsMono Nerd Font, Bold"
 CARBON_COLORS = {
     "fg": "#f2f4f8",
     "bg": "#161616",
+    "bg_opac": "#00000000" if BLUR_BAR else "#161616",
     "bg1": "#2a2a2a",
     "bg2": "#4a4a4a",
     "gray": "#707880",
-    "yellow": "#e5c07b",
-    "green": "#46c880",
-    "red": "#fe6f70",
     "blue": "#78a9ff",
     "blue1": "#8cb6ff",
+    "red": "#fe6f70",
     "orange": "#c678dd",
+    "yellow": "#e5c07b",
+    "green": "#46c880",
     "cyan": "#56B6c2",
     "magenta": "#ee5396",
 }
@@ -87,6 +88,7 @@ GROUP_PROPS_DICT = {
             Match(wm_class="Brave-browser"),
             Match(wm_class="vivaldi-stable"),
             Match(wm_class="firefox"),
+            Match(wm_class="firefox_firefox"),
         ],
         "layout": LAYOUT_LABEL["max"],
         "screen_affinity": 0,
