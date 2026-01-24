@@ -4,7 +4,7 @@ LOCK_ICON=
 IBUS_RAW=$(ibus engine)
 if [[ ${IBUS_RAW} == "xkb:fi::fin" ]]; then
     IBUS_LANG="FI"
-elif [[ ${IBUS_RAW} == "Bamboo::Us" || ${IBUS_RAW} == "Unikey" ]]; then
+elif [[ ${IBUS_RAW} == "Bamboo::Us" || ${IBUS_RAW} == "Bamboo" || ${IBUS_RAW} == "Unikey" ]]; then
     IBUS_LANG="VI"
 elif [[ ${IBUS_RAW} == "xkb:us::eng" || ${IBUS_RAW} == "BambooUs" ]]; then
     IBUS_LANG="EN"

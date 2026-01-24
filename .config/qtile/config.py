@@ -12,7 +12,7 @@ import os
 import subprocess
 
 BLUR_BAR = True if shutil.which("picom") else False
-HOME = os.path.expanduser("~")
+HOME = "/home/phuoc101"
 MOD = "mod4"
 TERMINAL = "kitty"
 DEF_BROWSER = "firefox"
@@ -21,7 +21,7 @@ FONTSIZE = 14
 FONTSIZE_2k = 16
 WIN_RESZ_PX = 50
 WIN_MOVE_PX = 50
-FILE_EXPLORER = "nautilus"
+FILE_EXPLORER = "nemo"
 FONT_BOLD = "JetBrainsMono Nerd Font, Bold"
 CARBON_COLORS = {
     "fg": "#f2f4f8",
@@ -662,6 +662,24 @@ keys = [
         lazy.spawn("flameshot screen -c"),
         desc="Screenshot fullscreen",
     ),
+    Key(
+        ["control","shift"],
+        "Space",
+        lazy.spawn("dunstctl close-all"),
+        desc="Clear all notifications",
+    ),
+    Key(
+        ["control"],
+        "Space",
+        lazy.spawn("dunstctl close"),
+        desc="Clear notification",
+    ),
+    Key(
+        ["control"],
+        "1",
+        lazy.spawn("dunstctl history-pop"),
+        desc="Display notification history",
+    ),
 ]
 
 groups = []
@@ -756,6 +774,8 @@ floating_layout = layout.Floating(
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
         Match(wm_class="org.gnome.Nautilus"),  # nautilus
+        Match(wm_class="Thunar"),  # nautilus
+        Match(wm_class="nemo"),  # nautilus
         Match(role="pop-up"),  # pop ups (bitwarden)
         Match(title="Bitwarden - Vivaldi"),  # bitwarden pop-up for vivaldi,
         Match(title="ripdrag"),  # bitwarden pop-up for vivaldi,
@@ -773,7 +793,7 @@ def autostart_once():
 
 @hook.subscribe.startup
 def run_every_startup():
-    subprocess.run([f"{HOME}/.local/bin/init_stuffs", "-s"])
+    subprocess.run([f"{HOME}/.local/bin/init_displays"])
 
 
 # If things like steam games want to auto-minimize themselves when losing

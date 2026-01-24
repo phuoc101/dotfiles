@@ -6,7 +6,10 @@ monitor = 0
 follow = keyboard
 indicate_hidden = yes
 shrink = yes
-
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+1
+context = ctrl+shift+period
 origin = top-right
 
 ### Geometry ###
@@ -43,7 +46,7 @@ frame_width = 3
 frame_color = "#d8dee9"
 separator_color = frame
 
-font = ZedMono Nerd Font 10
+font = Iosevka Nerd Font 10
 
 line_height = 0
 markup = full
@@ -65,7 +68,7 @@ corner_radius = 10
 icon_position = left
 max_icon_size = 80
 
-icon_path = ~/.icons/Flatery-Dark/48x48/actions/:~/.icons/Flatery-Dark/48x48/apps/:~/icons/Flatery-Dark/48x48/devices/:~/.icons/Flatery-Dark/48x48/emblems/:~/.icons/Flatery-Dark/48x48/emotes/:~/.icons/Flatery-Dark/48x48/mimetypes/:~/.icons/Flatery-Dark/48x48/places/:~/.icons/Flatery-Dark/48x48/status/
+icon_path = ~/.icons/Papirus-Dark/48x48/actions/:~/.icons/Papirus-Dark/48x48/apps/:~/.icons/Papirus-Dark/48x48/devices/:~/.icons/Papirus-Dark/48x48/emblems/:~/.icons/Papirus-Dark/48x48/emotes/:~/.icons/Papirus-Dark/48x48/mimetypes/:~/.icons/Papirus-Dark/48x48/places/:~/.icons/Papirus-Dark/48x48/status/
 
 browser = firefox
 # dmenu path.
@@ -109,27 +112,6 @@ background = "#4c566a"
 foreground = "#d8dee9"
 frame_color = "#bf616a"
 
-[shortcuts]
-
-# Shortcuts are specified as [modifier+][modifier+]...key
-# Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-# "mod3" and "mod4" (windows-key).
-# Xev might be helpful to find names for keys.
-
-# Close notification.
-close = ctrl+space
-
-# Close all notifications.
-close_all = ctrl+shift+space
-
-# Redisplay last message(s).
-# On the US keyboard layout "grave" is normally above TAB and left
-# of "1". Make sure this key actually exists on your keyboard layout,
-# e.g. check output of 'xmodmap -pke'
-history = ctrl+1
-
-# Context menu.
-context = ctrl+shift+period
 
 [brightness]
 summary = "Light"

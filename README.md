@@ -405,6 +405,13 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 
 - [Foxglove Studio](https://foxglove.dev/download)
 
+- [Cisco VPN](https://aur.archlinux.org/packages/cisco-secure-client)
+```bash
+paru -S cisco-secure-client
+sudo systemctl enable --now vpnagentd.service; sudo systemctl status vpnagentd.service
+sudo pacman -S webkit2gtk
+```
+
 - PCL Viewer:
 
 ```bash

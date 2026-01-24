@@ -99,6 +99,7 @@ ssdk() {
 }
 # FZF source
 [ -f ${HOME}/.zshrc.d/.fzf.zsh ] && source ${HOME}/.zshrc.d/.fzf.zsh
+[ -f ${HOME}/.zshrc.d/fzf-funcs.zsh ] && source ${HOME}/.zshrc.d/fzf-funcs.zsh
 # Rust source
 [ -f "${HOME}/.cargo/env" ] && source "${HOME}/.cargo/env"
 #

@@ -100,7 +100,7 @@ elif [[ $XRANDR_OUT == *"DP-1-0 connected"* ]]; then
         ~/.config/polybar/scripts/launch.sh
     fi
 elif [[ $XRANDR_OUT == *"DisplayPort-1 connected"* ]]; then
-    umonitor --load dual_2k
+    autorandr --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DisplayPort-1 --primary
     # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
@@ -112,7 +112,7 @@ elif [[ $XRANDR_OUT == *"DisplayPort-2 connected"* ]]; then
     # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
     feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
 else
-    umonitor --load mobile
+    autorandr --load mobile
     xrandr --output eDP --primary
     notify-send "Initialized display" "mobile"
     feh --bg-scale --randomize $MY_WALLS_DIR

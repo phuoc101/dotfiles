@@ -71,12 +71,10 @@ then
     nm-applet &
     blueman-applet &
     notify-send "INIT BACKGROUND PROGRAMS"
-    # Start ALSA service (for sound)
-    alsactl init &
-    notify-send "ALSA initiated"
+    # # Start ALSA service (for sound)
+    # alsactl init &
+    # notify-send "ALSA initiated"
     # Launching background apps
     copyq &
     notify-send "CopyQ initiated"
-    kdeconnect-indicator &
-    notify-send "KDE Connect started" "Available: $(kdeconnect-cli -a --name-only)"
 fi
