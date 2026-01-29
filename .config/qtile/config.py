@@ -774,7 +774,7 @@ def autostart_once():
 
 @hook.subscribe.startup
 def run_every_startup():
-    subprocess.run([f"{HOME}/.local/bin/init_stuffs", "-s"])
+    subprocess.run([f"{HOME}/.local/bin/init_displays"])
 
 
 # If things like steam games want to auto-minimize themselves when losing

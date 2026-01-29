@@ -1,5 +1,4 @@
 alias open="xdg-open"
-alias rg="ripgrep"
 alias ls="eza --icons -l -s extension"
 alias lsa="ls -a"
 alias tree="ls -T"
