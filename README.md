@@ -42,10 +42,26 @@ sudo apt install git curl clang clang-format udiskie tmux
   cargo install texlab stylua
   go install github.com/jesseduffield/lazygit@latest
   ```
+  - For Arch-based:
+  ```bash
+  sudo pacman -S texlive-xetex texlive-luatex texlive-mathscience texlive-binextra texlive-bibtexextra texlive-formatsextra texlive-latexextra texlive-latexrecommended texlive-pictures biber perl-yaml-tiny perl-file-homedir
+  ```
 
 ## RICE
 
 - Build or Binary:
+
+  - [Docker on Arch](https://wiki.archlinux.org/title/Docker)
+    - For rootless: https://peterbabic.dev/blog/rootless-docker-on-arch/
+    ```bash
+    sudo pacman -S docker docker-buildx docker-compose
+    paru -S docker-rootless-extras
+    systemctl --user enable --now docker.socket
+    echo "export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock" >> .profile
+    docker context create rootless --description "Rootless mode" \
+      --docker "host=unix:///run/user/$(id -u)/docker.sock"
+    docker context use rootless
+    ```
 
   - [i3](https://i3wm.org/docs/repositories.html)
 
