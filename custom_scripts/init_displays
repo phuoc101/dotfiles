@@ -29,54 +29,20 @@ done
 # Wallpapers setup
 if [ "$mode" == "nord" ]; then
     notify-send "Set nord mode walls"
-    MY_WALLS_DIR=~/dotfiles/wallpapers_nord/*
+    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_nord/
 elif [ $mode == "dark" ]; then
     notify-send "Set dark mode walls"
-    MY_WALLS_DIR=~/dotfiles/wallpapers_dark/*
+    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_dark/
 else
     notify-send "Set light mode walls"
-    MY_WALLS_DIR=~/dotfiles/wallpapers_light/*
+    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_light/
 fi
-# MY_WALLPAPER_LARGE=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
-# MY_WALLPAPER_SMALL=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
-# MY_WALLPAPER_SMALL_RIGHT=$MY_WALLS_DIR$(ls -1 $MY_WALLS_DIR | shuf -n 1)
 
-# ---
-# Polybar setup
-
-# kill_poly() {
-#     # sleep 1
-#     # Terminate already running bar instances
-#     # If all your bars have ipc enabled, you can use
-#     polybar-msg cmd quit
-#     # Otherwise you can use the nuclear option:
-#     # killall -q polybar
-#     echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-# }
-#
-# # Display-dependent polybar init
-# init_poly_2() {
-#     polybar main 2>&1 | tee -a /tmp/polybar1.log &
-#     disown
-#     polybar sub 2>&1 | tee -a /tmp/polybar2.log &
-#     disown
-#     notify-send "Polybar" "Launched main and sub bars"
-# }
-#
-# init_poly_1() {
-#     polybar main_2k 2>&1 | tee -a /tmp/polybar1.log &
-#     disown
-#     notify-send "Polybar" "Launched main bar"
-# }
-
-# ---
 XRANDR_OUT=$(xrandr)
 if [[ $XRANDR_OUT == *"DP-1-0.1 connected"* ]]; then
     umonitor --load trio_work
     notify-send "Initialized display" "trio_work"
     xrandr --output DP-1-0.1 --primary
-    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi
@@ -84,8 +50,6 @@ elif [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
     umonitor --load dual_hdmi_2k
     notify-send "Initialized display" "dual_hdmi_2k"
     xrandr --output HDMI-1-0 --primary
-    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi
@@ -94,8 +58,6 @@ elif [[ $XRANDR_OUT == *"DP-1-0 connected"* ]]; then
     umonitor --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DP-1-0 --primary
-    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi
@@ -103,20 +65,17 @@ elif [[ $XRANDR_OUT == *"DisplayPort-1 connected"* ]]; then
     umonitor --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DisplayPort-1 --primary
-    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
 elif [[ $XRANDR_OUT == *"DisplayPort-2 connected"* ]]; then
     umonitor --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DisplayPort-2 --primary
-    # feh --bg-scale --no-xinerama ~/dotfiles/wallpapers_dark/gingaeiyuu_span.png
-    feh --bg-fill --randomize $MY_WALLS_DIR --bg-fill --randomize $MY_WALLS_DIR
 else
     umonitor --load mobile
     xrandr --output eDP --primary
     notify-send "Initialized display" "mobile"
-    feh --bg-scale --randomize $MY_WALLS_DIR
     if [ "$poly_init" == true ]; then
         ~/.config/polybar/scripts/launch.sh
     fi
 fi
+
+init_wallpapers -f "$MY_WALLS_DIR"
