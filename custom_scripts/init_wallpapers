@@ -1,0 +1,51 @@
+#! /usr/bin/bash
+
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") [-f MY_WALLS_DIR]
+
+Options:
+  -f MY_WALLS_DIR   Path to the wallpapers directory (overrides \$MY_WALLS_DIR)
+  -h             Show this help
+EOF
+}
+
+MY_WALLS_DIR="/home/phuoc101/dotfiles/wallpapers_nord/"
+
+while getopts ":f:h" opt; do
+  case "$opt" in
+    f) MY_WALLS_DIR="$OPTARG" ;;
+    h) usage; exit 0 ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; usage; exit 2 ;;
+    :)  echo "Option -$OPTARG requires an argument." >&2; usage; exit 2 ;;
+  esac
+done
+
+# Collect connected screen names in order
+mapfile -t SCREENS < <(xrandr --query | awk '/ connected/{print $1}')
+N=${#SCREENS[@]}
+
+if (( N == 0 )); then
+    notify-send "Wallpaper" "No connected screens detected."
+    exit 1
+fi
+
+# Pick N random image files (unique)
+mapfile -d '' FILES < <(
+    find "$MY_WALLS_DIR" -type f -iregex '.*\.\(jpg\|jpeg\|png\|webp\|bmp\)$' -print0 \
+        | shuf -z -n "$N"
+)
+
+# Ensure we got enough images
+if (( ${#FILES[@]} < N )); then
+    notify-send "Wallpaper" "Not enough images in $MY_WALLS_DIR for $N screens."
+    exit 1
+fi
+
+# Set wallpapers (feh assigns files in order to screens in order)
+feh --bg-fill "${FILES[@]}"
+
+# Notify which wallpaper went to which screen
+for i in "${!SCREENS[@]}"; do
+    notify-send "Wallpaper set" "${SCREENS[$i]}  ⬅  ${FILES[$i]}"
+done
