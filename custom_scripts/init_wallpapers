@@ -21,6 +21,8 @@ while getopts ":f:h" opt; do
   esac
 done
 
+notify-send "Setting Wallpaper"
+
 # Collect connected screen names in order
 mapfile -t SCREENS < <(xrandr --query | awk '/ connected/{print $1}')
 N=${#SCREENS[@]}

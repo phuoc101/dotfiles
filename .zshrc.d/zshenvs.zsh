@@ -25,3 +25,4 @@ function source_cuda {
         echo "CUDA version '$CV' not available. /usr/local/cuda-${CV} not found"
     fi
 }
+export UV_CACHE_DIR=/run/media/phuoc101/unicorns_haven/.cache/uv/

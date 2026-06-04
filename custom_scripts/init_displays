@@ -3,7 +3,6 @@
 # ---
 # Options handling
 mode="nord"
-poly_init=false
 while getopts "ldnp" OPTION; do
     case "$OPTION" in
         d)
@@ -14,9 +13,6 @@ while getopts "ldnp" OPTION; do
             ;;
         n)
             mode="nord"
-            ;;
-        p)
-            poly_init=true
             ;;
         \?)
             echo "Invalid option -OPTARG" >&2
@@ -29,46 +25,24 @@ done
 # Wallpapers setup
 if [ "$mode" == "nord" ]; then
     notify-send "Set nord mode walls"
-    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_nord/
+    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_nord
 elif [ $mode == "dark" ]; then
     notify-send "Set dark mode walls"
-    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_dark/
+    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_dark
 else
     notify-send "Set light mode walls"
-    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_light/
+    MY_WALLS_DIR=$HOME/dotfiles/wallpapers_light
 fi
 
 XRANDR_OUT=$(xrandr)
-if [[ $XRANDR_OUT == *"DP-1-0.1 connected"* ]]; then
-    umonitor --load trio_work
-    notify-send "Initialized display" "trio_work"
-    xrandr --output DP-1-0.1 --primary
-    if [ "$poly_init" == true ]; then
-        ~/.config/polybar/scripts/launch.sh
-    fi
-elif [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
-    umonitor --load dual_hdmi_2k
-    notify-send "Initialized display" "dual_hdmi_2k"
+if [[ $XRANDR_OUT == *"HDMI-1-0 connected"* ]]; then
+    autorandr --load hdmi
+    notify-send "Initialized display" "hdmi"
     xrandr --output HDMI-1-0 --primary
-    if [ "$poly_init" == true ]; then
-        ~/.config/polybar/scripts/launch.sh
-    fi
-elif [[ $XRANDR_OUT == *"DP-1-0 connected"* ]]; then
-    # umonitor --load mobile
-    umonitor --load dual_2k
-    notify-send "Initialized display" "dual_2k"
-    xrandr --output DP-1-0 --primary
-    if [ "$poly_init" == true ]; then
-        ~/.config/polybar/scripts/launch.sh
-    fi
 elif [[ $XRANDR_OUT == *"DisplayPort-1 connected"* ]]; then
     autorandr --load dual_2k
     notify-send "Initialized display" "dual_2k"
     xrandr --output DisplayPort-1 --primary
-elif [[ $XRANDR_OUT == *"DisplayPort-2 connected"* ]]; then
-    umonitor --load dual_2k
-    notify-send "Initialized display" "dual_2k"
-    xrandr --output DisplayPort-2 --primary
 else
     autorandr --load mobile
     xrandr --output eDP --primary
@@ -77,4 +51,5 @@ else
         ~/.config/polybar/scripts/launch.sh
     fi
 fi
-init_wallpapers -f "$MY_WALLS_DIR"
+
+$HOME/.local/bin/init_wallpapers -f "$MY_WALLS_DIR"
